@@ -15,11 +15,11 @@
 
 ## Usage
 
-> To run this app, first fork and clone this repo
-> [Install the dependencies](#Installing_Dependencies)
-> In the root directory run `npm run start`
-> To have your webpack changes refresh on file change, run `npm run client` in another terminal
-> Open your browser to the hosted URL outputted in the terminal
+2. To run this app, first fork and clone this repo
+2. [Install the dependencies](#Installing_Dependencies)
+2. In the root directory run `npm run start`
+2. To have your webpack changes refresh on file change, run `npm run client` in another terminal
+2. Open your browser to the hosted URL outputted in the terminal
 
 ## Requirements
 
