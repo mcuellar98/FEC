@@ -33,9 +33,9 @@ const getMetaReviews = (id) => {
 };
 
 //POST request for Review
-// const postReview = (id, review /* review should be an object including product_id */) => {
-//   axios.post(url + 'reviews', review);
-// };
+const postReview = (id, review /* review should be an object including product_id */) => {
+  axios.post(url + 'reviews', review, headers);
+};
 
 //GET request for Questions
 const getQuestions = () => {
@@ -46,4 +46,11 @@ const getQuestions = () => {
 
 //GET request for Interactions
 
-export default getProducts;
+export {
+  getProducts,
+  getProductById,
+  getReviewsById,
+  getMetaReviews,
+  postReview,
+  getQuestions
+}
