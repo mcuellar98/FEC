@@ -12,9 +12,11 @@
     "test": "jest"
   },
   "devDependencies": {
+    "css-loader": "^6.8.1",
     "dotenv": "^16.3.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "jest": "^29.6.2",
+    "style-loader": "^3.3.3",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   },
