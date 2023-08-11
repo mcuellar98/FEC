@@ -4,7 +4,7 @@ import _ from 'underscore';
 
 const ImageList = ({photos}) => {
   return (
-    <ul>
+    <ul className='qa_ul'>
       {_.map(photos, (photo, index) => {
         return <ImageListEntry key={index} photo = {photo}/>;
       })}

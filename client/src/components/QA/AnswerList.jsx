@@ -4,7 +4,7 @@ import _ from 'underscore';
 
 const AnswerList = ({answers}) => {
   return (
-    <ul>
+    <ul className='qa_ul'>
       {_.map(answers, (answer) => {
         return <AnswerListEntry key={answer.id} answer={answer}/>;
       })}

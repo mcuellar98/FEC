@@ -3,12 +3,16 @@ import ImageList from './ImageList.jsx';
 
 const AnswerListEntry = ({answer}) => {
   return (
-    <li>
-      <p>{answer.answerer_name}</p>
-      <p>{answer.body}</p>
-      <p>{answer.date}</p>
-      <p>Helpful? ({answer.helpfulness})</p>
+    <li className='answer_list_entry'>
+      <p className='answer_text'>A: {answer.body}</p>
       <ImageList photos={answer.photos}/>
+      <div className='answer_info'>
+        <p>by {answer.answerer_name}, {answer.date}</p>
+        <p className='answer_spacer'>|</p>
+        <p>Helpful? Yes({answer.helpfulness})</p>
+        <p className='answer_spacer'>|</p>
+        <p>{answer.reported ? 'Reported' : 'Report'}</p>
+      </div>
     </li>
   );
 };
