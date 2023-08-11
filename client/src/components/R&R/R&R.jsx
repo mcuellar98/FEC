@@ -31,18 +31,22 @@ const RatingsReviews = (props) => {
 
   return (
     <div>
-      FINALLY GETTING STARTED
-      <div>
-        <Sorter id={props.id}/>
-        <ReviewList id={props.id}/>
-      </div>
-      <div>
-        <RatingBreakdown id={props.id}/>
-        <ProductBreakdown id={props.id}/>
-      </div>
-      <div>
-        <MoreReviews id={props.id}/>
-        <AddReview id={props.id}/>
+      <h1>Ratings And Reviews</h1>
+      <div id='RnR'>
+        <div id='ratings'>
+          <RatingBreakdown id={props.id}/>
+          <ProductBreakdown id={props.id}/>
+        </div>
+        <div id='reviews-sec'>
+          <div id='reviews'>
+            <Sorter id={props.id}/>
+            <ReviewList id={props.id}/>
+          </div>
+          <div id='add-more-container'>
+            <MoreReviews id={props.id}/>
+            <AddReview id={props.id}/>
+          </div>
+        </div>
       </div>
     </div>
   )

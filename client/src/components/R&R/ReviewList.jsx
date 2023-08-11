@@ -19,7 +19,7 @@ const ReviewList = ( {id,reviews} ) => {
   return (
     <div>
       {data.map((review) => {
-        return (<Review key={review.review_id} />)
+        return (<Review key={review.review_id} review={review}/>)
       })}
     </div>
   )
