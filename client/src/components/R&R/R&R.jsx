@@ -11,6 +11,18 @@ import MoreReviews from './MoreReviews.jsx';
 import AddReview from './AddReview.jsx';
 
 const RatingsReviews = (props) => {
+  const [ data,setData ] = useState([])
+
+  useEffect(() => {
+    get(props.id);
+  },[])
+
+  var get = (prodID) => {
+    getReviewsById(prodID)
+      .then((res) => {
+        setData(res.data.results)
+      })
+  }
 
   var getMeta = (prodID) => {
     getMetaReviews(prodID)
@@ -41,8 +53,8 @@ const RatingsReviews = (props) => {
           <div id='space-between'></div>
           <div id='reviews-sec'>
             <div id='reviews'>
-              <Sorter id={props.id}/>
-              <ReviewList id={props.id}/>
+              <Sorter id={props.id} reviews={data}/>
+              <ReviewList id={props.id} reviews={data}/>
             </div>
             <div id='add-more-container'>
               <MoreReviews id={props.id}/>
