@@ -49,6 +49,9 @@ body {
   height: 40px;
   width: var(--qa-element-width);
   font-size:12pt;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .question_head {
@@ -72,6 +75,7 @@ body {
   display: flex;
   align-items: center;
   font-size: 10pt;
+  padding-right: 1%;
 }
 
 .question_info, .answer_info{
