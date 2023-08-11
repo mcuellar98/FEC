@@ -38,3 +38,10 @@ body {
 #add-more-container {
   display:inline-flex;
 }
+
+#stars {
+  display: flex;
+}
+#stars-filled > span {
+  color: blue;
+}
