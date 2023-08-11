@@ -1,8 +1,13 @@
 import React from 'react';
+import AnswerList from './AnswerList.jsx';
 
-const QAListEntry = () => {
+const QAListEntry = ({question}) => {
   return (
-    <li>listEntry</li>
+    <div>
+      <p>{question.asker_name}</p>
+      <p>{question.question_body}</p>
+      <AnswerList answers={question.answers}/>
+    </div>
   );
 };
 

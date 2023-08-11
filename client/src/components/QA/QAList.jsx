@@ -6,7 +6,7 @@ const QAList = ({questions}) => {
   return (
     <ul>QAList
       {_.map(questions, (question) => {
-        return <QAListEntry question={question}/>;
+        return <QAListEntry key={question.question_id} question={question}/>;
       })}
     </ul>
   );
