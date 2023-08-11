@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Search from './Search.jsx';
 import QAList from './QAList.jsx';
-import fetch from './../../../fetch.jsx';
+import { getQuestions } from '../../../fetch.jsx';
 import axios from 'axios';
 
 const QA = () => {
@@ -9,7 +9,7 @@ const QA = () => {
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    fetch.getQuestions(37319)
+    getQuestions(37319)
       .then((results) => {
         console.log(results.data.results);
         setQuestions(results.data.results);
