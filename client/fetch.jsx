@@ -38,19 +38,21 @@ const postReview = (id, review /* review should be an object including product_i
 };
 
 //GET request for Questions
-const getQuestions = () => {
-  return axios.get(url, '/qa/questions '/*, {params}*/);
+const getQuestions = (id) => {
+  return axios.get(url + `/qa/questions?product_id=${id}`, {
+    headers: {Authorization: token}
+  });
 };
 
 //GET request for Cart
 
 //GET request for Interactions
 
-export {
+export default {
   getProducts,
   getProductById,
   getReviewsById,
   getMetaReviews,
   postReview,
   getQuestions
-}
+};
