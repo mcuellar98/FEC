@@ -1,9 +1,14 @@
 import React from 'react';
 import AnswerListEntry from './AnswerListEntry.jsx';
+import _ from 'underscore';
 
-const AnswerList = () => {
+const AnswerList = ({answers}) => {
   return (
-    <ul></ul>
+    <ul>
+      {_.map(answers, (answer) => {
+        return <AnswerListEntry key={answer.id} answer={answer}/>;
+      })}
+    </ul>
   );
 };
 
