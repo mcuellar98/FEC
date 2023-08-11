@@ -35,6 +35,11 @@ body {
   display:inline-flex;
 }
 
+.qa {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 .answer_img {
   width: 10%;
   height: 10%;
@@ -91,7 +96,6 @@ body {
 }
 
 .answer_list_entry {
-  margin-left: 5%;
   margin-bottom: 5px;
   margin-top: 0;
   padding-left: 1%;
