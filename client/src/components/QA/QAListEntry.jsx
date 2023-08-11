@@ -1,5 +1,6 @@
 import React from 'react';
 import AnswerList from './AnswerList.jsx';
+import { formatDistanceToNow, parseISO } from 'date-fns';
 
 const QAListEntry = ({question}) => {
   return (
@@ -14,7 +15,7 @@ const QAListEntry = ({question}) => {
           </div>
         </div>
         <div className='question_info'>
-          <p >by {question. asker_name}, {question.question_date}</p>
+          <p >by {question. asker_name}, {formatDistanceToNow(parseISO(question.question_date))}</p>
           <p className='question_spacer'>|</p>
           <p>{question.reported ? 'Reported' : 'Report'}
           </p>
