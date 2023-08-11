@@ -8,19 +8,10 @@ import Sorter from './Sorter.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
 import MoreReviews from './MoreReviews.jsx';
-import AddReview from './AddReview.jsx'
+import AddReview from './AddReview.jsx';
 
-const RatingsReviews = (id) => {
-  const [ data,setData ] = useState([])
+const RatingsReviews = (props) => {
 
-  var get = (prodID) => {
-    getReviewsById(prodID)
-      .then((resp) => {
-        setData(resp.data);
-      }) .catch((err) => {
-        console.log(err)
-      })
-  }
   var getMeta = (prodID) => {
     getMetaReviews(prodID)
       .then((resp) => {
@@ -42,16 +33,16 @@ const RatingsReviews = (id) => {
     <div>
       FINALLY GETTING STARTED
       <div>
-        <Sorter id={id}/>
-        <ReviewList id={id}/>
+        <Sorter id={props.id}/>
+        <ReviewList id={props.id}/>
       </div>
       <div>
-        <RatingBreakdown id={id}/>
-        <ProductBreakdown id={id}/>
+        <RatingBreakdown id={props.id}/>
+        <ProductBreakdown id={props.id}/>
       </div>
       <div>
-        <MoreReviews id={id}/>
-        <AddReview id={id}/>
+        <MoreReviews id={props.id}/>
+        <AddReview id={props.id}/>
       </div>
     </div>
   )
