@@ -20,12 +20,12 @@ const QA = () => {
   }, []);
 
   return (
-    <div>
-      <p>Questions And Answers</p>
+    <div className='qa'>
+      <p id='qa_title'>QUESTIONS & ANSWERS</p>
       <Search/>
       <QAList questions={questions}/>
-      <button>More Answered Questions</button>
-      <button>Add Question</button>
+      <button className='question_button'>More Answered Questions</button>
+      <button className='question_button'>Add Question</button>
     </div>
   );
 };

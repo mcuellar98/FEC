@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import path from 'path';
 
 const url = process.env.API_URL;
 const token = process.env.TOKEN;
@@ -21,7 +20,7 @@ const getReviewsById = (id) => {
   return axios.get(url + 'reviews', {
     headers: {Authorization: token},
     params: {product_id: id}
-  })
+  });
 };
 
 //GET request for Meta Reviews
