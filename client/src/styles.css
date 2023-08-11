@@ -39,9 +39,13 @@ body {
   display:inline-flex;
 }
 
-#stars {
-  display: flex;
+ #stars {
+  display: inline-block;
+  position: relative;
 }
-#stars-filled > span {
-  color: blue;
+
+#partFilled {
+  font-size: 24px;
+  -webkit-background-clip: text;
+  color: transparent;
 }
