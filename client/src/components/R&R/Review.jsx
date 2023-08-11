@@ -1,6 +1,19 @@
 const Review = ( { review } ) => {
-  console.log(review.rating)
 
+  const getDate = (date) => {
+    const newDate = new Date(date);
+    const year = newDate.getFullYear();
+    const monthInd = newDate.getMonth();
+    const day = newDate.getDate();
+
+    const months = ['January ', 'February ', 'March ', 'April ', 'May ', 'June ', 'July ', 'August ', 'September ', 'October ', 'November ', 'December '];
+
+    const month = months[monthInd];
+
+    return month + day + ', ' + year;
+  }
+
+//#region stars
   const filledStars = (rating) => {
     const filled = Math.floor(rating);
     var result = '';
@@ -27,7 +40,6 @@ const Review = ( { review } ) => {
       return;
     }
   }
-
   const empty = (rating) => {
     var result = ''
     for (var i = 0; i < (5 - Math.ceil(rating)); i++) {
@@ -35,13 +47,15 @@ const Review = ( { review } ) => {
     }
     return (<span>{result}</span>)
   }
+  //#endregion
+
   return (
     <div id='tile'>
       <div id='rnd'>
         <div id='stars'>
           <span>{filledStars(review.rating)}<span id='partFilled'>{partFilled(review.rating)}</span>{empty(review.rating)}</span>
         </div>
-        <span>{review.reviewer_name}</span>
+        <span>{review.reviewer_name}, {getDate(review.date)}</span>
       </div>
       <p><b>{review.summary}</b></p>
       <p>{review.body}</p>
