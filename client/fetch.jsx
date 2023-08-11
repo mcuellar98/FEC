@@ -1,8 +1,8 @@
 import axios from 'axios';
 // import path from 'path';
 
-const url = process.env.API_URL;
-const token = process.env.TOKEN;
+const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
+const token = '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';
 
 const headers = {headers: {Authorization: token}};
 
@@ -34,23 +34,25 @@ const getMetaReviews = (id) => {
 
 //POST request for Review
 const postReview = (id, review /* review should be an object including product_id */) => {
-  axios.post(url + 'reviews', review, headers);
+  axios.post(url + '/reviews', review, headers);
 };
 
 //GET request for Questions
-const getQuestions = () => {
-  axios.get(url, '/qa/questions '/*, {params}*/);
+const getQuestions = (id) => {
+  return axios.get(url + `/qa/questions?product_id=${id}`, {
+    headers: {Authorization: token}
+  });
 };
 
 //GET request for Cart
 
 //GET request for Interactions
 
-export {
+export default {
   getProducts,
   getProductById,
   getReviewsById,
   getMetaReviews,
   postReview,
   getQuestions
-}
+};
