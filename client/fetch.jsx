@@ -1,8 +1,7 @@
 import axios from 'axios';
-// import path from 'path';
 
-const url = process.env.API_URL;
-const token = process.env.TOKEN;
+const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
+const token = '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';
 
 const headers = {headers: {Authorization: token}};
 

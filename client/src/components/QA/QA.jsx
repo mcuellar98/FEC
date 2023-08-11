@@ -20,7 +20,7 @@ const QA = () => {
   }, []);
 
   return (
-    <div>
+    <div className='qa'>
       <p>Questions And Answers</p>
       <Search/>
       <QAList questions={questions}/>
