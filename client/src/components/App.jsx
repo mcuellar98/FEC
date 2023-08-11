@@ -14,7 +14,7 @@ const App = () => {
       Hello World
       <Overview />
       <QA/>
-      {/* <RatingsReviews id={id}/> */}
+      <RatingsReviews id={id}/>
     </div>
   );
 };
