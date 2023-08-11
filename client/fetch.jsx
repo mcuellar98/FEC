@@ -47,7 +47,7 @@ const getQuestions = (id) => {
 
 //GET request for Interactions
 
-export default {
+export {
   getProducts,
   getProductById,
   getReviewsById,
