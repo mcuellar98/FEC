@@ -8,12 +8,13 @@ import QA from './QA/QA.jsx';
 import Overview from './Overview/Overview.jsx';
 
 const App = () => {
+  var id = 37312;
   return (
     <div>
       Hello World
       <Overview />
       <QA/>
-      <RatingsReviews />
+      <RatingsReviews id={id}/>
     </div>
   );
 };

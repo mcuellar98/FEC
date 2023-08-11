@@ -32,6 +32,9 @@ module.exports = {
     ],
   },
   mode: 'development',
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   plugins: [
     new DotenvWebpackPlugin()
   ]
