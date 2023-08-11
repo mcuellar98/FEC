@@ -3,20 +3,28 @@ body {
   color: rgb(240,240,240);
 }
 
+#RnR-par {
+  display:flex;
+  justify-content: center;
+}
 #RnR {
   margin-top:30px;
   display: flex;
+  width: 80%;
 }
 #ratings {
-  width: 30%;
+  width: 27%;
+}
+#space-between {
+  width: 6%;
 }
 #reviews-sec {
-  width: 70%;
+  width: 67%;
 }
 
 #tile {
   padding-bottom: 10px;
-  border-bottom: 1px solid rgb(60,60,60);
+  border-bottom: 2px solid rgb(80,80,80);
   margin-bottom: 10px;
 }
 #rnd {
@@ -29,4 +37,15 @@ body {
 }
 #add-more-container {
   display:inline-flex;
+}
+
+ #stars {
+  display: inline-block;
+  position: relative;
+}
+
+#partFilled {
+  font-size: 24px;
+  -webkit-background-clip: text;
+  color: transparent;
 }

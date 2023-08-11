@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
+import { getReviewsById,getMetaReviews,postReview } from '../../../fetch.jsx';
 
 const Sorter = (props) => {
+  const [ revNum, setrevNum ] = useState(props.reviews.length);
 
   useEffect(()=> {
     const sortOption = document.getElementById('sorting');
     console.log(sortOption.value);
-  },[]);
+    setrevNum(props.reviews.length)
+  },[props.reviews]);
 
   var handleChange = (e) => {
     e.preventDefault();
@@ -15,7 +18,7 @@ const Sorter = (props) => {
 
   return (
     <div className='sorter'>
-      <span>X reviews, sorted by</span>
+      <span>{revNum} reviews, sorted by</span>
       <select id='sorting' onChange={handleChange}>
         <option value='Relevance'>Relevance</option>
         <option value='Newest'>Newest</option>
