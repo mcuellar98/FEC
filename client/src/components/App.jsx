@@ -11,9 +11,9 @@ const App = () => {
   return (
     <div>
       Hello World
-      <Overview />
+      {/* <Overview /> */}
       <QA/>
-      <RatingsReviews />
+      {/* <RatingsReviews /> */}
     </div>
   );
 };
