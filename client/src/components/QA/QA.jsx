@@ -28,9 +28,13 @@ const QA = () => {
   return (
     <div className='qa'>
       <p id='qa_title'>QUESTIONS & ANSWERS</p>
-      <Search/>
-      <QAList questions={questions}/>
-      <button className='question_button'>More Answered Questions</button>
+      {questions.length !== 0 ?
+        <div>
+          <Search/>
+          <QAList questions={questions}/>
+          <button className='question_button'>More Answered Questions</button>
+        </div>
+        : null}
       <button className='question_button'>Add Question</button>
     </div>
   );
