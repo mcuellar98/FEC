@@ -7,16 +7,16 @@ const headers = {headers: {Authorization: token}};
 
 //GET request for all Products
 const getProducts = () => {
-  return axios.get(url + '/products', headers);
+  return axios.get(url + 'products', headers);
 };
 
 //GET request for Product by ID
 const getProductById = (id) => {
-  return axios.get(url + `/products/${id}`, headers);
+  return axios.get(url + `products/${id}`, headers);
 };
 
 const getStylesById = (id) => {
-  return axios.get(url + `/products/${id}/styles`, headers);
+  return axios.get(url + `products/${id}/styles`, headers);
 };
 
 //GET request for Reviews
