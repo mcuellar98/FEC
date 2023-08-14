@@ -54,6 +54,13 @@ const markAnswerHelpful = (id) => {
     {headers: {Authorization: token}});
 };
 
+//Put request for Questions (mark helpful)
+const markQuestionsHelpful = (id) => {
+  return axios.put(url + `qa/questions/${id}/helpful`,
+    {},
+    {headers: {Authorization: token}});
+};
+
 export {
   getProducts,
   getProductById,
@@ -61,5 +68,6 @@ export {
   getMetaReviews,
   postReview,
   getQuestions,
-  markAnswerHelpful
+  markAnswerHelpful,
+  markQuestionsHelpful
 };

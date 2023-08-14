@@ -6,7 +6,7 @@ const QAList = ({questions, setQuestions}) => {
   return (
     <ul className='qa_ul'>
       {_.map(questions, (question) => {
-        return <QAListEntry key={question.question_id} question={question} setQuestions={setQuestions}/>;
+        return <QAListEntry key={question.question_id} question={question} questions={questions} setQuestions={setQuestions}/>;
       })}
     </ul>
   );

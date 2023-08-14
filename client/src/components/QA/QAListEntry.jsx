@@ -1,10 +1,26 @@
 import React from 'react';
 import AnswerList from './AnswerList.jsx';
 import moment from 'moment';
+import {markQuestionsHelpful, getQuestions} from './../../../fetch.jsx';
 
-const QAListEntry = ({question, setQuestions}) => {
+const QAListEntry = ({question, questions, setQuestions}) => {
 
   var date = moment(question.question_date);
+
+  const handleHelpfulClick = () => {
+    console.log(questions);
+    console.log(markQuestionsHelpful);
+    markQuestionsHelpful(question.question_id)
+      .then((results) => {
+        return getQuestions(37323);
+      })
+      .then((results) => {
+        setQuestions(results.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <li className='qa_entry'>
@@ -12,7 +28,7 @@ const QAListEntry = ({question, setQuestions}) => {
         <div className='question_head'>
           <p className='question_text'>Q: {question.question_body}</p>
           <div className='q_helpful'>
-            <p className='question_helpful'>Helpful? Yes({question.question_helpfulness})</p>
+            <p className='question_helpful'onClick={handleHelpfulClick}>Helpful? Yes({question.question_helpfulness})</p>
             <p className='question_spacer'> | </p>
             <p>Add Answer</p>
           </div>
