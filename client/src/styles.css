@@ -186,9 +186,7 @@ body {
   display:flex;
   align-items: center;
 }
-#rbar {
-  margin:0 6px 0 10px;
-  background-color: lightgreen;
-  width:65%;
-  height:6px;
+
+#productBreakdown {
+  margin-top: 30px;
 }

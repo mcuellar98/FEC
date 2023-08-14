@@ -3,12 +3,6 @@ import React, { useState, useEffect } from 'react';
 const RatingBreakdown = (props) => {
   const [ avg,setAvg ] = useState(0);
   const [ recPer,setRP] = useState(0);
-  const [ five,setFive] = useState(0);
-  const [ four,setFour] = useState(0);
-  const [ three,setThree] = useState(0);
-  const [ two,setTwo] = useState(0);
-  const [ one,setOne] = useState(0);
-
 
   const average = (reviews) => {
     var sum = 0;
@@ -40,7 +34,7 @@ const RatingBreakdown = (props) => {
   const bar = (percent) => {
     const styles = {
       margin: '0 6px 0 10px',
-      background: `linear-gradient(to right, lightgreen ${percent}%, grey ${percent}%, grey 100%`,
+      background: `linear-gradient(to right, rgb(51,255,51) ${percent}%, rgb(96,96,96) ${percent}%, rgb(70,70,70) 100%`,
       width: '65%',
       height: '6px',
     }
@@ -56,7 +50,7 @@ const RatingBreakdown = (props) => {
     <div>
       <div id='ratingBreakdown'>
         <p id='ravg'><b>{`${avg}`}</b></p>
-        <div id='space-between'></div>
+        <div style={{width: '10px', height: '1px'}}></div>
         <div id='stars'><span>{props.partFilled(avg)}</span></div>
       </div>
       <p id='recPer'>{recPer}% of reviews recommend this product</p>
