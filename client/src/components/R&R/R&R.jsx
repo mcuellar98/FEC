@@ -72,7 +72,9 @@ const RatingsReviews = (props) => {
 
   return (
     <div>
-      <h1>Ratings And Reviews</h1>
+      <div id='rnrTitleCont'>
+        <h2 id='rnrTitle'>Ratings And Reviews</h2>
+      </div>
       <div id='RnR-par'>
         <div id='RnR'>
           <div id='ratings'>

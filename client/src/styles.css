@@ -28,11 +28,20 @@ body {
   width: 67%;
 }
 
-#tile {
+#rndtile {
   padding-bottom: 10px;
   border-bottom: 2px solid rgb(80,80,80);
   margin-bottom: 10px;
 }
+#rnrTitleCont {
+  display:flex;
+  justify-content: center;
+}
+#rnrTitle {
+  width:80%;
+  display: flex;
+}
+
 #rnd {
   display:flex;
   justify-content:space-between;
@@ -150,4 +159,14 @@ body {
 }
 #partFilled {
   min-width: auto;
+}
+
+#ratingBreakdown {
+  display:flex;
+  align-items:start;
+}
+#ratingBreakdown > p {
+  font-size: 36px;
+  padding: 0;
+  margin: 0;
 }

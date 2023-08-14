@@ -14,7 +14,7 @@ const Review = ( { review, partFilled } ) => {
   }
 
   return (
-    <div id='tile'>
+    <div id='rndtile'>
       <div id='rnd'>
         <div id='stars'>
           <div id='star-container'>

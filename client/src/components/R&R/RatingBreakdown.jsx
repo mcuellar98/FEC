@@ -16,11 +16,9 @@ const RatingBreakdown = (props) => {
   },[props.reviews]);
 
   return (
-    <div>
-      Rating Breakdown {avg}
-      <div id='stars'>
-          <span>{props.partFilled(avg)}</span>
-        </div>
+    <div id='ratingBreakdown'>
+      <p>{`${avg}`}</p>
+      <div id='stars'><span>{props.partFilled(avg)}</span></div>
     </div>
   )
 }
