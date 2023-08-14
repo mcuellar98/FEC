@@ -1,14 +1,20 @@
 import React from 'react';
 import ImageList from './ImageList.jsx';
-import { formatDistanceToNow, parseISO } from 'date-fns';
+import moment from 'moment';
 
-const AnswerListEntry = ({answer}) => {
+const AnswerListEntry = ({answer, askerName}) => {
+
+  var date = moment(answer.date);
+
   return (
     <li className='answer_list_entry'>
       <p className='answer_text'>A: {answer.body}</p>
       <ImageList photos={answer.photos}/>
       <div className='answer_info'>
-        <p>by {answer.answerer_name}, {formatDistanceToNow(parseISO(answer.date))}</p>
+        {answer.answerer_name === askerName ?
+          <p>by <b>Seller</b>, {date.format('MMMM DD, YYYY')}</p> :
+          <p>by {answer.answerer_name}, {date.format('MMMM DD, YYYY')}</p>
+        }
         <p className='answer_spacer'>|</p>
         <p>Helpful? Yes({answer.helpfulness})</p>
         <p className='answer_spacer'>|</p>

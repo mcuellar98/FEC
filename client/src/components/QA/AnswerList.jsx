@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import AnswerListEntry from './AnswerListEntry.jsx';
 import _ from 'underscore';
 
-const AnswerList = ({answers}) => {
+const AnswerList = ({answers, askerName}) => {
 
   const [aListSize, setAListSize] = useState(2);
   var answerList = [];
@@ -18,7 +18,7 @@ const AnswerList = ({answers}) => {
   return (
     <ul className='qa_ul'>
       {_.map(answerList, (answer) => {
-        return <AnswerListEntry key={answer.id} answer={answer}/>;
+        return <AnswerListEntry key={answer.id} answer={answer} askerName={askerName}/>;
       })}
     </ul>
   );

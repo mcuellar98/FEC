@@ -1,8 +1,11 @@
 import React from 'react';
 import AnswerList from './AnswerList.jsx';
-import { formatDistanceToNow, parseISO } from 'date-fns';
+import moment from 'moment';
 
 const QAListEntry = ({question}) => {
+
+  var date = moment(question.question_date);
+
   return (
     <li className='qa_entry'>
       <div className='question'>
@@ -15,14 +18,15 @@ const QAListEntry = ({question}) => {
           </div>
         </div>
         <div className='question_info'>
-          <p >by {question. asker_name}, {formatDistanceToNow(parseISO(question.question_date))}</p>
+
+          <p >by {question. asker_name}, {date.format('MMMM DD, YYYY')}</p>
           <p className='question_spacer'>|</p>
           <p>{question.reported ? 'Reported' : 'Report'}
           </p>
         </div>
 
       </div>
-      <AnswerList answers={question.answers}/>
+      <AnswerList answers={question.answers} askerName={question.asker_name}/>
     </li>
   );
 };
