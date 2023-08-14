@@ -50,11 +50,6 @@ body {
   margin-right: 5%;
 }
 
-.answer_img {
-  width: 10%;
-  height: 10%;
-}
-
 .qa_ul {
   list-style-type: none;
   padding: 0;
@@ -150,4 +145,15 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
+
+.image_container {
+  display: flex;
+  justify-content: flex-start;
+  height: 100px
+}
+
+.answer_img {
+  margin-right: 10px;
+}
+
 
