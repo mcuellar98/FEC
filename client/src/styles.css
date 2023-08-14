@@ -16,7 +16,7 @@ body {
 #RnR {
   margin-top:30px;
   display: flex;
-  width: 80%;
+  width: 90%;
 }
 #ratings {
   width: 27%;
@@ -38,13 +38,14 @@ body {
   justify-content: center;
 }
 #rnrTitle {
-  width:80%;
+  width:90%;
   display: flex;
 }
 
 #rnd {
   display:flex;
   justify-content:space-between;
+  align-items: center;
 }
 
 .sorter {
@@ -169,8 +170,25 @@ body {
   display:flex;
   align-items:start;
 }
-#ratingBreakdown > p {
-  font-size: 36px;
+#ravg {
+  font-size: 46px;
   padding: 0;
   margin: 0;
+}
+#recPer, #revtxt {
+  font-size: 12px;
+}
+#revheaders {
+  font-size: 16px;
+}
+
+#rbdown {
+  display:flex;
+  align-items: center;
+}
+#rbar {
+  margin:0 6px 0 10px;
+  background-color: lightgreen;
+  width:65%;
+  height:6px;
 }

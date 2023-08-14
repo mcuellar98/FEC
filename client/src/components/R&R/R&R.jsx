@@ -53,7 +53,7 @@ const RatingsReviews = (props) => {
     var styles = {
       color: 'transparent',
       WebkitBackgroundClip: 'text',
-      fontSize: '16px',
+      fontSize: '14px',
       WebkitTextStroke: '0.7px white',
     }
     if (percent % 10 === 0) {
