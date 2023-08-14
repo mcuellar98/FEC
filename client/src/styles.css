@@ -142,14 +142,12 @@ body {
 }
 
 
- #stars {
-  display: inline-block;
-  position: relative;
+#stars {
+  display: flex;
+  /* position: relative; */
+  justify-content: center;
+  align-items: center;
 }
-
 #partFilled {
-  font-size: 24px;
-  -webkit-background-clip: text;
-  color: transparent;
+  min-width: auto;
 }
-
