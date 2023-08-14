@@ -1,9 +1,14 @@
 import React from 'react';
 import QAListEntry from './QAListEntry.jsx';
+import _ from 'underscore';
 
-const QAList = () => {
+const QAList = ({questions}) => {
   return (
-    <ul>QAList</ul>
+    <ul className='qa_ul'>
+      {_.map(questions, (question) => {
+        return <QAListEntry key={question.question_id} question={question}/>;
+      })}
+    </ul>
   );
 };
 

@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import path from 'path';
 
 const url = process.env.API_URL;
 const token = process.env.TOKEN;
@@ -22,28 +21,30 @@ const getStylesById = (id) => {
 
 //GET request for Reviews
 const getReviewsById = (id) => {
-  axios.get(url + '/reviews', {
+  return axios.get(url + 'reviews', {
     headers: {Authorization: token},
-    params: {id: id}
+    params: {product_id: id}
   });
 };
 
 //GET request for Meta Reviews
 const getMetaReviews = (id) => {
-  axios.get(url + '/reviews/meta', {
+  return axios.get(url + 'reviews/meta', {
     headers: {Authorization: token},
-    params: {id: id}
+    params: {product_id: id}
   });
 };
 
 //POST request for Review
 const postReview = (id, review /* review should be an object including product_id */) => {
-  axios.post(url + 'reviews', review, headers);
+  return axios.post(url + 'reviews', review, headers);
 };
 
 //GET request for Questions
-const getQuestions = () => {
-  axios.get(url, '/qa/questions '/*, {params}*/);
+const getQuestions = (id) => {
+  return axios.get(url + `/qa/questions?product_id=${id}`, {
+    headers: {Authorization: token}
+  });
 };
 
 //GET request for Cart

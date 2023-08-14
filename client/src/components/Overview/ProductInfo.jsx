@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { useState, useEffect } from 'react';
 
 
-const ProductInfo = (props) => {
+const ProductInfo = ({ product }) => {
 
   return (
     <div id='product-info'>
-      {props.name}
+      {product.name}
     </div>
   );
 };
