@@ -38,9 +38,9 @@ const postReview = (id, review /* review should be an object including product_i
 
 //GET request for Questions
 const getQuestions = (id) => {
-  return axios.get(url + `qa/questions`, {
-    headers: {Authorization: token},
-    params: {product_id: id}
+  return axios.get(url + `qa/questions?product_id=${id}`, {
+    headers: {Authorization: token}
+
   });
 };
 
