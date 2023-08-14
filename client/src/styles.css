@@ -175,7 +175,16 @@ body {
   margin: 0;
 }
 
-.answer_helpful:hover, .answer_report:hover, .question_report:hover, .question_helpful:hover {
+.answer_helpful:hover, .answer_report:hover, .question_report:hover, .question_helpful:hover, .see_more_answers:hover, .collapse_answers {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.answers {
+  margin-bottom: 30px;
+}
+
+.see_more_answers, .collapse_answers {
+  text-align: center;
+  padding-top: 10px;
 }

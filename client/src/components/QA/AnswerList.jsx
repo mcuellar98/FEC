@@ -8,7 +8,7 @@ const AnswerList = ({answers, setQuestions}) => {
   var answerList = [];
 
   for (var id in answers) {
-    if (askerName === answers[id].answerer_name) {
+    if (answers[id].answerer_name === 'Seller') {
       answerList.unshift(answers[id]);
     } else {
       answerList.push(answers[id]);
@@ -20,12 +20,24 @@ const AnswerList = ({answers, setQuestions}) => {
     answerList = _.sortBy(answerList, (answer) => { return -answer.helpfulness; });
   }
 
+  const handleExpand = () => {
+    setAListSize(aListSize + 2);
+  };
+
+  const handleCollapse = () => {
+    setAListSize(2);
+  };
+
   return (
-    <ul className='qa_ul'>
-      {_.map(answerList.slice(0, aListSize), (answer) => {
-        return <AnswerListEntry key={answer.id} answer={answer} setQuestions ={setQuestions}/>;
-      })}
-    </ul>
+    <div className='answers'>
+      <ul className='qa_ul'>
+        {_.map(answerList.slice(0, aListSize), (answer) => {
+          return <AnswerListEntry key={answer.id} answer={answer} setQuestions ={setQuestions}/>;
+        })}
+      </ul>
+      {answerList.length > aListSize ? <p className='see_more_answers' onClick={handleExpand}>See More Answers</p> : null}
+      {answerList.length <= aListSize && aListSize > 2 ? <p className='collapse_answers' onClick={handleCollapse}>Collapse Answers</p> : null}
+    </div>
   );
 };
 
