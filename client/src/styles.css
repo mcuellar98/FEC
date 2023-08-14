@@ -189,5 +189,14 @@ body {
 }
 
 .add_answer_modal, .add_question_modal {
-
+  display: flex;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  color: black;
+  width: 50%;
+  height: 30%;
+  opacity: 100%;
 }

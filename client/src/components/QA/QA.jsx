@@ -4,11 +4,13 @@ import QAList from './QAList.jsx';
 import { getQuestions } from '../../../fetch.jsx';
 import axios from 'axios';
 import _ from 'underscore';
+import AddQuestion from './AddQuestion.jsx';
 
 const QA = () => {
 
   const [questions, setQuestions] = useState([]);
   const [qListSize, setQListSize] = useState(4);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     getQuestions(37323)
@@ -28,6 +30,10 @@ const QA = () => {
     setQListSize(qListSize + 2);
   };
 
+  const handleAddQuestion = () => {
+    setModalVisible(!modalVisible);
+  };
+
   return (
     <div className='qa'>
       <p id='qa_title'>QUESTIONS & ANSWERS</p>
@@ -35,10 +41,11 @@ const QA = () => {
         <div>
           <Search/>
           <QAList questions={questions} setQuestions={setQuestions}/>
-          {questions < qListSize ? <button className='question_button'>More Answered Questions</button> : null}
-          <button className='question_button' onClick = {handleExpand}>Add Question</button>
+          {questions < qListSize ? <button className='question_button' onClick={handleExpand}>More Answered Questions</button> : null}
+          <button className='question_button' onClick = {handleAddQuestion}>Add Question</button>
         </div>
-        : <button className='question_button'>Add Question</button>}
+        : <button className='question_button' onClick={handleAddQuestion}>Add Question</button>}
+      {modalVisible ? <AddQuestion/> : null}
     </div>
   );
 };
