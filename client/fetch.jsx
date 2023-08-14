@@ -51,7 +51,7 @@ const getQuestions = (id) => {
 const markAnswerHelpful = (id) => {
   return axios.put(url + `qa/answers/${id}/helpful`,
     {},
-    {headers: {Authorization: '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'}});
+    {headers: {Authorization: token}});
 };
 
 export {

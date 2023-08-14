@@ -14,7 +14,6 @@ const QA = () => {
     getQuestions(37323)
       .then((results) => {
         console.log(results.data.results);
-
         var questionList = _.sortBy(results.data.results, (q) => {
           return -q.question_helpfulness;
         });
@@ -31,7 +30,7 @@ const QA = () => {
       {questions.length !== 0 ?
         <div>
           <Search/>
-          <QAList questions={questions}/>
+          <QAList questions={questions} setQuestions={setQuestions}/>
           <button className='question_button'>More Answered Questions</button>
           <button className='question_button'>Add Question</button>
         </div>

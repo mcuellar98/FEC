@@ -2,7 +2,7 @@ import React from 'react';
 import AnswerList from './AnswerList.jsx';
 import moment from 'moment';
 
-const QAListEntry = ({question}) => {
+const QAListEntry = ({question, setQuestions}) => {
 
   var date = moment(question.question_date);
 
@@ -24,7 +24,7 @@ const QAListEntry = ({question}) => {
           </p>
         </div>
       </div>
-      <AnswerList answers={question.answers} askerName={question.asker_name}/>
+      <AnswerList answers={question.answers} setQuestions ={setQuestions}/>
     </li>
   );
 };
