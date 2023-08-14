@@ -16,6 +16,10 @@ const getProductById = (id) => {
   return axios.get(url + `/products/${id}`, headers);
 };
 
+const getStylesById = (id) => {
+  return axios.get(url + `/products/${id}/styles`, headers);
+};
+
 //GET request for Reviews
 const getReviewsById = (id) => {
   axios.get(url + '/reviews', {
@@ -49,8 +53,9 @@ const getQuestions = () => {
 export {
   getProducts,
   getProductById,
+  getStylesById,
   getReviewsById,
   getMetaReviews,
   postReview,
   getQuestions
-}
+};
