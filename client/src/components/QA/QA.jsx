@@ -33,9 +33,9 @@ const QA = () => {
           <Search/>
           <QAList questions={questions}/>
           <button className='question_button'>More Answered Questions</button>
+          <button className='question_button'>Add Question</button>
         </div>
-        : null}
-      <button className='question_button'>Add Question</button>
+        : <button className='question_button'>Add Question</button>}
     </div>
   );
 };
