@@ -11,6 +11,7 @@ const AnswerList = ({answers, askerName}) => {
     if (answerList.length < aListSize) {
       answerList.push(answers[id]);
     } else {
+      answerList = _.sortBy(answerList, (answer) => { return -answer.helpfulness; });
       break;
     }
   }

@@ -1,13 +1,22 @@
 import React from 'react';
 import ImageList from './ImageList.jsx';
 import moment from 'moment';
+import _ from 'underscore';
+import {markAnswerHelpful} from './../../../fetch.jsx';
 
 const AnswerListEntry = ({answer, askerName}) => {
 
   var date = moment(answer.date);
 
   const handleHelpfulClick = () => {
-    console.log('hello');
+    console.log(answer.id);
+    markAnswerHelpful(answer.id)
+      .then((results) => {
+        console.log(results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

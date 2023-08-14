@@ -47,6 +47,12 @@ const getQuestions = (id) => {
 //GET request for Cart
 
 //GET request for Interactions
+//Put request for Answers (mark helpful)
+const markAnswerHelpful = (id) => {
+  return axios.put(url + `qa/answers/${id}/helpful`,
+    {},
+    {headers: {Authorization: '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'}});
+};
 
 export {
   getProducts,
@@ -54,5 +60,6 @@ export {
   getReviewsById,
   getMetaReviews,
   postReview,
-  getQuestions
+  getQuestions,
+  markAnswerHelpful
 };
