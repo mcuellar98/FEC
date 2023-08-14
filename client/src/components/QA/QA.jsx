@@ -24,6 +24,10 @@ const QA = () => {
       });
   }, []);
 
+  const handleExpand = () => {
+    setQListSize(qListSize + 2);
+  };
+
   return (
     <div className='qa'>
       <p id='qa_title'>QUESTIONS & ANSWERS</p>
@@ -31,8 +35,8 @@ const QA = () => {
         <div>
           <Search/>
           <QAList questions={questions} setQuestions={setQuestions}/>
-          <button className='question_button'>More Answered Questions</button>
-          <button className='question_button'>Add Question</button>
+          {questions < qListSize ? <button className='question_button'>More Answered Questions</button> : null}
+          <button className='question_button' onClick = {handleExpand}>Add Question</button>
         </div>
         : <button className='question_button'>Add Question</button>}
     </div>
