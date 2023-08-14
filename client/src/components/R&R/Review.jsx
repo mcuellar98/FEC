@@ -1,5 +1,5 @@
-const Review = ( { review } ) => {
-
+const Review = ( { review, partFilled } ) => {
+  console.log(review)
   const getDate = (date) => {
     const newDate = new Date(date);
     const year = newDate.getFullYear();
@@ -13,47 +13,13 @@ const Review = ( { review } ) => {
     return month + day + ', ' + year;
   }
 
-//#region stars
-  const filledStars = (rating) => {
-    const filled = Math.floor(rating);
-    var result = '';
-    for (var i = 0; i < filled; i++) {
-      result += '★'
-    }
-    return (<span id='filled'>{result}</span>)
-  }
-  const partFilled = (rating) => {
-    if (rating % 1 !== 0) {
-      const part = Math.round(10 * (3.6 % 1)) / 10;
-      const roundPart = Math.round(part * 4) / 4;
-      var result = '★';
-      const el = document.getElementById('partFilled');
-      if (roundPart === 0.25) {
-        el.style.background = 'linear-gradient(to right, white 25%, transparent 25%, transparent 100%)';
-      } else if (roundPart === 0.5) {
-        el.style.background = 'linear-gradient(to right, white 50%, transparent 25%, transparent 100%)';
-      } else if (roundPart === 0.75) {
-        el.style.background = 'linear-gradient(to right, white 75%, transparent 25%, transparent 100%)';
-      }
-      return result;
-    } else {
-      return;
-    }
-  }
-  const empty = (rating) => {
-    var result = ''
-    for (var i = 0; i < (5 - Math.ceil(rating)); i++) {
-      result += '☆';
-    }
-    return (<span>{result}</span>)
-  }
-  //#endregion
-
   return (
-    <div id='tile'>
+    <div id='rndtile'>
       <div id='rnd'>
         <div id='stars'>
-          <span>{filledStars(review.rating)}<span id='partFilled'>{partFilled(review.rating)}</span>{empty(review.rating)}</span>
+          <div id='star-container'>
+          <p>{partFilled(review.rating)}</p>
+          </div>
         </div>
         <span>{review.reviewer_name}, {getDate(review.date)}</span>
       </div>
@@ -66,7 +32,10 @@ const Review = ( { review } ) => {
         </div>
       ) : (<></>)
       }
-      <p>Helpful? <u>Yes</u> | <u>Report</u></p>
+      {review.photos.map((image) => {
+        return (<img key={image.id} src={image.url}/>)
+      })}
+      <p>Helpful? <u>Yes</u> ({review.helpfulness}) | <u>Report</u></p>
     </div>
   )
 }
