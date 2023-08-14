@@ -28,11 +28,20 @@ body {
   width: 67%;
 }
 
-#tile {
+#rndtile {
   padding-bottom: 10px;
   border-bottom: 2px solid rgb(80,80,80);
   margin-bottom: 10px;
 }
+#rnrTitleCont {
+  display:flex;
+  justify-content: center;
+}
+#rnrTitle {
+  width:80%;
+  display: flex;
+}
+
 #rnd {
   display:flex;
   justify-content:space-between;
@@ -142,14 +151,22 @@ body {
 }
 
 
- #stars {
-  display: inline-block;
-  position: relative;
+#stars {
+  display: flex;
+  /* position: relative; */
+  justify-content: center;
+  align-items: center;
 }
-
 #partFilled {
-  font-size: 24px;
-  -webkit-background-clip: text;
-  color: transparent;
+  min-width: auto;
 }
 
+#ratingBreakdown {
+  display:flex;
+  align-items:start;
+}
+#ratingBreakdown > p {
+  font-size: 36px;
+  padding: 0;
+  margin: 0;
+}
