@@ -146,14 +146,16 @@ body {
   color: transparent;
 }
 
-.image_container {
-  display: flex;
-  justify-content: flex-start;
-  height: 100px
-}
+
 
 .answer_img {
   margin-right: 10px;
+  height: 100px;
+  width: auto;
+
 }
 
+.img_li {
+  display: inline;
+}
 

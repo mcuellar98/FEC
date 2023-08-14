@@ -2,7 +2,9 @@ import React from 'react';
 
 const ImageListEntry = ({photo}) => {
   return (
-    <img className='answer_img' src={photo}/>
+    <li className='img_li'>
+      <img className='answer_img' src={photo}/>
+    </li>
   );
 };
 
