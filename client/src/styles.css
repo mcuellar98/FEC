@@ -174,3 +174,8 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.answer_helpful:hover, .answer_report:hover, .question_report:hover, .question_helpful:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

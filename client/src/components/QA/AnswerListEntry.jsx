@@ -6,6 +6,10 @@ const AnswerListEntry = ({answer, askerName}) => {
 
   var date = moment(answer.date);
 
+  const handleHelpfulClick = () => {
+    console.log('hello');
+  };
+
   return (
     <li className='answer_list_entry'>
       <p className='answer_text'>A: {answer.body}</p>
@@ -16,9 +20,9 @@ const AnswerListEntry = ({answer, askerName}) => {
           <p>by {answer.answerer_name}, {date.format('MMMM DD, YYYY')}</p>
         }
         <p className='answer_spacer'>|</p>
-        <p>Helpful? Yes({answer.helpfulness})</p>
+        <p className = 'answer_helpful' onClick={handleHelpfulClick}>Helpful? Yes({answer.helpfulness})</p>
         <p className='answer_spacer'>|</p>
-        <p>{answer.reported ? 'Reported' : 'Report'}</p>
+        <p className='answer_report'>{answer.reported ? 'Reported' : 'Report'}</p>
       </div>
     </li>
   );
