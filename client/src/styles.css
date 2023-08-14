@@ -59,11 +59,6 @@ body {
   margin-right: 5%;
 }
 
-.answer_img {
-  width: 10%;
-  height: 10%;
-}
-
 .qa_ul {
   list-style-type: none;
   padding: 0;
@@ -109,18 +104,16 @@ body {
 }
 
 .question {
-  background-color: lightslategray;
-  color:black;
   padding-left: 5px;
+  border-bottom: 2px solid rgb(80,80,80);
+  margin-bottom: 10px;
 }
 
 .answer_list_entry {
   margin-bottom: 5px;
   margin-top: 0;
   padding-left: 1%;
-  background-color: lightgrey;
-  color: black;
-
+  border-bottom: 1px solid rgb(80,80,80);
 }
 
 .answer_info {
@@ -159,6 +152,17 @@ body {
 }
 #partFilled {
   min-width: auto;
+}
+
+.answer_img {
+  margin-right: 10px;
+  height: 100px;
+  width: auto;
+
+}
+
+.img_li {
+  display: inline;
 }
 
 #ratingBreakdown {
