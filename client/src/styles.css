@@ -189,14 +189,57 @@ body {
 }
 
 .add_answer_modal, .add_question_modal {
-  display: flex;
+  /* display: flex; */
+  /* flex-direction: column; */
+  padding: 30px;
+  padding-right: 40px;
+  padding-left: 40px;
   position: fixed;
-  top: 40%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   color: black;
   width: 50%;
-  height: 30%;
   opacity: 100%;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.add_question_modal input,label,textarea{
+
+  display: block;
+  padding-bottom: 10px;
+}
+
+.add_question_modal input,textarea {
+  width:100%;
+  /* padding-top: 10px; */
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.add_question_modal *, .add_question_modal p{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.add_question_modal label{
+  margin-bottom: 15px;
+}
+
+.modal_sub_title, .modal_title {
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 14pt;
+}
+
+.blur{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
 }

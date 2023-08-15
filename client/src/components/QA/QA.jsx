@@ -45,7 +45,12 @@ const QA = () => {
           <button className='question_button' onClick = {handleAddQuestion}>Add Question</button>
         </div>
         : <button className='question_button' onClick={handleAddQuestion}>Add Question</button>}
-      {modalVisible ? <AddQuestion/> : null}
+      {modalVisible ?
+        <div>
+          <AddQuestion/>
+          <div className='blur'></div>
+        </div>
+        : null}
     </div>
   );
 };
