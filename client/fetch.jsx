@@ -27,6 +27,18 @@ const getReviewsById = (id) => {
   });
 };
 
+//PUT request for Reviews
+const helpfulReview = (id) => {
+  return axios.put(url + `reviews/${id}/helpful`, null, {
+    headers: {Authorization: token}
+  })
+}
+const reportReview = (id) => {
+  return axios.put(url + `reviews/${id}/report`, null, {
+    headers: {Authorization: token}
+  })
+}
+
 //GET request for Meta Reviews
 const getMetaReviews = (id) => {
   return axios.get(url + 'reviews/meta', {
@@ -58,6 +70,8 @@ export {
   getStylesById,
   getReviewsById,
   getMetaReviews,
+  helpfulReview,
+  reportReview,
   postReview,
   getQuestions
 };

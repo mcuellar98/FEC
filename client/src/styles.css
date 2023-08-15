@@ -3,7 +3,6 @@ body {
   color: white;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
 :root {
   --qa-element-width: 100%;
 }
@@ -17,7 +16,7 @@ body {
 #RnR {
   margin-top:30px;
   display: flex;
-  width: 80%;
+  width: 90%;
 }
 #ratings {
   width: 27%;
@@ -39,13 +38,14 @@ body {
   justify-content: center;
 }
 #rnrTitle {
-  width:80%;
+  width:90%;
   display: flex;
 }
 
 #rnd {
   display:flex;
   justify-content:space-between;
+  align-items: center;
 }
 
 .sorter {
@@ -144,28 +144,79 @@ body {
   font-size: 18pt;
 }
 
-
 #stars {
   display: flex;
-  /* position: relative; */
   justify-content: center;
   align-items: center;
 }
 #partFilled {
-  font-size: 24px;
-  -webkit-background-clip: text;
-  color: transparent;
+  min-width: auto;
+}
+
+.answer_img {
+  margin-right: 10px;
+  height: 100px;
+  width: auto;
+}
+
+.img_li {
+  display: inline;
 }
 
 #ratingBreakdown {
   display:flex;
   align-items:start;
 }
-#ratingBreakdown > p {
-  font-size: 36px;
+#ravg {
+  font-size: 46px;
   padding: 0;
   margin: 0;
 }
+
+#recPer, #revtxt {
+  font-size: 12px;
+}
+#revheaders {
+  font-size: 16px;
+}
+#helpful, #report {
+  cursor:pointer;
+}
+
+#rbdown {
+  display:flex;
+  align-items: center;
+}
+
+#productBreakdown {
+  margin-top: 30px;
+}
+
+#prodExp {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width:77.5%;
+}
+#pmid {
+  justify-self:center;
+}
+#pend {
+  justify-self:end;
+}
+
+#pdbar-cont{
+  width:82.5%;
+  display:flex;
+  margin:0 0 5px 0;
+}
+#pdbar {
+  position: relative;
+  display:flex;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(to right, grey 32.5%,transparent 32.5%, transparent 34%,grey 34%, grey 66.5%,transparent 66.5%, transparent 68%, grey 68%, grey 100%)
+}
+
 #overview {
   border: 1px solid red;
   display: grid;
