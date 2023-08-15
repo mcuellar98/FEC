@@ -1,4 +1,22 @@
+import { useState, useEffect } from 'react';
+
 const Review = ( { review, partFilled } ) => {
+  const [ helpful,setHelpful ] = useState(false);
+  const [ report,setReport ] = useState(false);
+
+  const handleRep = (e) => {
+    e.preventDefault();
+    setReport(true);
+  }
+  const handleHelp = (e) => {
+    e.preventDefault();
+    if (!helpful) {
+      review.helpfulness += 1;
+      setHelpful(true);
+    }
+  }
+
+  console.log(review);
   const getDate = (date) => {
     const newDate = new Date(date);
     const year = newDate.getFullYear();
@@ -40,7 +58,7 @@ const Review = ( { review, partFilled } ) => {
       {review.photos.map((image) => {
         return (<img key={image.id} src={image.url}/>)
       })}
-      <p id='revtxt'>Helpful? <u>Yes</u> ({review.helpfulness}) | <u>Report</u></p>
+      <p id='revtxt'>Helpful? <u id='helpful' onClick={handleHelp} value={helpful}>Yes</u> ({review.helpfulness}) | <u id='report' onClick={handleRep} value={report}>{report ? (<u>Reported</u>) : (<u>Report</u>)}</u></p>
     </div>
   )
 }

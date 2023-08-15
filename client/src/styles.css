@@ -1,8 +1,8 @@
 body {
-  background: rgb(17,17,17);
-  color: rgb(240,240,240);
+  background-color: rgb(11, 11, 11);
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
 :root {
   --qa-element-width: 100%;
 }
@@ -147,7 +147,6 @@ body {
 
 #stars {
   display: flex;
-  /* position: relative; */
   justify-content: center;
   align-items: center;
 }
@@ -159,7 +158,6 @@ body {
   margin-right: 10px;
   height: 100px;
   width: auto;
-
 }
 
 .img_li {
@@ -180,6 +178,9 @@ body {
 }
 #revheaders {
   font-size: 16px;
+}
+#helpful, #report {
+  cursor:pointer;
 }
 
 #rbdown {
@@ -214,13 +215,4 @@ body {
   height: 6px;
   width: 100%;
   background: linear-gradient(to right, grey 32.5%,transparent 32.5%, transparent 34%,grey 34%, grey 66.5%,transparent 66.5%, transparent 68%, grey 68%, grey 100%)
-}
-#triangle {
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: calc(100% - 6px);
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 10px solid rgb(240,240,240);
 }

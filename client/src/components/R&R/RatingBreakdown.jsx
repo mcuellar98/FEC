@@ -11,7 +11,7 @@ const RatingBreakdown = (props) => {
       len += Number(reviews.ratings[rating])
       sum += Number(rating) * Number(reviews.ratings[rating])
     }
-    return Math.floor(10 * (sum / len )) / 10;
+    return Math.round(10 * (sum / len )) / 10;
   }
   const recPercent = (reviews) => {
     var total;

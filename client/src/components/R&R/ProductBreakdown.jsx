@@ -10,8 +10,8 @@ const ProductBreakdown = (props) => {
       position: 'absolute',
       width: 0,
       height: 0,
-      borderLeft: '6px solid transparent',
-      borderRight: '6px solid transparent',
+      borderLeft: '4px solid transparent',
+      borderRight: '4px solid transparent',
       borderTop: '10px solid rgb(240,240,240)',
     }
     styles.left = `calc(${percent}% - 6px)`;

@@ -23,6 +23,14 @@ const getReviewsById = (id) => {
   });
 };
 
+//PUT request for Reviews
+const helpfulReview = (id) => {
+  return axios.put(url + `reviews/${id}/report`)
+}
+const reportReview = (id) => {
+  return axios.put(url + `reviews/${id}/helpful`)
+}
+
 //GET request for Meta Reviews
 const getMetaReviews = (id) => {
   return axios.get(url + 'reviews/meta', {
