@@ -11,10 +11,12 @@ import MoreReviews from './MoreReviews.jsx';
 import AddReview from './AddReview.jsx';
 
 const RatingsReviews = (props) => {
-  const [ data,setData ] = useState([])
+  const [ data,setData ] = useState([]);
+  const [ meta,setMeta ] = useState([]);
 
   useEffect(() => {
     get(props.id);
+    getMeta(props.id);
   },[])
 
 //#region fetch stuff
@@ -28,7 +30,7 @@ const RatingsReviews = (props) => {
   var getMeta = (prodID) => {
     getMetaReviews(prodID)
       .then((resp) => {
-        setData(resp.data);
+        setMeta(resp.data);
       }) .catch((err) => {
         console.log(err)
       })
@@ -78,8 +80,8 @@ const RatingsReviews = (props) => {
       <div id='RnR-par'>
         <div id='RnR'>
           <div id='ratings'>
-            <RatingBreakdown id={props.id} reviews={data} partFilled={partFilled} />
-            <ProductBreakdown id={props.id}/>
+            <RatingBreakdown id={props.id} reviews={meta} partFilled={partFilled} />
+            <ProductBreakdown id={props.id} meta={meta}/>
           </div>
           <div id='space-between'></div>
           <div id='reviews-sec'>

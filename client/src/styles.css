@@ -190,3 +190,37 @@ body {
 #productBreakdown {
   margin-top: 30px;
 }
+
+#prodExp {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width:77.5%;
+}
+#pmid {
+  justify-self:center;
+}
+#pend {
+  justify-self:end;
+}
+
+#pdbar-cont{
+  width:77.5%;
+  display:flex;
+  margin:0 0 5px 0;
+}
+#pdbar {
+  position: relative;
+  display:flex;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(to right, grey 32%,transparent 32%, transparent 34%,grey 34%, grey 66%,transparent 66%, transparent 68%, grey 68%, grey 100%)
+}
+#triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: calc(100% - 6px);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid rgb(240,240,240);
+}

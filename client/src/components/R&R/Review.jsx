@@ -1,5 +1,4 @@
 const Review = ( { review, partFilled } ) => {
-  console.log(review)
   const getDate = (date) => {
     const newDate = new Date(date);
     const year = newDate.getFullYear();
