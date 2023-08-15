@@ -10,7 +10,7 @@ const QA = () => {
 
   const [questions, setQuestions] = useState([]);
   const [qListSize, setQListSize] = useState(4);
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
 
   useEffect(() => {
     getQuestions(37323)
