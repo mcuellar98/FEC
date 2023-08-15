@@ -4,17 +4,18 @@ import QAList from './QAList.jsx';
 import { getQuestions } from '../../../fetch.jsx';
 import axios from 'axios';
 import _ from 'underscore';
+import AddQuestion from './AddQuestion.jsx';
 
-const QA = () => {
+const QA = ({product_id}) => {
 
   const [questions, setQuestions] = useState([]);
   const [qListSize, setQListSize] = useState(4);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    getQuestions(37323)
+    getQuestions(product_id)
       .then((results) => {
         console.log(results.data.results);
-
         var questionList = _.sortBy(results.data.results, (q) => {
           return -q.question_helpfulness;
         });
@@ -25,17 +26,31 @@ const QA = () => {
       });
   }, []);
 
+  const handleExpand = () => {
+    setQListSize(qListSize + 2);
+  };
+
+  const handleAddQuestion = () => {
+    setModalVisible(!modalVisible);
+  };
+
   return (
     <div className='qa'>
       <p id='qa_title'>QUESTIONS & ANSWERS</p>
       {questions.length !== 0 ?
         <div>
           <Search/>
-          <QAList questions={questions}/>
-          <button className='question_button'>More Answered Questions</button>
-          <button className='question_button'>Add Question</button>
+          <QAList product_id={product_id} questions={questions} setQuestions={setQuestions}/>
+          {questions < qListSize ? <button className='question_button' onClick={handleExpand}>More Answered Questions</button> : null}
+          <button className='question_button' onClick = {handleAddQuestion}>Add Question</button>
         </div>
-        : <button className='question_button'>Add Question</button>}
+        : <button className='question_button' onClick={handleAddQuestion}>Add Question</button>}
+      {modalVisible ?
+        <div>
+          <AddQuestion product_id={product_id} setQuestions={setQuestions} setModalVisible={setModalVisible}/>
+          <div className='blur'></div>
+        </div>
+        : null}
     </div>
   );
 };

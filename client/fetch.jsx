@@ -56,13 +56,33 @@ const postReview = (id, review /* review should be an object including product_i
 const getQuestions = (id) => {
   return axios.get(url + `qa/questions?product_id=${id}`, {
     headers: {Authorization: token}
-
   });
 };
 
 //GET request for Cart
 
 //GET request for Interactions
+//Put request for Answers (mark helpful)
+const markAnswerHelpful = (id) => {
+  return axios.put(url + `qa/answers/${id}/helpful`,
+    {},
+    {headers: {Authorization: token}});
+};
+
+//Put request for Questions (mark helpful)
+const markQuestionsHelpful = (id) => {
+  return axios.put(url + `qa/questions/${id}/helpful`,
+    {},
+    {headers: {Authorization: token}});
+};
+
+//Post request to add Question
+const addQuestion = (p) => {
+  return axios.post(url + 'qa/questions', {
+    headers: {Authorization: token},
+    params: p
+  });
+};
 
 export {
   getProducts,
@@ -73,5 +93,9 @@ export {
   helpfulReview,
   reportReview,
   postReview,
-  getQuestions
+  getQuestions,
+  markAnswerHelpful,
+  markQuestionsHelpful,
+  addQuestion
 };
+
