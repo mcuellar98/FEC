@@ -204,7 +204,7 @@ body {
 }
 
 #pdbar-cont{
-  width:77.5%;
+  width:82.5%;
   display:flex;
   margin:0 0 5px 0;
 }
@@ -213,7 +213,7 @@ body {
   display:flex;
   height: 6px;
   width: 100%;
-  background: linear-gradient(to right, grey 32%,transparent 32%, transparent 34%,grey 34%, grey 66%,transparent 66%, transparent 68%, grey 68%, grey 100%)
+  background: linear-gradient(to right, grey 32.5%,transparent 32.5%, transparent 34%,grey 34%, grey 66.5%,transparent 66.5%, transparent 68%, grey 68%, grey 100%)
 }
 #triangle {
   position: absolute;
