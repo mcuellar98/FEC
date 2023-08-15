@@ -26,7 +26,6 @@ const RatingsReviews = (props) => {
         setData(res.data.results)
       })
   }
-
   var getMeta = (prodID) => {
     getMetaReviews(prodID)
       .then((resp) => {

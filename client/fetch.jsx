@@ -25,10 +25,14 @@ const getReviewsById = (id) => {
 
 //PUT request for Reviews
 const helpfulReview = (id) => {
-  return axios.put(url + `reviews/${id}/report`)
+  return axios.put(url + `reviews/${id}/helpful`, null, {
+    headers: {Authorization: token}
+  })
 }
 const reportReview = (id) => {
-  return axios.put(url + `reviews/${id}/helpful`)
+  return axios.put(url + `reviews/${id}/report`, null, {
+    headers: {Authorization: token}
+  })
 }
 
 //GET request for Meta Reviews
@@ -61,6 +65,8 @@ export {
   getProductById,
   getReviewsById,
   getMetaReviews,
+  helpfulReview,
+  reportReview,
   postReview,
   getQuestions
 };

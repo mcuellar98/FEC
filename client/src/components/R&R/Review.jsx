@@ -1,22 +1,31 @@
 import { useState, useEffect } from 'react';
+import { helpfulReview,reportReview } from '../../../fetch.jsx';
 
 const Review = ( { review, partFilled } ) => {
   const [ helpful,setHelpful ] = useState(false);
   const [ report,setReport ] = useState(false);
+  const [ helpCount, setHC ] = useState(review.helpfulness)
 
   const handleRep = (e) => {
     e.preventDefault();
-    setReport(true);
-  }
-  const handleHelp = (e) => {
-    e.preventDefault();
-    if (!helpful) {
-      review.helpfulness += 1;
-      setHelpful(true);
+    if (!report) {
+      reportReview(review.review_id)
+        .then(() => {
+          setReport(true);
+        })
     }
   }
+  const handleHelp = (e) => {
+    if (!helpful) {
+      helpfulReview(review.review_id)
+        .then(()=> {
+          setHC(review.helpfulness + 1)
+          setHelpful(true);
+        })
+    }
+    e.preventDefault();
+  }
 
-  console.log(review);
   const getDate = (date) => {
     const newDate = new Date(date);
     const year = newDate.getFullYear();
@@ -58,7 +67,7 @@ const Review = ( { review, partFilled } ) => {
       {review.photos.map((image) => {
         return (<img key={image.id} src={image.url}/>)
       })}
-      <p id='revtxt'>Helpful? <u id='helpful' onClick={handleHelp} value={helpful}>Yes</u> ({review.helpfulness}) | <u id='report' onClick={handleRep} value={report}>{report ? (<u>Reported</u>) : (<u>Report</u>)}</u></p>
+      <p id='revtxt'>Helpful? <u id='helpful' onClick={handleHelp} value={helpful}>Yes</u> ({helpCount}) | <u id='report' onClick={handleRep} value={report}>{report ? (<u>Reported</u>) : (<u>Report</u>)}</u></p>
     </div>
   )
 }
