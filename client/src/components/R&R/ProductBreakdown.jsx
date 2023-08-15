@@ -1,5 +1,4 @@
 const ProductBreakdown = (props) => {
-  console.log(props.meta)
 
   const perc = (review) => {
     return Math.round((review.value / 5) * 100);
@@ -10,8 +9,8 @@ const ProductBreakdown = (props) => {
       position: 'absolute',
       width: 0,
       height: 0,
-      borderLeft: '4px solid transparent',
-      borderRight: '4px solid transparent',
+      borderLeft: '6px solid transparent',
+      borderRight: '6px solid transparent',
       borderTop: '10px solid rgb(240,240,240)',
     }
     styles.left = `calc(${percent}% - 6px)`;

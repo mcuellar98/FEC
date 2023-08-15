@@ -6,14 +6,14 @@ const Sorter = (props) => {
 
   useEffect(()=> {
     const sortOption = document.getElementById('sorting');
-    console.log(sortOption.value);
     setrevNum(props.reviews.length)
+    props.sorting(sortOption.value)
   },[props.reviews]);
 
   var handleChange = (e) => {
     e.preventDefault();
     const sortOption = document.getElementById('sorting');
-    console.log(sortOption.value); //changing option value for select element (relevance by default)
+    props.sorting(sortOption.value); //changing option value for select element (relevance by default)
   }
 
   return (

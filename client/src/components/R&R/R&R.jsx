@@ -44,7 +44,7 @@ const RatingsReviews = (props) => {
   }
 //#endregion
 
-  //#region stars
+//#region stars
 
   //refactor to have % of stars in one function
   //.05,0.1,.15 -> 5
@@ -71,6 +71,34 @@ const RatingsReviews = (props) => {
 
   //#endregion
 
+  const sorting = (option) => {
+    if (option === 'Relevance') {
+      setData(prevData => {
+        const sorted = [...prevData];
+        sorted.sort((a,b) => {
+          if (Math.abs(b.helpfulness - a.helpfulness) <= 2) {
+            return new Date(b.date) - new Date(a.date)
+          } else {
+            return b.helpfulness - a.helpfulness
+            }
+          });
+        return sorted;
+      });
+    } else if ( option === 'Newest') {
+      setData(prevData => {
+        const sorted = [...prevData];
+        sorted.sort((a,b) => new Date(b.date) - new Date(a.date));
+        return sorted;
+      });
+    } else if (option === 'Helpful') {
+      setData(prevData => {
+        const sorted = [...prevData]; // Creating a new array reference
+        sorted.sort((a,b) => {return b.helpfulness - a.helpfulness});
+        return sorted;
+      });
+    }
+  }
+
   return (
     <div>
       <div id='rnrTitleCont'>
@@ -85,7 +113,7 @@ const RatingsReviews = (props) => {
           <div id='space-between'></div>
           <div id='reviews-sec'>
             <div id='reviews'>
-              <Sorter id={props.id} reviews={data}/>
+              <Sorter id={props.id} reviews={data} sorting={sorting}/>
               <ReviewList id={props.id} reviews={data} partFilled={partFilled} />
             </div>
             <div id='add-more-container'>
