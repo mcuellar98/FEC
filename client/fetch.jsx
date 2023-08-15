@@ -7,12 +7,16 @@ const headers = {headers: {Authorization: token}};
 
 //GET request for all Products
 const getProducts = () => {
-  return axios.get(url + '/products', headers);
+  return axios.get(url + 'products', headers);
 };
 
 //GET request for Product by ID
 const getProductById = (id) => {
-  return axios.get(url + `/products/${id}`, headers);
+  return axios.get(url + `products/${id}`, headers);
+};
+
+const getStylesById = (id) => {
+  return axios.get(url + `products/${id}/styles`, headers);
 };
 
 //GET request for Reviews
@@ -22,6 +26,18 @@ const getReviewsById = (id) => {
     params: {product_id: id}
   });
 };
+
+//PUT request for Reviews
+const helpfulReview = (id) => {
+  return axios.put(url + `reviews/${id}/helpful`, null, {
+    headers: {Authorization: token}
+  })
+}
+const reportReview = (id) => {
+  return axios.put(url + `reviews/${id}/report`, null, {
+    headers: {Authorization: token}
+  })
+}
 
 //GET request for Meta Reviews
 const getMetaReviews = (id) => {
@@ -71,8 +87,11 @@ const addQuestion = (p) => {
 export {
   getProducts,
   getProductById,
+  getStylesById,
   getReviewsById,
   getMetaReviews,
+  helpfulReview,
+  reportReview,
   postReview,
   getQuestions,
   markAnswerHelpful,

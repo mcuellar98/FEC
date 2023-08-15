@@ -1,5 +1,31 @@
+import { useState, useEffect } from 'react';
+import { helpfulReview,reportReview } from '../../../fetch.jsx';
+
 const Review = ( { review, partFilled } ) => {
-  console.log(review)
+  const [ helpful,setHelpful ] = useState(false);
+  const [ report,setReport ] = useState(false);
+  const [ helpCount, setHC ] = useState(review.helpfulness)
+
+  const handleRep = (e) => {
+    e.preventDefault();
+    if (!report) {
+      reportReview(review.review_id)
+        .then(() => {
+          setReport(true);
+        })
+    }
+  }
+  const handleHelp = (e) => {
+    if (!helpful) {
+      helpfulReview(review.review_id)
+        .then(()=> {
+          setHC(review.helpfulness + 1)
+          setHelpful(true);
+        })
+    }
+    e.preventDefault();
+  }
+
   const getDate = (date) => {
     const newDate = new Date(date);
     const year = newDate.getFullYear();
@@ -18,13 +44,19 @@ const Review = ( { review, partFilled } ) => {
       <div id='rnd'>
         <div id='stars'>
           <div id='star-container'>
-          <p>{partFilled(review.rating)}</p>
+          <p id='revheaders'>{partFilled(review.rating)}</p>
           </div>
         </div>
-        <span>{review.reviewer_name}, {getDate(review.date)}</span>
+        <span id='revtxt'>{review.reviewer_name}, {getDate(review.date)}</span>
       </div>
-      <p><b>{review.summary}</b></p>
-      <p>{review.body}</p>
+      <p><b id='revheaders'>{review.summary}</b></p>
+      <p id='revtxt'>{review.body}</p>
+      {review.recommend ? (
+        <div id='revtxt'>
+          <p>✓ I recommend this product</p>
+        </div>
+      ) : (<></>)
+      }
       {review.response ? (
         <div>
           <p><b>Response: </b></p>
@@ -35,7 +67,7 @@ const Review = ( { review, partFilled } ) => {
       {review.photos.map((image) => {
         return (<img key={image.id} src={image.url}/>)
       })}
-      <p>Helpful? <u>Yes</u> ({review.helpfulness}) | <u>Report</u></p>
+      <p id='revtxt'>Helpful? <u id='helpful' onClick={handleHelp} value={helpful}>Yes</u> ({helpCount}) | <u id='report' onClick={handleRep} value={report}>{report ? (<u>Reported</u>) : (<u>Report</u>)}</u></p>
     </div>
   )
 }
