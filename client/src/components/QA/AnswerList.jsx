@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import AnswerListEntry from './AnswerListEntry.jsx';
 import _ from 'underscore';
 
-const AnswerList = ({answers, setQuestions}) => {
+const AnswerList = ({product_id, answers, setQuestions}) => {
 
   const [aListSize, setAListSize] = useState(2);
   var answerList = [];
@@ -32,7 +32,7 @@ const AnswerList = ({answers, setQuestions}) => {
     <div className='answers'>
       <ul className='qa_ul'>
         {_.map(answerList.slice(0, aListSize), (answer) => {
-          return <AnswerListEntry key={answer.id} answer={answer} setQuestions ={setQuestions}/>;
+          return <AnswerListEntry key={answer.id} product_id={product_id} answer={answer} setQuestions ={setQuestions}/>;
         })}
       </ul>
       {answerList.length > aListSize ? <p className='see_more_answers' onClick={handleExpand}>See More Answers</p> : null}

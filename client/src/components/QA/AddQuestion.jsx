@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import _ from 'underscore';
+import {getQuestions, addQuestion} from './../../../fetch.jsx';
 
-const AddQuestion = () => {
+const AddQuestion = ({product_id, setQuestions}) => {
 
   const [question, setQuestion] = useState('');
   const [nickname, setNickname] = useState('');
@@ -37,7 +38,22 @@ const AddQuestion = () => {
     } else if (!re.test(email)) {
       alert('Incorrect format for email');
     } else {
-      console.log('good to go');
+      var params = {
+        body: question,
+        name: nickname,
+        email: email,
+        product_id: product_id
+      };
+      addQuestion(params)
+        .then(()=> {
+          return getQuestions(product_id);
+        })
+        .then((results) => {
+          setQuestions(results.data.results);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 

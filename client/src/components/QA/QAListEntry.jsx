@@ -3,7 +3,7 @@ import AnswerList from './AnswerList.jsx';
 import moment from 'moment';
 import {markQuestionsHelpful, getQuestions} from './../../../fetch.jsx';
 
-const QAListEntry = ({question, questions, setQuestions}) => {
+const QAListEntry = ({product_id, question, questions, setQuestions}) => {
 
   var date = moment(question.question_date);
 
@@ -12,7 +12,7 @@ const QAListEntry = ({question, questions, setQuestions}) => {
     console.log(markQuestionsHelpful);
     markQuestionsHelpful(question.question_id)
       .then((results) => {
-        return getQuestions(37323);
+        return getQuestions(product_id);
       })
       .then((results) => {
         setQuestions(results.data.results);

@@ -4,7 +4,7 @@ import moment from 'moment';
 import _ from 'underscore';
 import {markAnswerHelpful, getQuestions} from './../../../fetch.jsx';
 
-const AnswerListEntry = ({answer, setQuestions}) => {
+const AnswerListEntry = ({product_id, answer, setQuestions}) => {
 
   // console.log(answer);
 
@@ -14,7 +14,7 @@ const AnswerListEntry = ({answer, setQuestions}) => {
   const handleHelpfulClick = () => {
     markAnswerHelpful(answer.id)
       .then(() => {
-        return getQuestions(37323);
+        return getQuestions(product_id);
       })
       .then((results) => {
         updateQuestionsOnce(results.data.results);
