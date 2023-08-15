@@ -144,7 +144,6 @@ body {
   font-size: 18pt;
 }
 
-
 #stars {
   display: flex;
   justify-content: center;
@@ -173,6 +172,7 @@ body {
   padding: 0;
   margin: 0;
 }
+
 #recPer, #revtxt {
   font-size: 12px;
 }
@@ -215,4 +215,35 @@ body {
   height: 6px;
   width: 100%;
   background: linear-gradient(to right, grey 32.5%,transparent 32.5%, transparent 34%,grey 34%, grey 66.5%,transparent 66.5%, transparent 68%, grey 68%, grey 100%)
+}
+
+#overview {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 40em;
+  grid-gap: 8px;
+  justify-content: center;
+}
+
+#images {
+  border: 1px solid lightblue;
+  margin: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#product-info-and-cart {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5fr 4fr 4fr;
+  grid-gap: 4px;
+  padding: 10px;
+  border: 1px solid blue;
+}
+#product-info-and-cart > div {
+  border: 1px solid lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
