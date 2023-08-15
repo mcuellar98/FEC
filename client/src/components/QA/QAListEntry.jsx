@@ -1,25 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AnswerList from './AnswerList.jsx';
 import moment from 'moment';
 import {markQuestionsHelpful, getQuestions} from './../../../fetch.jsx';
 
 const QAListEntry = ({product_id, question, questions, setQuestions}) => {
 
+  const [allowHelpfulClick, setAllowHelpfulClick] = useState(true);
+
   var date = moment(question.question_date);
 
   const handleHelpfulClick = () => {
-    console.log(questions);
-    console.log(markQuestionsHelpful);
-    markQuestionsHelpful(question.question_id)
-      .then((results) => {
-        return getQuestions(product_id);
-      })
-      .then((results) => {
-        setQuestions(results.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (allowHelpfulClick) {
+      markQuestionsHelpful(question.question_id)
+        .then((results) => {
+          return getQuestions(product_id);
+        })
+        .then((results) => {
+          setQuestions(results.data.results);
+          setAllowHelpfulClick(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -40,7 +43,7 @@ const QAListEntry = ({product_id, question, questions, setQuestions}) => {
           </p>
         </div>
       </div>
-      <AnswerList answers={question.answers} setQuestions ={setQuestions}/>
+      <AnswerList product_id={product_id} answers={question.answers} setQuestions ={setQuestions}/>
     </li>
   );
 };
