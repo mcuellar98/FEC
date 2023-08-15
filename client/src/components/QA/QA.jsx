@@ -10,7 +10,7 @@ const QA = ({product_id}) => {
 
   const [questions, setQuestions] = useState([]);
   const [qListSize, setQListSize] = useState(4);
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     getQuestions(product_id)
@@ -47,7 +47,7 @@ const QA = ({product_id}) => {
         : <button className='question_button' onClick={handleAddQuestion}>Add Question</button>}
       {modalVisible ?
         <div>
-          <AddQuestion product_id={product_id} setQuestions={setQuestions}/>
+          <AddQuestion product_id={product_id} setQuestions={setQuestions} setModalVisible={setModalVisible}/>
           <div className='blur'></div>
         </div>
         : null}

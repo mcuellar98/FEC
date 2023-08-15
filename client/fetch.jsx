@@ -60,6 +60,14 @@ const markQuestionsHelpful = (id) => {
     {headers: {Authorization: token}});
 };
 
+//Post request to add Question
+const addQuestion = (p) => {
+  return axios.post(url + 'qa/questions', {
+    headers: {Authorization: token},
+    params: p
+  });
+};
+
 export {
   getProducts,
   getProductById,
@@ -68,6 +76,7 @@ export {
   postReview,
   getQuestions,
   markAnswerHelpful,
-  markQuestionsHelpful
+  markQuestionsHelpful,
+  addQuestion
 };
 

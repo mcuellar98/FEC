@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import _ from 'underscore';
 import {getQuestions, addQuestion} from './../../../fetch.jsx';
 
-const AddQuestion = ({product_id, setQuestions}) => {
+const AddQuestion = ({product_id, setQuestions, setModalVisible}) => {
 
   const [question, setQuestion] = useState('');
   const [nickname, setNickname] = useState('');
@@ -44,12 +44,14 @@ const AddQuestion = ({product_id, setQuestions}) => {
         email: email,
         product_id: product_id
       };
+      console.log(params);
       addQuestion(params)
         .then(()=> {
           return getQuestions(product_id);
         })
         .then((results) => {
           setQuestions(results.data.results);
+          //setModalVisible(false);
         })
         .catch((err) => {
           console.log(err);
