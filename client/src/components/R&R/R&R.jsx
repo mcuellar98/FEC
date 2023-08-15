@@ -117,7 +117,6 @@ const RatingsReviews = (props) => {
               <ReviewList id={props.id} reviews={data} partFilled={partFilled} />
             </div>
             <div id='add-more-container'>
-              <MoreReviews id={props.id}/>
               <AddReview id={props.id}/>
             </div>
           </div>
