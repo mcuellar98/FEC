@@ -305,9 +305,15 @@ body {
 #images {
   border: 1px solid lightblue;
   margin: 12px;
+  width: min-content;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.carousel-photo {
+  border: 3px solid green;
+  width: min-content;
+  height: auto;
 }
 #product-info-and-cart {
   display: grid;
