@@ -31,15 +31,17 @@ const ReviewList = ( {id,reviews,partFilled} ) => {
   }
 
   return (
-    <div>
-      {list.map((review) => {
+    <div id='rlistMap'>
+      {(reviews.length === 0) ? (<div>No Reviews Yet...</div>) : list.map((review) => {
         return (<Review key={review.review_id} review={review} partFilled={partFilled}/>)
       })}
-      <div>
-        {(len <= reviews.length) ?
+      <div id='rbutton-cont'>
+        {(len <= reviews.length && reviews.length > 2) ?
           (<button onClick={handleClick}>MORE REVIEWS</button>) :
+          (reviews.length < 2) ? (<></>) :
           (<button onClick={handleCollapse}>COLLAPSE REVIEWS</button>)
         }
+        <button>ADD A REVIEW   <span style={{fontSize:'18px'}}>+</span></button>
       </div>
     </div>
   )

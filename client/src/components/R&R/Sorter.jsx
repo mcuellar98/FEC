@@ -20,7 +20,7 @@ const Sorter = (props) => {
 
   return (
     <div className='sorter'>
-      <span>{revNum} reviews, sorted by</span>
+      <span>{revNum} reviews, sorted by </span>
       <select id='sorting' onChange={handleChange}>
         <option value='Relevance'>Relevance</option>
         <option value='Newest'>Newest</option>
