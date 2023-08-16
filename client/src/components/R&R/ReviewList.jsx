@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Review from './Review.jsx';
+import Review_Modal from './Review_Modal.jsx'
 import { getReviewsById,getMetaReviews,postReview } from '../../../fetch.jsx';
 
-const ReviewList = ( {id,reviews,partFilled} ) => {
+const ReviewList = ( {id,reviews,partFilled,view,sV,meta} ) => {
   const [ list,setList ] = useState([]);
   const [ len,setLen ] = useState(2);
 
@@ -29,6 +30,14 @@ const ReviewList = ( {id,reviews,partFilled} ) => {
     e.preventDefault();
     setLen(2);
   }
+  const handleModal = (e) => {
+    e.preventDefault();
+    sV(true);
+  }
+  const handleExit = (e) => {
+    e.preventDefault();
+    sV(false);
+  }
 
   return (
     <div id='rlistMap'>
@@ -41,7 +50,14 @@ const ReviewList = ( {id,reviews,partFilled} ) => {
           (reviews.length < 2) ? (<></>) :
           (<button onClick={handleCollapse}>COLLAPSE REVIEWS</button>)
         }
-        <button>ADD A REVIEW   <span style={{fontSize:'18px'}}>+</span></button>
+        <button onClick={handleModal}>ADD A REVIEW   <span style={{fontSize:'18px'}}>+</span></button>
+        {
+          view ? (
+            <div>
+              <Review_Modal view={view} sV={sV} meta={meta}/>
+              <div onClick={handleExit} className='blur'></div>
+            </div>) : <></>
+        }
       </div>
     </div>
   )

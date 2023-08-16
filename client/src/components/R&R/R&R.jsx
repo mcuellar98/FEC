@@ -12,6 +12,7 @@ const RatingsReviews = (props) => {
   const [ data,setData ] = useState([]);
   const [ meta,setMeta ] = useState([]);
   const [ dataCopy,setDC ] = useState(data);
+  const [ viewModal,setVM ] = useState(false);
 
   useEffect(() => {
     get(props.id);
@@ -124,9 +125,11 @@ const RatingsReviews = (props) => {
     }
   }
   const filtering = (rating) => {
+    console.log(data)
     const filtered = data.filter((review) => {
-      review.rating === rating
+      return review.rating === rating
     });
+    console.log(filtered)
     setDC(filtered);
   }
 
@@ -145,7 +148,7 @@ const RatingsReviews = (props) => {
           <div id='reviews-sec'>
             <div id='reviews'>
               <Sorter id={props.id} reviews={data} sorting={sorting}/>
-              <ReviewList id={props.id} reviews={dataCopy} partFilled={partFilled} />
+              <ReviewList id={props.id} reviews={dataCopy} partFilled={partFilled} view={viewModal} sV={setVM} meta={meta}/>
             </div>
           </div>
         </div>

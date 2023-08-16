@@ -7,10 +7,10 @@ body {
   --qa-element-width: 100%;
 }
 
-
 #RnR-par {
   display:flex;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 #RnR {
@@ -34,6 +34,7 @@ body {
 #rlistMap {
   max-height: 700px;
   overflow-y:scroll;
+  margin-bottom: 30px;
 }
 #rlistMap::-webkit-scrollbar {
   display:none;
@@ -68,6 +69,102 @@ body {
 #rbutton-cont {
   display:flex;
   justify-content:space-between;
+}
+#revModal {
+  position:fixed;
+  transform: translate(-50%,-50%);
+  top:50%;
+  left:50%;
+  width: 80%;
+  height: 60%;
+  z-index: 3;
+  background: rgb(11,11,11);
+  border: 2px solid rgb(230,230,230);
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px 4px rgba(80,80,80,0.4);
+  overflow: auto;
+  justify-content: center;
+}
+#revTest {
+  position: relative;
+  display:flex;
+  justify-content: center;
+  color:rgb(230,230,230);
+}
+#rform {
+  margin-top: 30px;
+  width:80%;
+}
+#nic-email {
+  display: flex;
+  justify-content: space-between;
+}
+#rnic, #remail {
+  width: 50%;
+}
+#revRec, #revChar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+}
+#rchar {
+  padding:0;
+  width: auto;
+  color: red;
+}
+#revChar > input, #revRec > input  {
+  margin: 0 0 0 5px;
+}
+
+.crStars > span:hover:before, .crStars > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+  cursor: pointer;
+}
+.crStars {
+  unicode-bidi: normal;
+  direction: rtl;
+  display:flex;
+  justify-content: end;
+}
+
+#radioLabels {
+  height: auto;
+  padding: 0;
+  margin-left: 10px;
+  font-size: 12px;
+  color:rgb(180,180,180);
+}
+#radioLabels > b {
+  font-size: 16px;
+  color:rgb(210,210,210);
+}
+
+#rExit {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 2px solid rgb(230,230,230);
+  border-radius: 25px;
+  color:rgb(230,230,230);
+  background-color: rgb(11,11,11);
+  cursor:pointer;
+  right:1%;
+  top:2%
+}
+
+#rSubmit {
+  color:rgb(230,230,230);
+  background-color: rgb(11,11,11);
+  border: 2px solid rgb(210,210,210);
+  width: 100%;
+  height: 60px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 4px;
+}
+#revModal::-webkit-scrollbar {
+  display:none;
 }
 
 .sorter {
