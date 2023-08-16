@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import ImageList from './ImageList.jsx';
 import moment from 'moment';
 import _ from 'underscore';
@@ -6,36 +6,26 @@ import {markAnswerHelpful, getQuestions} from './../../../fetch.jsx';
 
 const AnswerListEntry = ({product_id, answer, setQuestions}) => {
 
-  // console.log(answer);
-
   var date = moment(answer.date);
   const updateQuestionsOnce = _.once(setQuestions);
 
-  const handleHelpfulClick = () => {
-    markAnswerHelpful(answer.id)
-      .then(() => {
-        return getQuestions(product_id);
-      })
-      .then((results) => {
-        updateQuestionsOnce(results.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const [allowHelpfulClick, setAllowHelpfulClick] = useState(true);
 
-  // const handleReportClick = () => {
-  //   console.log(Object.keys(answer));
-  //   console.log(answer.reported);
-  //   //answer.reported = !answer.reported;
-  //   getQuestions(37323)
-  //     .then((results) => {
-  //       setQuestions(results.data.results);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  const handleHelpfulClick = () => {
+    if (allowHelpfulClick) {
+      markAnswerHelpful(answer.id)
+        .then(() => {
+          return getQuestions(product_id);
+        })
+        .then((results) => {
+          updateQuestionsOnce(results.data.results);
+          setAllowHelpfulClick(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
 
   return (
     <li className='answer_list_entry'>
