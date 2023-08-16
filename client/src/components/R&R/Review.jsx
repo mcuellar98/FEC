@@ -58,14 +58,14 @@ const Review = ( { review, partFilled } ) => {
       ) : (<></>)
       }
       {review.response ? (
-        <div>
+        <div id='revResp'>
           <p><b>Response: </b></p>
           <p>{review.response}</p>
         </div>
       ) : (<></>)
       }
       {review.photos.map((image) => {
-        return (<img key={image.id} src={image.url}/>)
+        return (<img key={image.id} style={{width:'auto',height:'100px'}} src={image.url}/>)
       })}
       <p id='revtxt'>Helpful? <u id='helpful' onClick={handleHelp} value={helpful}>Yes</u> ({helpCount}) | <u id='report' onClick={handleRep} value={report}>{report ? (<u>Reported</u>) : (<u>Report</u>)}</u></p>
     </div>
