@@ -43,7 +43,7 @@ const QAListEntry = ({product_id, question, questions, setQuestions}) => {
           </p>
         </div>
       </div>
-      <AnswerList product_id={product_id} answers={question.answers} setQuestions ={setQuestions}/>
+      <AnswerList product_id={product_id} answers={question.answers} setQuestions={setQuestions}/>
     </li>
   );
 };
