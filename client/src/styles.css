@@ -27,7 +27,17 @@ body {
 #reviews-sec {
   width: 67%;
 }
-
+#reviews {
+  max-height: 720px;
+  position: relative;
+}
+#rlistMap {
+  max-height: 700px;
+  overflow-y:scroll;
+}
+#rlistMap::-webkit-scrollbar {
+  display:none;
+}
 #rndtile {
   padding-bottom: 10px;
   border-bottom: 2px solid rgb(80,80,80);
@@ -41,18 +51,43 @@ body {
   width:90%;
   display: flex;
 }
-
 #rnd {
   display:flex;
   justify-content:space-between;
   align-items: center;
 }
+#rbutton-cont > button {
+  height: 50px;
+  justify-content: center;
+  background-color: black;
+  color:rgb(230,230,230);
+  border: 1px solid rgb(80,80,80);
+  cursor: pointer;
+  margin-top:10px;
+}
+#rbutton-cont {
+  display:flex;
+  justify-content:space-between;
+}
 
 .sorter {
-  margin-bottom:10px;
+  margin: 10px 0 20px 0;
 }
-#add-more-container {
-  display:inline-flex;
+#sorting {
+  background-color:transparent;
+  color: white;
+  border:none;
+  border-bottom:1.5px solid white;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+#sorting > option {
+  background-color: rgb(11, 11, 11);
+}
+#revResp {
+  background-color: rgb(80,80,80);
 }
 
 .qa {
@@ -248,10 +283,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
   border-radius: 10px;
-=======
-#recPer, #revtxt {
+}
+#recPer, #revtxt, #rateBar {
   font-size: 12px;
 }
+
 #revheaders {
   font-size: 16px;
 }
@@ -263,7 +299,9 @@ body {
   display:flex;
   align-items: center;
 }
-
+#rbdown > #recPer, #rbdown > #revtxt, #rbdown > #rateBar {
+  cursor: pointer;
+}
 #productBreakdown {
   margin-top: 30px;
 }
