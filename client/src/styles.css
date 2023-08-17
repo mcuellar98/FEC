@@ -98,6 +98,7 @@ body {
 .qa_ul {
   list-style-type: none;
   padding: 0;
+
 }
 
 .qa_search {
@@ -214,6 +215,8 @@ body {
 
 .answers {
   margin-bottom: 30px;
+  overflow: scroll;
+  max-height: 50vh;
 }
 
 .see_more_answers, .collapse_answers {
