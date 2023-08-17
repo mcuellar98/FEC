@@ -14,6 +14,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.22.10",
     "@babel/preset-react": "^7.22.5",
+    "@testing-library/react": "^14.0.0",
     "babel-jest": "^29.6.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
@@ -37,12 +38,14 @@
   },
   "homepage": "https://github.com/FEC3-perrier/FEC#readme",
   "dependencies": {
+    "@testing-library/jest-dom": "^6.0.0",
     "axios": "^1.4.0",
     "babel": "^6.23.0",
     "babel-loader": "^9.1.3",
     "date-fns": "^2.30.0",
     "dotenv-webpack": "^8.0.1",
     "express": "^4.18.2",
+    "jest-environment-jsdom": "^29.6.2",
     "jsdom": "^22.1.0",
     "json": "^11.0.0",
     "jsx": "^0.9.89",
@@ -53,6 +56,7 @@
     "react-devtools": "^4.28.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
+    "ts-jest": "^29.1.1",
     "underscore": "^1.13.6"
   }
 }

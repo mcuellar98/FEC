@@ -48,7 +48,7 @@ const QA = ({product_id}) => {
       {modalVisible ?
         <div>
           <AddQuestion product_id={product_id} setQuestions={setQuestions} setModalVisible={setModalVisible}/>
-          <div className='blur'></div>
+          <div className='blur' onClick={handleAddQuestion}></div>
         </div>
         : null}
     </div>
