@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
+
 const ImageView = (props) => {
   const [currentPhoto, setCurrentPhoto] = useState(0);
 
@@ -17,12 +18,12 @@ const ImageView = (props) => {
   console.log(props.images.photos[0].url);
   return (
     <div id='images'>
-      <Carousel className='carousel-photo' useKeyboardArrows>
+      <Carousel width='90%' useKeyboardArrows>
         {props.images.photos.map((p, i) =>
           (
             <div key={i}>
-              <img style={imgStyle} src={p.url} />
-              <p className="photo-name">{props.images.name}</p>
+              <img className='carousel-pic' src={p.url} />
+              <p>Image Title</p>
             </div>
           )
         )}
