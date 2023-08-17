@@ -3,7 +3,7 @@ import AnswerList from './AnswerList.jsx';
 import moment from 'moment';
 import {markQuestionsHelpful, getQuestions} from './../../../fetch.jsx';
 
-const QAListEntry = ({product_id, question, questions, setQuestions}) => {
+const QAListEntry = ({product_id, question, questions, setQuestions, setAddAnswerVisible}) => {
 
   const [allowHelpfulClick, setAllowHelpfulClick] = useState(true);
 
@@ -25,6 +25,10 @@ const QAListEntry = ({product_id, question, questions, setQuestions}) => {
     }
   };
 
+  const handleAddAnswer = () => {
+    setAddAnswerVisible(true);
+  };
+
   return (
     <li className='qa_entry'>
       <div className='question'>
@@ -33,7 +37,7 @@ const QAListEntry = ({product_id, question, questions, setQuestions}) => {
           <div className='q_helpful'>
             <p className='question_helpful'onClick={handleHelpfulClick}>Helpful? Yes({question.question_helpfulness})</p>
             <p className='question_spacer'> | </p>
-            <p>Add Answer</p>
+            <p onClick={handleAddAnswer}>Add Answer</p>
           </div>
         </div>
         <div className='question_info'>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {getQuestions} from './../../../fetch.jsx';
 import _ from 'underscore';
 
-const Search = ({product_id, setQuestions, setQuery}) => {
+const Search = ({product_id, setQuestions, setQuery, qListSize}) => {
 
   const [resetQs, setResetQs] = useState(false);
 
@@ -18,7 +18,7 @@ const Search = ({product_id, setQuestions, setQuery}) => {
           });
         })
         .then((results) => {
-          setQuestions(results);
+          setQuestions(results.slice(0, qListSize));
         })
         .catch((err) => {
           console.log(err);
