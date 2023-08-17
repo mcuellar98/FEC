@@ -2,6 +2,7 @@ body {
   background-color: rgb(11, 11, 11);
   color: white;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-overflow: none;
 }
 :root {
   --qa-element-width: 100%;
@@ -90,42 +91,55 @@ body {
   display:flex;
   justify-content: center;
   color:rgb(230,230,230);
+  height: 100%;
 }
 #rform {
   margin-top: 30px;
   width:80%;
+  height: 105%;
+}
+#reviewText {
+  width: auto;
+  height: auto;
+  position: relative;
+}
+#reviewText textarea {
+  resize:vertical;
+}
+#testing {
+  position: absolute;
+  bottom: 1%;
+  right:1%;
+  cursor:default;
 }
 #nic-email {
   display: flex;
   justify-content: space-between;
 }
 #rnic, #remail {
+  display:grid;
   width: 50%;
 }
-#revRec, #revChar {
+#crStars > span {
+  font-size: 26px;
+  cursor:pointer;
+}
+#revChar {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+}
+#revRec {
+  display: flex;
   align-items: center;
 }
 #rchar {
   padding:0;
   width: auto;
-  color: red;
+  color: rgb(180,180,180);
 }
 #revChar > input, #revRec > input  {
   margin: 0 0 0 5px;
-}
-
-.crStars > span:hover:before, .crStars > span:hover ~ span:before {
-  content: "\2605";
-  position: absolute;
-  cursor: pointer;
-}
-.crStars {
-  unicode-bidi: normal;
-  direction: rtl;
-  display:flex;
-  justify-content: end;
 }
 
 #radioLabels {
@@ -152,17 +166,23 @@ body {
   right:1%;
   top:2%
 }
-
-#rSubmit {
+#rbuttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0 50px 0;
+}
+#rSubmit, #rImages {
+  bottom: 15%;
   color:rgb(230,230,230);
   background-color: rgb(11,11,11);
   border: 2px solid rgb(210,210,210);
-  width: 100%;
+  width: 30%;
   height: 60px;
   font-size: 20px;
   text-align: center;
   border-radius: 4px;
 }
+
 #revModal::-webkit-scrollbar {
   display:none;
 }
