@@ -41,7 +41,7 @@ const Overview = () => {
         <div>Thinking...</div>
       ) : (
         <div id='overview'>
-          <ImageView images={styles.results[0]} />
+          <ImageView images={styles.results[5]} />
           <div id='product-info-and-cart'>
             <ProductInfo product={product}/>
             <ProductStyles styles={styles} />

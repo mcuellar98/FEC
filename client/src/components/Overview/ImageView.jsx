@@ -8,7 +8,10 @@ import { Carousel } from 'react-responsive-carousel';
 const ImageView = (props) => {
   const [currentPhoto, setCurrentPhoto] = useState(0);
 
-  const imgStyle = {
+
+  var handleThumbClick = (index, item) => {
+    console.log(index, item);
+    //item.style.border = '10px solid blue';
   };
 
   useEffect(() => {
@@ -18,10 +21,12 @@ const ImageView = (props) => {
   console.log(props.images.photos[0].url);
   return (
     <div id='images'>
-      <Carousel width='90%' useKeyboardArrows>
+      <Carousel useKeyboardArrows dynamicHeight
+        onClickThumb={handleThumbClick}
+        selectedItem={currentPhoto}>
         {props.images.photos.map((p, i) =>
           (
-            <div key={i}>
+            <div key={i} className='carousel-img'>
               <img className='carousel-pic' src={p.url} />
               <p>Image Title</p>
             </div>

@@ -309,9 +309,20 @@ body {
   align-items: center;
 }
 
+.carousel .thumb {
+  border: 2px solid #00204a;
+  border-radius: 2px;
+}
+.carousel .thumb:hover {
+  border: 3px solid #00bbf0;
+}
+.carousel .thumb.selected {
+  border: 3px solid #fdb44b;
+}
 .carousel-pic {
-  max-width: 260px;
+  max-width: 245px;
   height: auto;
+  object-fit: cover;
 }
 
 #product-info-and-cart {
