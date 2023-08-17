@@ -109,24 +109,24 @@ const Review_Modal = ( props ) => {
           <input style={{width:'100%',height:'20px'}} placeholder='Example: Best purchase ever!'  onChange={handleSummary}/>
           <div id='reviewText'>
             <p>Review: </p>
-            <textarea style={{width:'100%'}} placeholder='Why did you like the product or not?' onChange={handleReview}></textarea>
+            <textarea style={{width:'100%'}} maxlength='1000' placeholder='Why did you like the product or not?' onChange={handleReview}></textarea>
             <i id='testing' style={{color:'rgb(180,180,180)', fontSize:'12px'}}>{num}</i>
           </div>
           <div id='nic-email'>
             <div id='rnic'>
               <p>Nickname: </p>
-              <input style={{width:'100%',height:'20px'}} placeholder='Example: jackson11' />
+              <input maxlength='60' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11' />
               <span style={{color:'rgb(180,180,180)', fontSize:'12px'}}>“For privacy reasons, do not use your full name or email address</span>
             </div>
             <div id='remail'>
               <p>Email: </p>
-              <input type='email' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11@email.com'/>
+              <input type='email' maxlength='60' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11@email.com'/>
               <span style={{color:'rgb(180,180,180)', fontSize:'12px'}}>For authentication reasons, you will not be emailed</span>
             </div>
           </div>
           <div id='rbuttons'>
-            <button id='rImages'>ADD IMAGES</button>
-            <button id='rSubmit'>SUBMIT </button>
+            <button id='rImages'><b>ADD IMAGES</b></button>
+            <button id='rSubmit'><b>SUBMIT</b></button>
           </div>
         </div>
       </div>
