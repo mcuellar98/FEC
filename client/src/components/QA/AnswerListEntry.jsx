@@ -2,13 +2,14 @@ import React, {useEffect, useState} from 'react';
 import ImageList from './ImageList.jsx';
 import moment from 'moment';
 import _ from 'underscore';
-import {markAnswerHelpful, getQuestions} from './../../../fetch.jsx';
+import {markAnswerHelpful, getQuestions, reportAnswer} from './../../../fetch.jsx';
 
 const AnswerListEntry = ({product_id, answer, setQuestions}) => {
 
   var date = moment(answer.date);
 
   const [allowHelpfulClick, setAllowHelpfulClick] = useState(true);
+  const [reported, setReported] = useState(false);
 
   const handleHelpfulClick = () => {
     if (allowHelpfulClick) {
@@ -19,6 +20,18 @@ const AnswerListEntry = ({product_id, answer, setQuestions}) => {
         .then((results) => {
           setQuestions(results.data.results);
           setAllowHelpfulClick(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
+  const handleReportClick = () => {
+    if (!reported) {
+      reportAnswer(answer.id)
+        .then((result) => {
+          setReported(true);
         })
         .catch((err) => {
           console.log(err);
@@ -38,8 +51,8 @@ const AnswerListEntry = ({product_id, answer, setQuestions}) => {
         <p className='answer_spacer'>|</p>
         <p>Helpful? </p>
         <p className = 'answer_helpful' onClick={handleHelpfulClick}>Yes({answer.helpfulness})</p>
-        {/* <p className='answer_spacer'>|</p> */}
-        {/* <p className='answer_report' onClick={handleReportClick}>{answer.reported ? 'Reported' : 'Report'}</p> */}
+        <p className='answer_spacer'>|</p>
+        <p className='answer_report' onClick={handleReportClick}>{reported ? 'Reported' : 'Report'}</p>
       </div>
     </li>
   );

@@ -90,6 +90,13 @@ const addAnswer = (id, body) => {
   });
 };
 
+//Put request to report Answer
+const reportAnswer = (id) => {
+  return axios.put(url + `qa/answers/${id}/report`, {}, {
+    headers: {Authorization: token},
+  });
+};
+
 export {
   getProducts,
   getProductById,
@@ -103,6 +110,7 @@ export {
   markAnswerHelpful,
   markQuestionsHelpful,
   addQuestion,
-  addAnswer
+  addAnswer,
+  reportAnswer
 };
 
