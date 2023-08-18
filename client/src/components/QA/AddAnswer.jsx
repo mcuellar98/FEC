@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useMemo} from 'react';
 import _ from 'underscore';
 import {getQuestions, addAnswer} from './../../../fetch.jsx';
 
@@ -7,8 +7,8 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
   const [question, setQuestion] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
-  // const [imgURL, setImgURL] = useState('');
   const [imageList, setImageList] = useState([]);
+  const [urlList, setUrlList] = useState([]);
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);
@@ -44,6 +44,7 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
         body: question,
         name: nickname,
         email: email,
+        photos: urlList
       };
       addAnswer(question_id, body)
         .then((results)=> {
@@ -64,7 +65,11 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
   const handleImageChange = (e) => {
     if (event.target.files && event.target.files[0]) {
       console.log(event.target.files[0]);
+      console.log(URL.createObjectURL(event.target.files[0]));
+      setUrlList(urlList.concat(URL.createObjectURL(event.target.files[0])));
       setImageList(imageList.concat(URL.createObjectURL(event.target.files[0])));
+      var fileURL = event.target.files[0] && URL.createObjectURL(event.target.files[0]);
+      console.log('file url', fileURL);
     }
   };
 
@@ -88,7 +93,7 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
       </label>
       <ul className = 'image_list'>
         {_.map(imageList, (image) => {
-          return <li className='add_answer_li' >
+          return <li key={image} className='add_answer_li' >
             <img className='add_answer_image' src={image}/>
           </li>;
         })}
