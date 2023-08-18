@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import _ from 'underscore';
-import {getQuestions, addQuestion} from './../../../fetch.jsx';
+import {getQuestions, addAnswer} from './../../../fetch.jsx';
 
-const AddAnswer = ({product_id, setQuestions, setModalVisible}) => {
+const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible}) => {
 
   const [question, setQuestion] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
+  // const [imgURL, setImgURL] = useState('');
+  const [imageList, setImageList] = useState([]);
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);
@@ -42,20 +44,27 @@ const AddAnswer = ({product_id, setQuestions, setModalVisible}) => {
         body: question,
         name: nickname,
         email: email,
-        product_id: product_id
       };
-      addQuestion(body)
+      addAnswer(question_id, body)
         .then((results)=> {
+          console.log(results);
           return getQuestions(product_id);
         })
         .then((results) => {
           console.log(results.data.results);
           setQuestions(results.data.results);
-          setModalVisible(false);
+          setAddAnswerVisible(false);
         })
         .catch((err) => {
           console.log(err);
         });
+    }
+  };
+
+  const handleImageChange = (e) => {
+    if (event.target.files && event.target.files[0]) {
+      console.log(event.target.files[0]);
+      setImageList(imageList.concat(URL.createObjectURL(event.target.files[0])));
     }
   };
 
@@ -67,14 +76,28 @@ const AddAnswer = ({product_id, setQuestions, setModalVisible}) => {
         <textarea maxLength='10000' required onChange={handleQuestionChange}/>
       </label>
       <label>What is your nickname*
-        <input placeholder={'Example: jackson11!'} maxLength='60' required onChange={handleNameChange}/>
+        <input placeholder={'Example: jack543!'} maxLength='60' required onChange={handleNameChange}/>
         <p><small>For privacy reasons, do not use your full name or email address</small></p>
       </label>
       <label>Your email*
-        <input placeholder={'Why did you like the product or not?'} maxLength='60' required onChange={handleEmailChange}/>
+        <input placeholder={'Example: jack@email.com'} maxLength='60' required onChange={handleEmailChange}/>
         <p><small>For authentication reasons, you will not be emailed</small></p>
       </label>
-      <button className='modal_button' onClick={handleSubmit}>SUBMIT</button>
+      <label className="add_images_button"> Add Images
+        <input type = "file" name = "upload" accept = "image/*" onChange={handleImageChange} style={{display: 'none'}}/>
+      </label>
+      <ul className = 'image_list'>
+        {_.map(imageList, (image) => {
+          return <li className='add_answer_li' >
+            <img className='add_answer_image' src={image}/>
+          </li>;
+        })}
+      </ul>
+      {/* <div>Image Container
+        <img src={imgURL}></img>
+      </div> */}
+      <button className='modal_button' onClick=
+        {handleSubmit}>SUBMIT</button>
     </form>
   );
 };

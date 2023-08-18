@@ -7,7 +7,6 @@ import {markAnswerHelpful, getQuestions} from './../../../fetch.jsx';
 const AnswerListEntry = ({product_id, answer, setQuestions}) => {
 
   var date = moment(answer.date);
-  const updateQuestionsOnce = _.once(setQuestions);
 
   const [allowHelpfulClick, setAllowHelpfulClick] = useState(true);
 
@@ -18,7 +17,7 @@ const AnswerListEntry = ({product_id, answer, setQuestions}) => {
           return getQuestions(product_id);
         })
         .then((results) => {
-          updateQuestionsOnce(results.data.results);
+          setQuestions(results.data.results);
           setAllowHelpfulClick(false);
         })
         .catch((err) => {
@@ -37,7 +36,8 @@ const AnswerListEntry = ({product_id, answer, setQuestions}) => {
           <p>by {answer.answerer_name}, {date.format('MMMM DD, YYYY')}</p>
         }
         <p className='answer_spacer'>|</p>
-        <p className = 'answer_helpful' onClick={handleHelpfulClick}>Helpful? Yes({answer.helpfulness})</p>
+        <p>Helpful? </p>
+        <p className = 'answer_helpful' onClick={handleHelpfulClick}>Yes({answer.helpfulness})</p>
         {/* <p className='answer_spacer'>|</p> */}
         {/* <p className='answer_report' onClick={handleReportClick}>{answer.reported ? 'Reported' : 'Report'}</p> */}
       </div>

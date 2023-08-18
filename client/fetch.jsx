@@ -83,6 +83,13 @@ const addQuestion = (body) => {
   });
 };
 
+//Post request to add Answer
+const addAnswer = (id, body) => {
+  return axios.post(url + `qa/questions/${id}/answers`, body, {
+    headers: {Authorization: token},
+  });
+};
+
 export {
   getProducts,
   getProductById,
@@ -95,6 +102,7 @@ export {
   getQuestions,
   markAnswerHelpful,
   markQuestionsHelpful,
-  addQuestion
+  addQuestion,
+  addAnswer
 };
 
