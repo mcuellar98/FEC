@@ -77,10 +77,9 @@ const markQuestionsHelpful = (id) => {
 };
 
 //Post request to add Question
-const addQuestion = (p) => {
-  return axios.post(url + 'qa/questions', {
+const addQuestion = (body) => {
+  return axios.post(url + 'qa/questions', body, {
     headers: {Authorization: token},
-    params: p
   });
 };
 

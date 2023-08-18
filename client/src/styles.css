@@ -403,6 +403,7 @@ body {
   font-weight: 500;
   border-radius: 10px;
 }
+
 #recPer, #revtxt, #rateBar {
   font-size: 12px;
 }
@@ -453,19 +454,35 @@ body {
 #overview {
   border: 1px solid red;
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns:6fr 4fr;
   grid-template-rows: 40em;
   grid-gap: 8px;
   justify-content: center;
 }
 
 #images {
-  border: 1px solid lightblue;
   margin: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.carousel .thumb {
+  border: 2px solid #00204a;
+  border-radius: 2px;
+}
+.carousel .thumb:hover {
+  border: 3px solid #00bbf0;
+}
+.carousel .thumb.selected {
+  border: 3px solid #fdb44b;
+}
+.carousel-pic {
+  max-width: 245px;
+  height: auto;
+  object-fit: cover;
+}
+
 #product-info-and-cart {
   display: grid;
   grid-template-columns: 1fr;

@@ -38,20 +38,20 @@ const AddQuestion = ({product_id, setQuestions, setModalVisible}) => {
     } else if (!re.test(email)) {
       alert('Incorrect format for email');
     } else {
-      var params = {
+      var body = {
         body: question,
         name: nickname,
         email: email,
         product_id: product_id
       };
-      console.log(params);
-      addQuestion(params)
-        .then(()=> {
+      addQuestion(body)
+        .then((results)=> {
           return getQuestions(product_id);
         })
         .then((results) => {
+          console.log(results.data.results);
           setQuestions(results.data.results);
-          //setModalVisible(false);
+          setModalVisible(false);
         })
         .catch((err) => {
           console.log(err);
