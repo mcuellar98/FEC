@@ -43,9 +43,7 @@ const Review = ( { review, partFilled } ) => {
     <div id='rndtile'>
       <div id='rnd'>
         <div id='stars'>
-          <div id='star-container'>
           <p id='revheaders'>{partFilled(review.rating)}</p>
-          </div>
         </div>
         <span id='revtxt'>{review.reviewer_name}, {getDate(review.date)}</span>
       </div>

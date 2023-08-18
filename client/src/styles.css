@@ -112,13 +112,8 @@ body {
   right:1%;
   cursor:default;
 }
-#nic-email {
-  display: flex;
-  justify-content: space-between;
-}
 #rnic, #remail {
   display:grid;
-  width: 50%;
 }
 #crStars > span {
   font-size: 26px;
@@ -126,12 +121,16 @@ body {
 }
 #revChar {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr) auto;
   align-items: center;
+  margin: 0;
 }
 #revRec {
   display: flex;
   align-items: center;
+}
+#revRec > p, #revRec > #radioLabels > input {
+  margin-right:10px;
 }
 #rchar {
   padding:0;
@@ -145,13 +144,15 @@ body {
 #radioLabels {
   height: auto;
   padding: 0;
-  margin-left: 10px;
   font-size: 12px;
   color:rgb(180,180,180);
 }
 #radioLabels > b {
   font-size: 16px;
   color:rgb(210,210,210);
+}
+#radioLabels > input {
+  margin:0;
 }
 
 #rExit {

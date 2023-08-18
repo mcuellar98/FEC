@@ -109,21 +109,19 @@ const Review_Modal = ( props ) => {
           <input style={{width:'100%',height:'20px'}} placeholder='Example: Best purchase ever!'  onChange={handleSummary}/>
           <div id='reviewText'>
             <p>Review: </p>
-            <textarea style={{width:'100%'}} maxlength='1000' placeholder='Why did you like the product or not?' onChange={handleReview}></textarea>
-            <i id='testing' style={{color:'rgb(180,180,180)', fontSize:'12px'}}>{num}</i>
+            <textarea style={{width:'100%'}} maxLength='1000' placeholder='Why did you like the product or not?' onChange={handleReview}></textarea>
+            <i id='testing' style={{color:'rgb(160,160,160)', fontSize:'12px'}}>{num}</i>
           </div>
-          <div id='nic-email'>
             <div id='rnic'>
               <p>Nickname: </p>
-              <input maxlength='60' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11' />
-              <span style={{color:'rgb(180,180,180)', fontSize:'12px'}}>“For privacy reasons, do not use your full name or email address</span>
+              <input maxLength='60' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11' />
+              <span style={{color:'rgb(180,180,180)', fontSize:'10px', minWidth: '250px'}}>“For privacy reasons, do not use your full name or email address</span>
             </div>
             <div id='remail'>
               <p>Email: </p>
-              <input type='email' maxlength='60' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11@email.com'/>
-              <span style={{color:'rgb(180,180,180)', fontSize:'12px'}}>For authentication reasons, you will not be emailed</span>
+              <input type='email' maxLength='60' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11@email.com'/>
+              <span style={{color:'rgb(180,180,180)', fontSize:'10px', minWidth: '250px'}}>For authentication reasons, you will not be emailed</span>
             </div>
-          </div>
           <div id='rbuttons'>
             <button id='rImages'><b>ADD IMAGES</b></button>
             <button id='rSubmit'><b>SUBMIT</b></button>
