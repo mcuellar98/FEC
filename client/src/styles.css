@@ -547,9 +547,8 @@ body {
 }
 
 #overview {
-  border: 1px solid red;
   display: grid;
-  grid-template-columns:6fr 4fr;
+  grid-template-columns: 4fr 5fr;
   grid-template-rows: 40em;
   grid-gap: 8px;
   justify-content: center;
@@ -584,10 +583,8 @@ body {
   grid-template-rows: 5fr 4fr 4fr;
   grid-gap: 4px;
   padding: 10px;
-  border: 1px solid blue;
 }
 #product-info-and-cart > div {
-  border: 1px solid lightblue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -645,4 +642,9 @@ body {
     color:red;
     cursor: pointer;
   }
+}
+#product-info {
+  margin-left: 40px;
+  justify-self: flex-start;
+  text-align: left;
 }

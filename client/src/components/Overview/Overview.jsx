@@ -17,13 +17,13 @@ const Overview = () => {
   var getProduct = () => {
     getProducts().then(result => {
       setProduct(result.data[0]);
-      console.log('result', result.data[0]);
+      //console.log('result', result.data[0]);
       return getProductById(result.data[0].id);
     }).then(result2 => {
       console.log('info', result2.data);
       return getStylesById(result2.data.id);
     }).then(result3 => {
-      console.log('styles:', result3.data);
+      //console.log('styles:', result3.data);
       setStyles(result3.data);
       setIsLoading(false);
     }).catch(err => {

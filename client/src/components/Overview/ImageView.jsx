@@ -11,14 +11,13 @@ const ImageView = (props) => {
 
   var handleThumbClick = (index, item) => {
     console.log(index, item);
-    //item.style.border = '10px solid blue';
+
   };
 
   useEffect(() => {
 
   }, []);
 
-  console.log(props.images.photos[0].url);
   return (
     <div id='images'>
       <Carousel useKeyboardArrows dynamicHeight
