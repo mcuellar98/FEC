@@ -45,33 +45,6 @@ const RatingsReviews = (props) => {
   }
 //#endregion
 
-//#region stars
-
-  //refactor to have % of stars in one function
-  //.05,0.1,.15 -> 5
-  const partFilled = (rating) => {
-    const part = Math.round(20 * (rating / 5)) / 20;
-    const percent = 100 * part;
-    var styles = {
-      color: 'transparent',
-      WebkitBackgroundClip: 'text',
-      fontSize: '14px',
-      WebkitTextStroke: '0.7px white',
-    }
-    if (percent % 10 === 0) {
-      styles.backgroundImage = `linear-gradient(to right, white ${percent}%, transparent ${percent}%, transparent 100%)`;
-    } else if ((percent - 5) % 20 === 0) {
-      const temp = percent + 2.5;
-      styles.backgroundImage = `linear-gradient(to right, white ${temp}%, transparent ${temp}%, transparent 100%)`;
-    } else {
-      const temp = percent - 2.5;
-      styles.backgroundImage = `linear-gradient(to right, white ${temp}%, transparent ${temp}%, transparent 100%)`;
-    }
-    return (<span id='partFilled' style={styles} >★★★★★</span>);
-  }
-
-  //#endregion
-
   useEffect(() => {
     setDC(data);
   }, [data]);
@@ -141,14 +114,14 @@ const RatingsReviews = (props) => {
       <div id='RnR-par'>
         <div id='RnR'>
           <div id='ratings'>
-            <RatingBreakdown id={props.id} reviews={meta} partFilled={partFilled} filtering={filtering} />
+            <RatingBreakdown id={props.id} reviews={meta} filtering={filtering} />
             <ProductBreakdown id={props.id} meta={meta}/>
           </div>
           <div id='space-between'></div>
           <div id='reviews-sec'>
             <div id='reviews'>
               <Sorter id={props.id} reviews={data} sorting={sorting}/>
-              <ReviewList id={props.id} reviews={dataCopy} partFilled={partFilled} view={viewModal} sV={setVM} meta={meta}/>
+              <ReviewList id={props.id} reviews={dataCopy} view={viewModal} sV={setVM} meta={meta}/>
             </div>
           </div>
         </div>

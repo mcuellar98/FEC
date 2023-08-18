@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { helpfulReview,reportReview } from '../../../fetch.jsx';
+import { partFilled,getDate } from './Helper.jsx'
 
-const Review = ( { review, partFilled } ) => {
+const Review = ( { review } ) => {
   const [ helpful,setHelpful ] = useState(false);
   const [ report,setReport ] = useState(false);
   const [ helpCount, setHC ] = useState(review.helpfulness)
@@ -24,19 +25,6 @@ const Review = ( { review, partFilled } ) => {
         })
     }
     e.preventDefault();
-  }
-
-  const getDate = (date) => {
-    const newDate = new Date(date);
-    const year = newDate.getFullYear();
-    const monthInd = newDate.getMonth();
-    const day = newDate.getDate();
-
-    const months = ['January ', 'February ', 'March ', 'April ', 'May ', 'June ', 'July ', 'August ', 'September ', 'October ', 'November ', 'December '];
-
-    const month = months[monthInd];
-
-    return month + day + ', ' + year;
   }
 
   return (

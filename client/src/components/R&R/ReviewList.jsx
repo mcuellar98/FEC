@@ -3,7 +3,7 @@ import Review from './Review.jsx';
 import Review_Modal from './Review_Modal.jsx'
 import { getReviewsById,getMetaReviews,postReview } from '../../../fetch.jsx';
 
-const ReviewList = ( {id,reviews,partFilled,view,sV,meta} ) => {
+const ReviewList = ( {id,reviews,view,sV,meta} ) => {
   const [ list,setList ] = useState([]);
   const [ len,setLen ] = useState(2);
 
