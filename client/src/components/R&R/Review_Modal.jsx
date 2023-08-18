@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AddImage from './AddImage.jsx'
 
 const Review_Modal = ( props ) => {
   const [ rating,setRating ] = useState(0);
@@ -7,6 +8,7 @@ const Review_Modal = ( props ) => {
   const [ rev,setRev ] = useState('');
   const [ num, setNum ] = useState('Minimum required characters left: 50')
 
+  const imagesLength = [1,2,3,4,5]
   useEffect(() => {
     var characteristics = Object.keys(props.meta.characteristics)
     setChars(characteristics);
@@ -112,18 +114,23 @@ const Review_Modal = ( props ) => {
             <textarea style={{width:'100%'}} maxLength='1000' placeholder='Why did you like the product or not?' onChange={handleReview}></textarea>
             <i id='testing' style={{color:'rgb(160,160,160)', fontSize:'12px'}}>{num}</i>
           </div>
-            <div id='rnic'>
-              <p>Nickname: </p>
-              <input maxLength='60' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11' />
-              <span style={{color:'rgb(180,180,180)', fontSize:'10px', minWidth: '250px'}}>“For privacy reasons, do not use your full name or email address</span>
-            </div>
-            <div id='remail'>
-              <p>Email: </p>
-              <input type='email' maxLength='60' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11@email.com'/>
-              <span style={{color:'rgb(180,180,180)', fontSize:'10px', minWidth: '250px'}}>For authentication reasons, you will not be emailed</span>
-            </div>
+          <p>Add Images:</p>
+          <div id='rAddImages'>
+            {imagesLength.map((num) => {
+              return (<AddImage key={num}/>)
+            })}
+          </div>
+          <div id='rnic'>
+            <p>Nickname: </p>
+            <input maxLength='60' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11' />
+            <span style={{color:'rgb(180,180,180)', fontSize:'10px', minWidth: '250px'}}>For privacy reasons, do not use your full name or email address</span>
+          </div>
+          <div id='remail'>
+            <p>Email: </p>
+            <input type='email' maxLength='60' style={{width:'100%',height:'20px'}} placeholder='Example: jackson11@email.com'/>
+            <span style={{color:'rgb(180,180,180)', fontSize:'10px', minWidth: '250px'}}>For authentication reasons, you will not be emailed</span>
+          </div>
           <div id='rbuttons'>
-            <button id='rImages'><b>ADD IMAGES</b></button>
             <button id='rSubmit'><b>SUBMIT</b></button>
           </div>
         </div>

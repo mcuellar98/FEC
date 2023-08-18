@@ -25,7 +25,6 @@ const ReviewList = ( {id,reviews,view,sV,meta} ) => {
     e.preventDefault();
     setLen(len + 2);
   }
-
   const handleCollapse = (e) => {
     e.preventDefault();
     setLen(2);

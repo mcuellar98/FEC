@@ -83,7 +83,7 @@ body {
   border: 2px solid rgb(230,230,230);
   border-radius: 10px;
   box-shadow: 4px 4px 4px 4px rgba(80,80,80,0.4);
-  overflow: auto;
+  overflow-y: scroll;
   justify-content: center;
 }
 #revTest {
@@ -103,8 +103,39 @@ body {
   height: auto;
   position: relative;
 }
-#reviewText textarea {
+#reviewText > textarea {
   resize:vertical;
+}
+
+#rAddImages {
+  margin-top:20px;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
+#raddingImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+}
+#imgModal {
+  position:absolute;
+  display:flex;
+  transform: translate(-50%,-50%);
+  left:50%;
+  top: 150%;
+  width: 400%;
+  height: 150%;
+  z-index: 5;
+  background: rgb(11,11,11);
+  border: 2px solid rgb(230,230,230);
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px 4px rgba(80,80,80,0.4);
+}
+#imginput {
+  margin-left:10px;
 }
 #testing {
   position: absolute;
@@ -169,10 +200,10 @@ body {
 }
 #rbuttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 50px 0 50px 0;
 }
-#rSubmit, #rImages {
+#rSubmit {
   margin-bottom: 30px;
   color:rgb(230,230,230);
   background-color: rgb(11,11,11);
