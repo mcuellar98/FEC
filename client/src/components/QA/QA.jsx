@@ -16,7 +16,6 @@ const QA = ({product_id}) => {
   useEffect(() => {
     getQuestions(product_id)
       .then((results) => {
-        console.log(results.data.results);
         var questionList = _.sortBy(results.data.results, (q) => {
           return -q.question_helpfulness;
         });
@@ -35,7 +34,6 @@ const QA = ({product_id}) => {
     setModalVisible(!modalVisible);
   };
 
-  console.log(questions.length, qListSize);
   return (
     <div className='qa'>
       <p id='qa_title'>QUESTIONS & ANSWERS</p>

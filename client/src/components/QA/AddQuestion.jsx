@@ -60,22 +60,25 @@ const AddQuestion = ({product_id, setQuestions, setModalVisible}) => {
   };
 
   return (
-    <form className='add_modal'>
-      <p className='modal_title'>Ask Your Question </p>
-      <p className='modal_sub_title'>About {'insert product here'}</p>
-      <label>Your Question*
-        <textarea maxLength='10000' required onChange={handleQuestionChange}/>
-      </label>
-      <label>What is your nickname*
-        <input placeholder={'Example: jackson11!'} maxLength='60' required onChange={handleNameChange}/>
-        <p><small>For privacy reasons, do not use your full name or email address</small></p>
-      </label>
-      <label>Your email*
-        <input placeholder={'Why did you like the product or not?'} maxLength='60' required onChange={handleEmailChange}/>
-        <p><small>For authentication reasons, you will not be emailed</small></p>
-      </label>
-      <button className='modal_button' onClick={handleSubmit}>SUBMIT</button>
-    </form>
+    <div className='add_modal'>
+      <p className='exit' onClick={() => {setModalVisible(false); }}>&times;</p>
+      <form>
+        <p className='modal_title'>Ask Your Question </p>
+        <p className='modal_sub_title'>About {'insert product here'}</p>
+        <label>Your Question*
+          <textarea maxLength='10000' required onChange={handleQuestionChange}/>
+        </label>
+        <label>What is your nickname*
+          <input placeholder={'Example: jackson11!'} maxLength='60' required onChange={handleNameChange}/>
+          <p><small>For privacy reasons, do not use your full name or email address</small></p>
+        </label>
+        <label>Your email*
+          <input placeholder={'Why did you like the product or not?'} maxLength='60' required onChange={handleEmailChange}/>
+          <p><small>For authentication reasons, you will not be emailed</small></p>
+        </label>
+        <button className='modal_button' onClick={handleSubmit}>SUBMIT</button>
+      </form>
+    </div>
   );
 };
 

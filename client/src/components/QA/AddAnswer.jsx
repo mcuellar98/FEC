@@ -8,7 +8,7 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [imageList, setImageList] = useState([]);
-  const [urlList, setUrlList] = useState([]);
+  const [imageFiles, setImageFiles] = useState([]);
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);
@@ -44,15 +44,13 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
         body: question,
         name: nickname,
         email: email,
-        photos: urlList
+        photos: imageList
       };
       addAnswer(question_id, body)
         .then((results)=> {
-          console.log(results);
           return getQuestions(product_id);
         })
         .then((results) => {
-          console.log(results.data.results);
           setQuestions(results.data.results);
           setAddAnswerVisible(false);
         })
@@ -63,47 +61,49 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
   };
 
   const handleImageChange = (e) => {
-    if (event.target.files && event.target.files[0]) {
-      console.log(event.target.files[0]);
-      console.log(URL.createObjectURL(event.target.files[0]));
-      setUrlList(urlList.concat(URL.createObjectURL(event.target.files[0])));
-      setImageList(imageList.concat(URL.createObjectURL(event.target.files[0])));
-      var fileURL = event.target.files[0] && URL.createObjectURL(event.target.files[0]);
-      console.log('file url', fileURL);
-    }
+    var urlList = [];
+    var fileList = [];
+    _.each(event.target.files, (file) => {
+      if (!imageFiles.includes(file.name)) {
+        urlList.push(URL.createObjectURL(file));
+        fileList.push(file.name);
+      }
+    });
+    setImageList(imageList.concat(urlList));
+    setImageFiles(fileList);
   };
 
   return (
-    <form className='add_modal'>
-      <p className='modal_title'>Submit your Answer</p>
-      <p className='modal_sub_title'>{'insert product name and question body here'}</p>
-      <label>Your Answer*
-        <textarea maxLength='10000' required onChange={handleQuestionChange}/>
-      </label>
-      <label>What is your nickname*
-        <input placeholder={'Example: jack543!'} maxLength='60' required onChange={handleNameChange}/>
-        <p><small>For privacy reasons, do not use your full name or email address</small></p>
-      </label>
-      <label>Your email*
-        <input placeholder={'Example: jack@email.com'} maxLength='60' required onChange={handleEmailChange}/>
-        <p><small>For authentication reasons, you will not be emailed</small></p>
-      </label>
-      <label className="add_images_button"> Add Images
-        <input type = "file" name = "upload" accept = "image/*" onChange={handleImageChange} style={{display: 'none'}}/>
-      </label>
-      <ul className = 'image_list'>
-        {_.map(imageList, (image) => {
-          return <li key={image} className='add_answer_li' >
-            <img className='add_answer_image' src={image}/>
-          </li>;
-        })}
-      </ul>
-      {/* <div>Image Container
-        <img src={imgURL}></img>
-      </div> */}
-      <button className='modal_button' onClick=
-        {handleSubmit}>SUBMIT</button>
-    </form>
+    <div className='add_modal'>
+      <p className='exit' onClick={() => { setAddAnswerVisible(false); }}>&times;</p>
+      <form>
+        <p className='modal_title'>Submit your Answer</p>
+        <p className='modal_sub_title'>{'insert product name and question body here'}</p>
+        <label>Your Answer*
+          <textarea maxLength='10000' required onChange={handleQuestionChange}/>
+        </label>
+        <label>What is your nickname*
+          <input placeholder={'Example: jack543!'} maxLength='60' required onChange={handleNameChange}/>
+          <p><small>For privacy reasons, do not use your full name or email address</small></p>
+        </label>
+        <label>Your email*
+          <input placeholder={'Example: jack@email.com'} maxLength='60' required onChange={handleEmailChange}/>
+          <p><small>For authentication reasons, you will not be emailed</small></p>
+        </label>
+        <label className="add_images_button"> Add Images
+          <input type = "file" name = "upload" accept = "image/*" onChange={handleImageChange} style={{display: 'none'}} multiple/>
+        </label>
+        <ul className = 'image_list'>
+          {_.map(imageList, (image) => {
+            return <li key={image} className='add_answer_li' >
+              <img className='add_answer_image' src={image}/>
+            </li>;
+          })}
+        </ul>
+        <button className='modal_button' onClick=
+          {handleSubmit}>SUBMIT</button>
+      </form>
+    </div>
   );
 };
 
