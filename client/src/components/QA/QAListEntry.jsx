@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import AnswerList from './AnswerList.jsx';
 import AddAnswer from './AddAnswer.jsx';
 import moment from 'moment';
-import {markQuestionsHelpful, getQuestions} from './../../../fetch.jsx';
+import {markQuestionsHelpful, getQuestions, reportQuestion} from './../../../fetch.jsx';
 
 const QAListEntry = ({product_id, question, setQuestions}) => {
 
   const [allowHelpfulClick, setAllowHelpfulClick] = useState(true);
   const [addAnswerVisible, setAddAnswerVisible] = useState(false);
+  const [reported, setReported] = useState(question.reported);
 
   var date = moment(question.question_date);
 
@@ -31,6 +32,19 @@ const QAListEntry = ({product_id, question, setQuestions}) => {
     }
   };
 
+  const handleReportClick = () => {
+    if (!reported) {
+      reportQuestion(question.question_id)
+        .then((result) => {
+          setReported(true);
+          question.question_id = true;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   return (
     <li className='qa_entry'>
       <div className='question'>
@@ -41,6 +55,8 @@ const QAListEntry = ({product_id, question, setQuestions}) => {
             <p className='question_helpful' onClick={handleHelpfulClick}>Yes({question.question_helpfulness})</p>
             <p className='question_spacer'> | </p>
             <p className='add_answer' onClick={handleAddAnswer}>Add Answer</p>
+            <p className='answer_spacer'>|</p>
+            <p className='answer_report' onClick={handleReportClick}>{reported ? 'Reported' : 'Report'}</p>
           </div>
         </div>
         <div className='question_info'>
