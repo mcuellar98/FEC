@@ -21,7 +21,9 @@ const AddImage = () => {
     const input = document.getElementById('rimgurl');
     input.addEventListener("keypress", (event) => {
       if (event.keyCode === 13) {
-        document.getElementById('rimgurlenter').click();
+        e.preventDefault();
+        setSM(false);
+        setS(true);
         return false;
       }
     })
@@ -46,8 +48,8 @@ const AddImage = () => {
       (
         <div>
           <div id='imgModal'>
+            <p style={{fontSize:'14px',marginLeft:'10px'}}>Input Image URL: </p>
             <div id='imginput'>
-              <p style={{fontSize:'14px'}}>Input Image URL: </p>
               <input id='rimgurl' style={{width:'90%'}} onChange={handleChange} placeholder='Example: "https://s.w-x.co/in-cat_in_glasses.jpg"'/>
               <button id='rimgurlenter' onClick={handleSubmit}>Submit</button>
             </div>

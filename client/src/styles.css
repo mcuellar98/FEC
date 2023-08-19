@@ -150,7 +150,6 @@ body {
 }
 #imgModal {
   position:absolute;
-  display:flex;
   transform: translate(-50%,-50%);
   left:50%;
   top: 150%;
@@ -163,7 +162,24 @@ body {
   box-shadow: 4px 4px 4px 4px rgba(80,80,80,0.4);
 }
 #imginput {
-  margin-left:10px;
+  display:flex;
+  margin: 0 10px 0 10px;
+}
+#rimgurl {
+  width:67%;
+  height:100%;
+}
+#rimgurlenter {
+  margin-bottom: 30px;
+  color:rgb(230,230,230);
+  background-color: rgb(11,11,11);
+  border: 2px solid rgb(210,210,210);
+  width: 25%;
+  height: 100%;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 4px;
+  cursor:pointer;
 }
 #testing {
   position: absolute;
