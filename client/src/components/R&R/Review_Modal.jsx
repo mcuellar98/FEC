@@ -110,17 +110,18 @@ const Review_Modal = ( props ) => {
     e.preventDefault();
     chars.forEach(char => {
       if (size !== 0 && char === 'Size') {
-        obj[char] = size;
+        obj[props.meta.characteristics[char].id] = size;
       } else if (width !== 0 && char === 'Width') {
-        obj[char] = width;
+        obj[props.meta.characteristics[char].id] = width;
       } else if (length !== 0 && char === 'Length') {
-        obj[char] = length;
+        obj[props.meta.characteristics[char].id] = length;
       } else if (comfort !== 0 && char === 'Comfort') {
-        obj[char] = comfort;
+        obj[props.meta.characteristics[char].id] = comfort;
       } else if (fit !== 0 && char === 'Fit') {
-        obj[char] = fit;
+        obj[props.meta.characteristics[char].id] = fit;
       } else if (quality !== 0 && char === 'Quality') {
-        obj[char] = quality;
+        obj[props.meta.characteristics[char].id] = quality;
+
       } else {
         alert('Characteristics Must Be Rated!');
       }
@@ -141,7 +142,10 @@ const Review_Modal = ( props ) => {
       alert('Email Must Be Input!');
     }
     else {
-    // postReview( {product_id: props.id, rating: rating, summary: summary, body: rev, recommend: rec, name: name, email: email, photos: images, characteristics:obj} )
+      postReview( {product_id: props.id, rating: rating, summary: summary, body: rev, recommend: rec, name: name, email: email, photos: images, characteristics:obj} )
+        .then(() => {
+          props.refresh(props.id, 'Relevance');
+        })
       props.sV(false);
     }
   }
