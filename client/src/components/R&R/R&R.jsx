@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { getReviewsById,getMetaReviews,postReview } from '../../../fetch.jsx';
+import { getReviewsById,getMetaReviews } from '../../../fetch.jsx';
 import ReviewList from './ReviewList.jsx';
 import Sorter from './Sorter.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
@@ -31,14 +31,6 @@ const RatingsReviews = (props) => {
     getMetaReviews(prodID)
       .then((resp) => {
         setMeta(resp.data);
-      }) .catch((err) => {
-        console.log(err)
-      })
-  }
-  var post = (prodID,review) => {
-    postReview(prodID)
-      .then((resp) => {
-        setData(resp.data);
       }) .catch((err) => {
         console.log(err)
       })

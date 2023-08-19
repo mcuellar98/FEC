@@ -53,7 +53,7 @@ const ReviewList = ( {id,reviews,view,sV,meta} ) => {
         {
           view ? (
             <div>
-              <Review_Modal view={view} sV={sV} meta={meta}/>
+              <Review_Modal view={view} id={id} sV={sV} meta={meta}/>
               <div onClick={handleExit} className='blur'></div>
             </div>) : <></>
         }

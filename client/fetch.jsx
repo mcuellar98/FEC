@@ -48,7 +48,7 @@ const getMetaReviews = (id) => {
 };
 
 //POST request for Review
-const postReview = (id, review /* review should be an object including product_id */) => {
+const postReview = (review /* review should be an object including product_id */) => {
   return axios.post(url + 'reviews', review, headers);
 };
 

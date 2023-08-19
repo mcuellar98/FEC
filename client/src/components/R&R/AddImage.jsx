@@ -31,7 +31,6 @@ const AddImage = ({img,add,del}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(imgURL)
-    // img.push(imgURL)
     add(imgURL);
     setSM(false);
     setS(true);
