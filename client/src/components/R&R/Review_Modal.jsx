@@ -16,10 +16,12 @@ const Review_Modal = ( props ) => {
 
   const handleExit = (e) => {
     e.preventDefault();
+    if (e.target.keyCode === 13) {
+      e.preventDefault();
+    }
     props.sV(false);
   }
   const handleStar = (e,value) => {
-    e.preventDefault();
     for (var i = 5; i > value; i--) {
       var el = document.getElementById(i);
       el.textContent = '☆';
@@ -28,14 +30,13 @@ const Review_Modal = ( props ) => {
       var el = document.getElementById(i);
       el.textContent = '★';
     }
-    setRating(value);
   }
   const handleSummary = (e) => {
-    e.preventDefault();
     setSummary(e.target.value)
+    return false;
+
   }
   const handleReview = (e) => {
-    e.preventDefault();
     setRev(e.target.value)
     if (e.target.value.length < 50) {
       setNum(`Minimum required characters left: ${50 - e.target.value.length}`)
@@ -43,12 +44,15 @@ const Review_Modal = ( props ) => {
       setNum('Minimum Reached')
     }
   }
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('hi')
+  }
   {/* Please dont judge me too hard if youre reading this code */}
   return (
-    <form id='revModal'>
+    <form id='revModal' onSubmit={(e) => handleSubmit(e)}>
       <div id='revTest'>
-        <button id='rExit' onClick={handleExit}> X </button>
+        <button id='rExit'><span onClick={(e)=>{handleExit(e)}} >X</span></button>
         <div id='rform'>
         <p> Overall Rating: </p>
           <div id='crStars'>
@@ -108,7 +112,7 @@ const Review_Modal = ( props ) => {
             <label id='radioLabels'> Runs long: <input value={5} name='fit' type='radio'/></label>
           </div>) : (<></>)}
           <p>Review Summary: </p>
-          <input style={{width:'100%',height:'20px'}} placeholder='Example: Best purchase ever!'  onChange={handleSummary}/>
+          <input type='text' style={{width:'100%',height:'20px'}} placeholder='Example: Best purchase ever!' onChange={handleSummary}/>
           <div id='reviewText'>
             <p>Review: </p>
             <textarea style={{width:'100%'}} maxLength='1000' placeholder='Why did you like the product or not?' onChange={handleReview}></textarea>

@@ -120,6 +120,34 @@ body {
   font-size: 30px;
   cursor: pointer;
 }
+#rimagediv {
+  width: 60px;
+  height: 60px;
+  border:2px solid rgb(230,230,230);
+  border-radius: 50%;
+  display:relative;
+  overflow:hidden;
+}
+#rimage {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+#imgesc {
+  position:absolute;
+  border: 2px solid rgb(230,230,230);
+  border-radius: 50%;
+  font-size:10px;
+  width: 12px;
+  height:12px;
+  text-align: center;
+  background-color: red;
+  color:rgb(230,230,230);
+  top:0;
+  right:0;
+  margin:0;
+  cursor: pointer;
+}
 #imgModal {
   position:absolute;
   display:flex;

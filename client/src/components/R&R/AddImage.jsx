@@ -10,14 +10,36 @@ const AddImage = () => {
     setSM(true);
   }
   const handleExit = (e) => {
+    if (e.target.keyCode === 13) {
+      e.preventDefault();
+    } else {
+      setSM(false);
+    }
+  }
+  const handleChange = (e) => {
+    setURL(e.target.value);
+    const input = document.getElementById('rimgurl');
+    input.addEventListener("keypress", (event) => {
+      if (event.keyCode === 13) {
+        document.getElementById('rimgurlenter').click();
+        return false;
+      }
+    })
+  }
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSM(false);
+    setS(true);
   }
-
+  const handleDel = (e) => {
+    e.preventDefault();
+    setS(false);
+    setURL('');
+  }
   return (
     <div id='rAddImages'>
       {submitted ?
-      (<img id='rimage' src={imgURL} />) :
+      (<div id='rimagediv'><img id='rimage' src={imgURL} /><p id='imgesc' onClick={handleDel}>x</p></div>) :
       (<button id='raddingImg' onClick={handleClick}>+</button>)
       }
       {showModal ?
@@ -26,10 +48,11 @@ const AddImage = () => {
           <div id='imgModal'>
             <div id='imginput'>
               <p style={{fontSize:'14px'}}>Input Image URL: </p>
-              <input style={{width:'120%'}} placeholder='Example: "https://s.w-x.co/in-cat_in_glasses.jpg"'/>
+              <input id='rimgurl' style={{width:'90%'}} onChange={handleChange} placeholder='Example: "https://s.w-x.co/in-cat_in_glasses.jpg"'/>
+              <button id='rimgurlenter' onClick={handleSubmit}>Submit</button>
             </div>
           </div>
-          <div style={{width:'100vw',height:'100vh',position:'fixed',transform:'translate(-50%,-50%)'}}onClick={handleExit}></div>
+          <div style={{width:'100vw',height:'100vh',position:'fixed',transform:'translate(-50%,-50%)'}} onClick={handleExit}></div>
         </div>
       ) : <></>
       }
