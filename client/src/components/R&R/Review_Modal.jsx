@@ -6,6 +6,7 @@ const Review_Modal = ( props ) => {
   const [ chars,setChars ] = useState([]);
   const [ summary,setSummary ] = useState('');
   const [ rev,setRev ] = useState('');
+  const [ images,setImg ] = useState([]);
   const [ num, setNum ] = useState('Minimum required characters left: 50')
 
   const imagesLength = [1,2,3,4,5]
@@ -13,6 +14,9 @@ const Review_Modal = ( props ) => {
     var characteristics = Object.keys(props.meta.characteristics)
     setChars(characteristics);
   },[props.meta])
+  useEffect(() => {
+    console.log(images);
+  },[images])
 
   const handleExit = (e) => {
     e.preventDefault();
@@ -34,7 +38,6 @@ const Review_Modal = ( props ) => {
   const handleSummary = (e) => {
     setSummary(e.target.value)
     return false;
-
   }
   const handleReview = (e) => {
     setRev(e.target.value)
@@ -47,6 +50,21 @@ const Review_Modal = ( props ) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('hi')
+  }
+  const addingImage = (url) => {
+    setImg(prevData => {
+      const data = [...prevData];
+      data.push(url);
+      return data;
+    })
+  }
+  const delImage = (url) => {
+    setImg(prevData => {
+      const data = [...prevData];
+      const ind = data.indexOf(url);
+      data.splice(ind,1);
+      return data;
+    })
   }
   {/* Please dont judge me too hard if youre reading this code */}
   return (
@@ -121,7 +139,7 @@ const Review_Modal = ( props ) => {
           <p>Add Images:</p>
           <div id='rAddImages'>
             {imagesLength.map((num) => {
-              return (<AddImage key={num}/>)
+              return (<AddImage key={num} img={images} add={addingImage} del={delImage}/>)
             })}
           </div>
           <div id='rnic'>

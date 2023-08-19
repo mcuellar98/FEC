@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const AddImage = () => {
+const AddImage = ({img,add,del}) => {
   const [ submitted,setS ] = useState(false);
   const [ showModal, setSM ] = useState(false);
   const [ imgURL,setURL ] = useState('');
@@ -30,11 +30,15 @@ const AddImage = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(imgURL)
+    // img.push(imgURL)
+    add(imgURL);
     setSM(false);
     setS(true);
   }
   const handleDel = (e) => {
     e.preventDefault();
+    del(imgURL);
     setS(false);
     setURL('');
   }
