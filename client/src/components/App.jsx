@@ -13,7 +13,7 @@ const App = () => {
     <div>
       Hello World
       <Overview />
-      <QA product_id={37323}/>
+      <QA product_id={37325}/>
       <RatingsReviews id={id}/>
     </div>
   );

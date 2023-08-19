@@ -20,7 +20,7 @@ const QA = ({product_id}) => {
         var questionList = _.sortBy(results.data.results, (q) => {
           return -q.question_helpfulness;
         });
-        setQuestions(questionList.slice(0, qListSize));
+        setQuestions(questionList);
       })
       .catch((err) => {
         console.log(err);
@@ -35,6 +35,7 @@ const QA = ({product_id}) => {
     setModalVisible(!modalVisible);
   };
 
+  console.log(questions.length, qListSize);
   return (
     <div className='qa'>
       <p id='qa_title'>QUESTIONS & ANSWERS</p>
@@ -43,8 +44,8 @@ const QA = ({product_id}) => {
         : null}
       {questions.length > 0 ?
         <div>
-          <QAList product_id={product_id} questions={questions} setQuestions={setQuestions}/>
-          {questions < qListSize ? <button className='question_button' onClick={handleExpand}>More Answered Questions</button> : null}
+          <QAList product_id={product_id} questions={questions} setQuestions={setQuestions} qListSize={qListSize}/>
+          {questions.length > qListSize ? <button className='question_button' onClick={handleExpand}>More Answered Questions</button> : null}
           <button className='question_button' onClick = {handleAddQuestion}>Add Question</button>
         </div>
         : <button className='question_button' onClick={handleAddQuestion}>Add Question</button>}

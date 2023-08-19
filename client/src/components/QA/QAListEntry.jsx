@@ -37,7 +37,6 @@ const QAListEntry = ({product_id, question, setQuestions}) => {
       reportQuestion(question.question_id)
         .then((result) => {
           setReported(true);
-          question.question_id = true;
         })
         .catch((err) => {
           console.log(err);
