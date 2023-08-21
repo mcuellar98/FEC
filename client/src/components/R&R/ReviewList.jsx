@@ -7,6 +7,7 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
   const [ list,setList ] = useState([]);
   const [ len,setLen ] = useState(2);
   const [ search,setSearch ] = useState('');
+  const [ searching, sets ] = useState(false);
   const [ showAll, setShow ] = useState(true);
 
   useEffect(() => {
