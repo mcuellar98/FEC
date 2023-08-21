@@ -76,7 +76,7 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
         })}
         <div id='rbutton-cont'>
           {showAll ? (len <= reviews.length && reviews.length > 2) ?
-            (<button onClick={handleClick}>MORE REVIEWS</button>) :
+            (<button onClick={handleClick}>SHOW ALL REVIEWS</button>) :
             (reviews.length < 2) ? (<></>) :
             (<button onClick={handleCollapse}>COLLAPSE REVIEWS</button>) : (<></>)
           }
