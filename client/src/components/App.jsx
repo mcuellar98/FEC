@@ -13,7 +13,6 @@ const App = () => {
 
   return (
     <div>
-      Hello World
       <Overview />
       <QA product_id={productId}/>
       <RatingsReviews id={productId}/>

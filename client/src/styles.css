@@ -448,7 +448,7 @@ body {
   border-radius: 20px;
   border-style: solid;
   border-color: whitesmoke;
-  z-index: 1;
+  z-index: 5;
 }
 
 .exit {
@@ -489,7 +489,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 4;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
