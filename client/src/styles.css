@@ -672,3 +672,24 @@ body {
 .style-tile-thumb:hover {
   border: 2px solid #00bbf0;
 }
+
+.RIC {
+  margin-left: 5%;
+  margin-right: 5%;
+  border-style: solid;
+  border-color: red;
+  height: auto;
+}
+
+.rl_card {
+  border-style: solid;
+  border-color: white;
+  background-color: black;
+  height: 100px;
+  width: 50px;
+  display: inline;
+}
+
+.rl_ul {
+
+}

@@ -12,10 +12,22 @@ module.exports = {
   modulePaths: [
     '<rootDir>',
   ],
-  moduleDirectories: [
-    'node_modules',
-    "bower_components",
-    "src"
-  ],
-  setupFiles: ["<rootDir>/.jest/setEnvVars.js"]
+  // moduleDirectories: [
+  //   'node_modules',
+  //   "componenets",
+  //   'src/componnts/QA',
+  //   "src"
+  // ],
+  moduleNameMapper: {
+    '^@App/(.*)$': '<rootDir>/src/$1',
+    '^lib/(.*)$': '<rootDir>/common/$1',
+  },
+  setupFiles: ["<rootDir>/.jest/setEnvVars.js"],
+  // collectCoverage: true,
+  // coverageReporters: ["json", "html"],
+  // preset: 'ts-jest',
+  // testEnvironment: 'node',
+  // testPathIgnorePatterns: [
+  //   '<rootDir>/dist'
+  // ],
 };

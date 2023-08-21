@@ -107,6 +107,13 @@ const reportQuestion = (id) => {
   });
 };
 
+//Get request for related products
+const getRelatedProducts = (id) => {
+  return axios.get(url + `products/${id}/related`, {
+    headers: {Authorization: token}
+  });
+};
+
 export {
   getProducts,
   getProductById,
@@ -122,6 +129,7 @@ export {
   addQuestion,
   addAnswer,
   reportAnswer,
-  reportQuestion
+  reportQuestion,
+  getRelatedProducts
 };
 
