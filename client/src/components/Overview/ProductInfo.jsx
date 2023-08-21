@@ -5,9 +5,8 @@ import { getMetaReviews } from '../../../fetch.jsx';
 import { partFilled, average } from '../R&R/Helper.jsx';
 
 
-const ProductInfo = ({ product }) => {
+const ProductInfo = ({ product, info }) => {
   const [rating, setRating] = useState(0);
-  console.log(product);
 
   var getMRating = (prodID) => {
     getMetaReviews(prodID)
@@ -30,7 +29,11 @@ const ProductInfo = ({ product }) => {
         </span>
         <h4>{product.category}</h4>
         <h1>{product.name}</h1>
-        <h5>${product.default_price}</h5>
+        {info.sale_price ? (
+          <h5><s>${product.default_price}</s> | <b>${info.sale_price}</b></h5>
+        ) : (
+          <h5>${product.default_price}</h5>
+        )}
       </span>
     </div>
   );
