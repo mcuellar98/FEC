@@ -1,6 +1,7 @@
 import React, {useState, useMemo} from 'react';
 import _ from 'underscore';
 import {getQuestions, addAnswer} from './../../../fetch.jsx';
+import AnswerImageList from './AnswerImageList.jsx';
 
 const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible}) => {
 
@@ -9,6 +10,7 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
   const [email, setEmail] = useState('');
   const [imageList, setImageList] = useState([]);
   const [imageFiles, setImageFiles] = useState([]);
+  const [imageXVisible, setImageXVisible] = useState(false);
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);
@@ -60,17 +62,33 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
     }
   };
 
-  const handleImageChange = (e) => {
-    var urlList = [];
-    var fileList = [];
+  var urlList = [];
+  var fileList = [];
+
+  const handleImageChange = () => {
     _.each(event.target.files, (file) => {
       if (!imageFiles.includes(file.name)) {
         urlList.push(URL.createObjectURL(file));
         fileList.push(file.name);
       }
     });
-    setImageList(imageList.concat(urlList));
-    setImageFiles(fileList);
+    var newImageList = imageList.concat(urlList);
+    if (newImageList.length > 5) {
+      alert('this will be over 5 images');
+      urlList = [];
+      fileList = [];
+    } else {
+      setImageList(newImageList);
+      setImageFiles(fileList);
+    }
+  };
+
+  const imageMouseEnter = (e) => {
+    setImageXVisible(true);
+  };
+
+  const imageMouseLeave = (e) => {
+    setImageXVisible(false);
   };
 
   return (
@@ -93,13 +111,8 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
         <label className="add_images_button"> Add Images
           <input type = "file" name = "upload" accept = "image/*" onChange={handleImageChange} style={{display: 'none'}} multiple/>
         </label>
-        <ul className = 'image_list'>
-          {_.map(imageList, (image) => {
-            return <li key={image} className='add_answer_li' >
-              <img className='add_answer_image' src={image}/>
-            </li>;
-          })}
-        </ul>
+        <p><small>Please upload up to 5 images.</small></p>
+        <AnswerImageList images={imageList} />
         <button className='modal_button' onClick=
           {handleSubmit}>SUBMIT</button>
       </form>
