@@ -261,8 +261,11 @@ body {
   list-style-type: none;
   padding: 0;
   margin-top: 0;
-  overflow: scroll;
+  overflow: auto;
   max-height: 100vh;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .qa_search {
@@ -386,8 +389,11 @@ body {
 
 .answers {
   margin-bottom: 30px;
-  overflow: scroll;
+  overflow: auto;
   max-height: 50vh;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .see_more_answers, .collapse_answers {
@@ -403,12 +409,14 @@ body {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   width: 50%;
   opacity: 100%;
   border-radius: 20px;
-  z-index: 1;
+  border-style: solid;
+  border-color: whitesmoke;
+  z-index: 5;
 }
 
 .exit {
@@ -419,6 +427,28 @@ body {
     color:red;
     cursor: pointer;
   };
+}
+
+.exit_button {
+  border-radius: 50%;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: white;
+  color: lightgray;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  top: -70px;
+  left: -10px;
+  vertical-align: middle;
+  line-height: 20px;
+  font-size: x-large;
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
 }
 
 .add_modal input,label,textarea{
@@ -449,7 +479,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 4;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
@@ -566,15 +596,11 @@ body {
   border-style: solid;
   border-color: lightgray;
   border-radius: 5px;
-  &:hover {
-    backdrop-filter: blur(5px);
-    border-color: red;
-    border-width: 2px;
-  }
 }
 
 .add_answer_li {
   margin-right: 10px;
+  position:relative
 }
 
 .image_list {
@@ -585,6 +611,7 @@ body {
 }
 
 .add_images_button {
+  color: black;
   border-style: solid;
   background-color: gainsboro;
   border-radius: 5px;

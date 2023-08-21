@@ -1,12 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import _ from 'underscore';
-import {getQuestions, addQuestion} from './../../../fetch.jsx';
+import {getQuestions, addQuestion, getProductById} from './../../../fetch.jsx';
 
 const AddQuestion = ({product_id, setQuestions, setModalVisible}) => {
 
   const [question, setQuestion] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
+  const [productName, setProductName] = useState('');
+
+  useEffect(() => {
+    getProductById(product_id)
+      .then((product) => {
+        setProductName(product.data.name);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);
@@ -49,7 +60,6 @@ const AddQuestion = ({product_id, setQuestions, setModalVisible}) => {
           return getQuestions(product_id);
         })
         .then((results) => {
-          console.log(results.data.results);
           setQuestions(results.data.results);
           setModalVisible(false);
         })
@@ -61,10 +71,10 @@ const AddQuestion = ({product_id, setQuestions, setModalVisible}) => {
 
   return (
     <div className='add_modal'>
-      <p className='exit' onClick={() => {setModalVisible(false); }}>&times;</p>
+      <p className='exit' onClick={() => { setModalVisible(false); }}>&times;</p>
       <form>
-        <p className='modal_title'>Ask Your Question </p>
-        <p className='modal_sub_title'>About {'insert product here'}</p>
+        <h1 className='modal_title'>Ask Your Question </h1>
+        <h2 className='modal_sub_title'>About {productName}</h2>
         <label>Your Question*
           <textarea maxLength='10000' required onChange={handleQuestionChange}/>
         </label>

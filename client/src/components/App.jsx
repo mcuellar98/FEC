@@ -8,13 +8,14 @@ import QA from './QA/QA.jsx';
 import Overview from './Overview/Overview.jsx';
 
 const App = () => {
-  var id = 37312;
+
+  const [productId, setProductId] = useState(37323);
+
   return (
     <div>
-      Hello World
-      {/* <Overview /> */}
-      {/* <QA product_id={37328}/> */}
-      <RatingsReviews id={id}/>
+      <Overview />
+      <QA product_id={productId}/>
+      <RatingsReviews id={productId}/>
     </div>
   );
 };

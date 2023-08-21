@@ -68,7 +68,7 @@ const QAListEntry = ({product_id, question, setQuestions}) => {
       <AnswerList product_id={product_id} answers={question.answers} setQuestions={setQuestions}/>
       {addAnswerVisible ?
         <div>
-          <AddAnswer product_id={product_id} question_id={question.question_id} setQuestions={setQuestions} setAddAnswerVisible={setAddAnswerVisible}/>
+          <AddAnswer product_id={product_id} question_id={question.question_id} setQuestions={setQuestions} setAddAnswerVisible={setAddAnswerVisible} question_body={question.question_body}/>
           <div className='blur' onClick={handleAddAnswer}></div>
         </div>
         : null}

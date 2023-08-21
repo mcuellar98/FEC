@@ -1,13 +1,11 @@
 import React from 'react';
 
-const AnswerImageListEntry = ({image, imageList, setImageList, imageFiles}) => {
+const AnswerImageListEntry = ({image, imageList, setImageList}) => {
 
   const deleteImage = () => {
     var newImageList = [];
-    var newFileList = [];
     imageList.forEach((img) => {
       if (img !== image) {
-        console.log('delete');
         newImageList.push(img);
       }
     });
@@ -16,7 +14,8 @@ const AnswerImageListEntry = ({image, imageList, setImageList, imageFiles}) => {
 
   return (
     <li key = {image} className='add_answer_li' >
-      <img className='add_answer_image' src={image} onClick={deleteImage}/>
+      <img className='add_answer_image' src={image}/>
+      <div className='exit_button' onClick={deleteImage}>&times;</div>
     </li>
   );
 };
