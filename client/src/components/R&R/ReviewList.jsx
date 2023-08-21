@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Review from './Review.jsx';
+import Review_Modal from './Review_Modal.jsx'
 import { getReviewsById,getMetaReviews,postReview } from '../../../fetch.jsx';
 
-const ReviewList = ( {id,reviews,partFilled} ) => {
+const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
   const [ list,setList ] = useState([]);
   const [ len,setLen ] = useState(2);
+  const [ search,setSearch ] = useState('');
 
   useEffect(() => {
     if (reviews.length > 0) {
@@ -24,14 +26,22 @@ const ReviewList = ( {id,reviews,partFilled} ) => {
     e.preventDefault();
     setLen(len + 2);
   }
-
   const handleCollapse = (e) => {
     e.preventDefault();
     setLen(2);
   }
+  const handleModal = (e) => {
+    e.preventDefault();
+    sV(true);
+  }
+  const handleExit = (e) => {
+    e.preventDefault();
+    sV(false);
+  }
 
   return (
     <div id='rlistMap'>
+      <input type='search' value={search} onChange={handleSearch}></input>
       {(reviews.length === 0) ? (<div>No Reviews Yet...</div>) : list.map((review) => {
         return (<Review key={review.review_id} review={review} partFilled={partFilled}/>)
       })}
@@ -41,7 +51,14 @@ const ReviewList = ( {id,reviews,partFilled} ) => {
           (reviews.length < 2) ? (<></>) :
           (<button onClick={handleCollapse}>COLLAPSE REVIEWS</button>)
         }
-        <button>ADD A REVIEW   <span style={{fontSize:'18px'}}>+</span></button>
+        <button onClick={handleModal}>ADD A REVIEW   <span style={{fontSize:'18px'}}>+</span></button>
+        {
+          view ? (
+            <div>
+              <Review_Modal view={view} id={id} sV={sV} meta={meta} refresh={refresh}/>
+              <div onClick={handleExit} className='blur'></div>
+            </div>) : <></>
+        }
       </div>
     </div>
   )

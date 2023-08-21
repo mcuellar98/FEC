@@ -2,15 +2,16 @@ body {
   background-color: rgb(11, 11, 11);
   color: white;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-overflow: none;
 }
 :root {
   --qa-element-width: 100%;
 }
 
-
 #RnR-par {
   display:flex;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 #RnR {
@@ -34,6 +35,7 @@ body {
 #rlistMap {
   max-height: 700px;
   overflow-y:scroll;
+  margin-bottom: 30px;
 }
 #rlistMap::-webkit-scrollbar {
   display:none;
@@ -68,6 +70,198 @@ body {
 #rbutton-cont {
   display:flex;
   justify-content:space-between;
+}
+#revModal {
+  position:fixed;
+  transform: translate(-50%,-50%);
+  top:50%;
+  left:50%;
+  width: 80%;
+  height: 60%;
+  z-index: 3;
+  background: rgb(11,11,11);
+  border: 2px solid rgb(230,230,230);
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px 4px rgba(80,80,80,0.4);
+  overflow-y: scroll;
+  justify-content: center;
+}
+#revTest {
+  position: relative;
+  display:flex;
+  justify-content: center;
+  color:rgb(230,230,230);
+  height: 100%;
+}
+#rform {
+  margin-top: 30px;
+  width:80%;
+  height: 100%;
+}
+#reviewText {
+  width: auto;
+  height: auto;
+  position: relative;
+}
+#reviewText > textarea {
+  resize:vertical;
+}
+
+#rAddImages {
+  margin-top:20px;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
+#raddingImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+}
+#rimagediv {
+  width: 60px;
+  height: 60px;
+  border:2px solid rgb(230,230,230);
+  border-radius: 50%;
+  display:relative;
+  overflow:hidden;
+}
+#rimage {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+#imgesc {
+  position:absolute;
+  border: 2px solid rgb(230,230,230);
+  border-radius: 50%;
+  font-size:10px;
+  width: 12px;
+  height:12px;
+  text-align: center;
+  background-color: red;
+  color:rgb(230,230,230);
+  top:0;
+  right:0;
+  margin:0;
+  cursor: pointer;
+}
+#imgModal {
+  position:absolute;
+  transform: translate(-50%,-50%);
+  left:50%;
+  top: 150%;
+  width: 400%;
+  height: 150%;
+  z-index: 5;
+  background: rgb(11,11,11);
+  border: 2px solid rgb(230,230,230);
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px 4px rgba(80,80,80,0.4);
+}
+#imginput {
+  display:flex;
+  margin: 0 10px 0 10px;
+}
+#rimgurl {
+  width:67%;
+  height:100%;
+}
+#rimgurlenter {
+  margin-bottom: 30px;
+  color:rgb(230,230,230);
+  background-color: rgb(11,11,11);
+  border: 2px solid rgb(210,210,210);
+  width: 25%;
+  height: 100%;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 4px;
+  cursor:pointer;
+}
+#testing {
+  position: absolute;
+  bottom: 1%;
+  right:1%;
+  cursor:default;
+}
+#rnic, #remail {
+  display:grid;
+}
+#crStars > span {
+  font-size: 26px;
+  cursor:pointer;
+}
+#revChar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) auto;
+  align-items: center;
+  margin: 0;
+}
+#revRec {
+  display: flex;
+  align-items: center;
+}
+#revRec > p, #revRec > #radioLabels > input {
+  margin-right:10px;
+}
+#rchar {
+  padding:0;
+  width: auto;
+  color: rgb(180,180,180);
+}
+#revChar > input, #revRec > input  {
+  margin: 0 0 0 5px;
+}
+
+#radioLabels {
+  height: auto;
+  padding: 0;
+  font-size: 12px;
+  color:rgb(180,180,180);
+}
+#radioLabels > b {
+  font-size: 16px;
+  color:rgb(210,210,210);
+}
+#radioLabels > input {
+  margin:0;
+}
+
+#rExit {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 2px solid rgb(230,230,230);
+  border-radius: 25px;
+  color:rgb(230,230,230);
+  background-color: rgb(11,11,11);
+  cursor:pointer;
+  right:1%;
+  top:2%
+}
+#rbuttons {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 50px 0;
+}
+#rSubmit {
+  margin-bottom: 30px;
+  color:rgb(230,230,230);
+  background-color: rgb(11,11,11);
+  border: 2px solid rgb(210,210,210);
+  width: 30%;
+  height: 60px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 4px;
+  cursor:pointer;
+}
+
+#revModal::-webkit-scrollbar {
+  display:none;
 }
 
 .sorter {
@@ -355,19 +549,35 @@ body {
 #overview {
   border: 1px solid red;
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns:6fr 4fr;
   grid-template-rows: 40em;
   grid-gap: 8px;
   justify-content: center;
 }
 
 #images {
-  border: 1px solid lightblue;
   margin: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.carousel .thumb {
+  border: 2px solid #00204a;
+  border-radius: 2px;
+}
+.carousel .thumb:hover {
+  border: 3px solid #00bbf0;
+}
+.carousel .thumb.selected {
+  border: 3px solid #fdb44b;
+}
+.carousel-pic {
+  max-width: 245px;
+  height: auto;
+  object-fit: cover;
+}
+
 #product-info-and-cart {
   display: grid;
   grid-template-columns: 1fr;

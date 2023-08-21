@@ -1,21 +1,6 @@
+import { trianglePos,perc } from './Helper.jsx'
 const ProductBreakdown = (props) => {
 
-  const perc = (review) => {
-    return Math.round((review.value / 5) * 100);
-  }
-
-  const trianglePos = (percent) => {
-    const styles = {
-      position: 'absolute',
-      width: 0,
-      height: 0,
-      borderLeft: '6px solid transparent',
-      borderRight: '6px solid transparent',
-      borderTop: '10px solid rgb(240,240,240)',
-    }
-    styles.left = `calc(${percent}% - 6px)`;
-    return (<div style={styles}></div>)
-  }
   return (
     <div id='productBreakdown'>
       {props.meta.characteristics && props.meta.characteristics.Size ? (
