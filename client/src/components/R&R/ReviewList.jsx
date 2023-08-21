@@ -7,6 +7,7 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
   const [ list,setList ] = useState([]);
   const [ len,setLen ] = useState(2);
   const [ search,setSearch ] = useState('');
+  const [ showAll, setShow ] = useState(true);
 
   useEffect(() => {
     if (reviews.length > 0) {
@@ -51,12 +52,14 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
         }
       })
       setList(arr);
+      setShow(false);
     } else {
       var arr = [];
       for (var i = 0; i < len; i++) {
         arr.push(reviews[i])
       }
       setList(arr);
+      setShow(true);
     }
   }
 
@@ -70,10 +73,10 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
         return (<Review key={review.review_id} review={review} partFilled={partFilled}/>)
       })}
       <div id='rbutton-cont'>
-        {(len <= reviews.length && reviews.length > 2) ?
+        {showAll ? (len <= reviews.length && reviews.length > 2) ?
           (<button onClick={handleClick}>MORE REVIEWS</button>) :
           (reviews.length < 2) ? (<></>) :
-          (<button onClick={handleCollapse}>COLLAPSE REVIEWS</button>)
+          (<button onClick={handleCollapse}>COLLAPSE REVIEWS</button>) : (<></>)
         }
         <button onClick={handleModal}>ADD A REVIEW   <span style={{fontSize:'18px'}}>+</span></button>
         {
