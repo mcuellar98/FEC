@@ -63,23 +63,18 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
   };
 
   var urlList = [];
-  var fileList = [];
 
   const handleImageChange = () => {
     _.each(event.target.files, (file) => {
-      if (!imageFiles.includes(file.name)) {
-        urlList.push(URL.createObjectURL(file));
-        fileList.push(file.name);
-      }
+      urlList.push(URL.createObjectURL(file));
     });
     var newImageList = imageList.concat(urlList);
     if (newImageList.length > 5) {
       alert('this will be over 5 images');
       urlList = [];
-      fileList = [];
     } else {
       setImageList(newImageList);
-      setImageFiles(fileList);
+      console.log(newImageList);
     }
   };
 
@@ -112,7 +107,7 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible})
           <input type = "file" name = "upload" accept = "image/*" onChange={handleImageChange} style={{display: 'none'}} multiple/>
         </label>
         <p><small>Please upload up to 5 images.</small></p>
-        <AnswerImageList images={imageList} />
+        <AnswerImageList images={imageList} setImageList={setImageList} imageFiles={imageFiles} setImageFiles={setImageFiles}/>
         <button className='modal_button' onClick=
           {handleSubmit}>SUBMIT</button>
       </form>

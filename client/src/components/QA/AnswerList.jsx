@@ -7,17 +7,19 @@ const AnswerList = ({product_id, answers, setQuestions}) => {
   const [aListSize, setAListSize] = useState(2);
   var answerList = [];
 
-  for (var id in answers) {
-    if (answers[id].answerer_name === 'Seller') {
-      answerList.unshift(answers[id]);
-    } else {
-      answerList.push(answers[id]);
+  if (Object.keys(answers).length > 0) {
+    for (var id in answers) {
+      if (answers[id].answerer_name === 'Seller') {
+        answerList.unshift(answers[id]);
+      } else {
+        answerList.push(answers[id]);
+      }
     }
-  }
-  if (answerList[0].answerer_name === 'Seller') {
-    answerList = [answerList[0]].concat(_.sortBy(answerList, (answer) => { return -answer.helpfulness; }));
-  } else {
-    answerList = _.sortBy(answerList, (answer) => { return -answer.helpfulness; });
+    if (answerList[0].answerer_name === 'Seller') {
+      answerList = [answerList[0]].concat(_.sortBy(answerList, (answer) => { return -answer.helpfulness; }));
+    } else {
+      answerList = _.sortBy(answerList, (answer) => { return -answer.helpfulness; });
+    }
   }
 
   const handleExpand = () => {
@@ -27,6 +29,7 @@ const AnswerList = ({product_id, answers, setQuestions}) => {
   const handleCollapse = () => {
     setAListSize(2);
   };
+
 
   return (
     <div className='answers'>

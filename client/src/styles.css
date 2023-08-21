@@ -389,6 +389,11 @@ body {
   border-style: solid;
   border-color: lightgray;
   border-radius: 5px;
+  &:hover {
+    backdrop-filter: blur(5px);
+    border-color: red;
+    border-width: 2px;
+  }
 }
 
 .add_answer_li {
