@@ -49,6 +49,7 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
       list.map((review) => {
         if (review.summary.toLowerCase().includes(e.target.value.toLowerCase()) || review.body.toLowerCase().includes(e.target.value.toLowerCase())) {
           arr.push(review);
+          // console.log(review.body.toLowerCase().indexOf(e.target.value.toLowerCase()))
         }
       })
       setList(arr);
@@ -64,28 +65,30 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
   }
 
   return (
-    <div id='rlistMap'>
-      <div style={{display:'flex', alignItems:'center'}}>
+    <div>
+      <div style={{display:'flex', alignItems:'center', marginBottom: '10px'}}>
         <label style={{padding:'0px', marginRight:'10px'}}>Search: </label>
         <input type='search' value={search} onChange={handleSearch}></input>
       </div>
-      {(reviews.length === 0) ? (<div>No Reviews Yet...</div>) : list.map((review) => {
-        return (<Review key={review.review_id} review={review} partFilled={partFilled}/>)
-      })}
-      <div id='rbutton-cont'>
-        {showAll ? (len <= reviews.length && reviews.length > 2) ?
-          (<button onClick={handleClick}>MORE REVIEWS</button>) :
-          (reviews.length < 2) ? (<></>) :
-          (<button onClick={handleCollapse}>COLLAPSE REVIEWS</button>) : (<></>)
-        }
-        <button onClick={handleModal}>ADD A REVIEW   <span style={{fontSize:'18px'}}>+</span></button>
-        {
-          view ? (
-            <div>
-              <Review_Modal view={view} id={id} sV={sV} meta={meta} refresh={refresh}/>
-              <div onClick={handleExit} className='blur'></div>
-            </div>) : <></>
-        }
+      <div id='rlistMap'>
+        {(reviews.length === 0) ? (<div>No Reviews Yet...</div>) : list.map((review) => {
+          return (<Review key={review.review_id} review={review} partFilled={partFilled}/>)
+        })}
+        <div id='rbutton-cont'>
+          {showAll ? (len <= reviews.length && reviews.length > 2) ?
+            (<button onClick={handleClick}>MORE REVIEWS</button>) :
+            (reviews.length < 2) ? (<></>) :
+            (<button onClick={handleCollapse}>COLLAPSE REVIEWS</button>) : (<></>)
+          }
+          <button onClick={handleModal}>ADD A REVIEW   <span style={{fontSize:'18px'}}>+</span></button>
+          {
+            view ? (
+              <div>
+                <Review_Modal view={view} id={id} sV={sV} meta={meta} refresh={refresh}/>
+                <div onClick={handleExit} className='blur'></div>
+              </div>) : <></>
+          }
+        </div>
       </div>
     </div>
   )
