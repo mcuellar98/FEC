@@ -26,10 +26,12 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
   const handleClick = (e) => {
     e.preventDefault();
     setLen(reviews.length);
+    setShow(false);
   }
   const handleCollapse = (e) => {
     e.preventDefault();
     setLen(2);
+    setShow(true);
   }
   const handleModal = (e) => {
     e.preventDefault();
@@ -74,11 +76,12 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
         {(reviews.length === 0) ? (<div>No Reviews Yet...</div>) : list.map((review) => {
           return (<Review key={review.review_id} review={review} partFilled={partFilled}/>)
         })}
-        <div id='rbutton-cont'>
-          {showAll ? (len <= reviews.length && reviews.length > 2) ?
+      </div>
+      <div id='rbutton-cont' style={{paddingBottom: '20px'}}>
+          {showAll ? ((reviews.length > 2) ?
             (<button onClick={handleClick}>SHOW ALL REVIEWS</button>) :
-            (reviews.length < 2) ? (<></>) :
-            (<button onClick={handleCollapse}>COLLAPSE REVIEWS</button>) : (<></>)
+            (<></>)):
+            (<button onClick={handleCollapse}>COLLAPSE REVIEWS</button>)
           }
           <button onClick={handleModal}>ADD A REVIEW   <span style={{fontSize:'18px'}}>+</span></button>
           {
@@ -89,7 +92,6 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
               </div>) : <></>
           }
         </div>
-      </div>
     </div>
   )
 };
