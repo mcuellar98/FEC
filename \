@@ -1,0 +1,13 @@
+product info basic setup
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	modified:   client/src/components/Overview/ImageView.jsx
+#	modified:   client/src/components/Overview/Overview.jsx
+#	modified:   client/src/components/Overview/ProductInfo.jsx
+#	modified:   client/src/styles.css
+#
