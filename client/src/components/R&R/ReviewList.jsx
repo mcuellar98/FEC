@@ -38,6 +38,13 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
     e.preventDefault();
     sV(false);
   }
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value);
+    if (e.target.value >= 3) {
+      console.log('hello')
+    }
+  }
 
   return (
     <div id='rlistMap'>
