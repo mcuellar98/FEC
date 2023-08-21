@@ -12,8 +12,8 @@ const App = () => {
   return (
     <div>
       Hello World
-      <Overview />
-      <QA product_id={37328}/>
+      {/* <Overview /> */}
+      {/* <QA product_id={37328}/> */}
       <RatingsReviews id={id}/>
     </div>
   );

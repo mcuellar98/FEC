@@ -24,7 +24,7 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    setLen(len + 2);
+    setLen(reviews.length);
   }
   const handleCollapse = (e) => {
     e.preventDefault();
@@ -41,14 +41,31 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
   const handleSearch = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
-    if (e.target.value >= 3) {
-      console.log('hello')
+    if (e.target.value.length >= 3) {
+      console.log(list)
+      console.log(e.target.value)
+      var arr = [];
+      list.map((review) => {
+        if (review.summary.toLowerCase().includes(e.target.value.toLowerCase()) || review.body.toLowerCase().includes(e.target.value.toLowerCase())) {
+          arr.push(review);
+        }
+      })
+      setList(arr);
+    } else {
+      var arr = [];
+      for (var i = 0; i < len; i++) {
+        arr.push(reviews[i])
+      }
+      setList(arr);
     }
   }
 
   return (
     <div id='rlistMap'>
-      <input type='search' value={search} onChange={handleSearch}></input>
+      <div style={{display:'flex', alignItems:'center'}}>
+        <label style={{padding:'0px', marginRight:'10px'}}>Search: </label>
+        <input type='search' value={search} onChange={handleSearch}></input>
+      </div>
       {(reviews.length === 0) ? (<div>No Reviews Yet...</div>) : list.map((review) => {
         return (<Review key={review.review_id} review={review} partFilled={partFilled}/>)
       })}
