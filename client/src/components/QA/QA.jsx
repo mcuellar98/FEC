@@ -11,15 +11,15 @@ const QA = ({product_id}) => {
   const [questions, setQuestions] = useState([]);
   const [qListSize, setQListSize] = useState(4);
   const [modalVisible, setModalVisible] = useState(false);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     getQuestions(product_id)
       .then((results) => {
-        console.log(results.data.results);
         var questionList = _.sortBy(results.data.results, (q) => {
           return -q.question_helpfulness;
         });
-        setQuestions(questionList.slice(0, qListSize));
+        setQuestions(questionList);
       })
       .catch((err) => {
         console.log(err);
@@ -37,11 +37,13 @@ const QA = ({product_id}) => {
   return (
     <div className='qa'>
       <p id='qa_title'>QUESTIONS & ANSWERS</p>
-      {questions.length !== 0 ?
+      {questions.length > 0 || query.length > 0
+        ? <Search product_id={product_id} setQuestions={setQuestions} setQuery={setQuery} qListSize={qListSize}/>
+        : null}
+      {questions.length > 0 ?
         <div>
-          <Search/>
-          <QAList product_id={product_id} questions={questions} setQuestions={setQuestions}/>
-          {questions < qListSize ? <button className='question_button' onClick={handleExpand}>More Answered Questions</button> : null}
+          <QAList product_id={product_id} questions={questions} setQuestions={setQuestions} qListSize={qListSize}/>
+          {questions.length > qListSize ? <button className='question_button' onClick={handleExpand}>More Answered Questions</button> : null}
           <button className='question_button' onClick = {handleAddQuestion}>Add Question</button>
         </div>
         : <button className='question_button' onClick={handleAddQuestion}>Add Question</button>}

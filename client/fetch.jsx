@@ -86,6 +86,27 @@ const addQuestion = (body) => {
   });
 };
 
+//Post request to add Answer
+const addAnswer = (id, body) => {
+  return axios.post(url + `qa/questions/${id}/answers`, body, {
+    headers: {Authorization: token},
+  });
+};
+
+//Put request to report Answer
+const reportAnswer = (id) => {
+  return axios.put(url + `qa/answers/${id}/report`, {}, {
+    headers: {Authorization: token},
+  });
+};
+
+//Put request to report Question
+const reportQuestion = (id) => {
+  return axios.put(url + `qa/answers/${id}/report`, {}, {
+    headers: {Authorization: token},
+  });
+};
+
 export {
   getProducts,
   getProductById,
@@ -98,6 +119,9 @@ export {
   getQuestions,
   markAnswerHelpful,
   markQuestionsHelpful,
-  addQuestion
+  addQuestion,
+  addAnswer,
+  reportAnswer,
+  reportQuestion
 };
 
