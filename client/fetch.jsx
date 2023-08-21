@@ -20,10 +20,13 @@ const getStylesById = (id) => {
 };
 
 //GET request for Reviews
-const getReviewsById = (id) => {
+const getReviewsById = (id, sorting) => {
   return axios.get(url + 'reviews', {
     headers: {Authorization: token},
-    params: {product_id: id}
+    params: {
+      product_id: id,
+      count: 50,
+      sort: sorting}
   });
 };
 
@@ -48,7 +51,7 @@ const getMetaReviews = (id) => {
 };
 
 //POST request for Review
-const postReview = (id, review /* review should be an object including product_id */) => {
+const postReview = (review /* review should be an object including product_id */) => {
   return axios.post(url + 'reviews', review, headers);
 };
 

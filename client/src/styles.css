@@ -83,7 +83,7 @@ body {
   border: 2px solid rgb(230,230,230);
   border-radius: 10px;
   box-shadow: 4px 4px 4px 4px rgba(80,80,80,0.4);
-  overflow: auto;
+  overflow-y: scroll;
   justify-content: center;
 }
 #revTest {
@@ -103,8 +103,83 @@ body {
   height: auto;
   position: relative;
 }
-#reviewText textarea {
+#reviewText > textarea {
   resize:vertical;
+}
+
+#rAddImages {
+  margin-top:20px;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
+#raddingImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+}
+#rimagediv {
+  width: 60px;
+  height: 60px;
+  border:2px solid rgb(230,230,230);
+  border-radius: 50%;
+  display:relative;
+  overflow:hidden;
+}
+#rimage {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+#imgesc {
+  position:absolute;
+  border: 2px solid rgb(230,230,230);
+  border-radius: 50%;
+  font-size:10px;
+  width: 12px;
+  height:12px;
+  text-align: center;
+  background-color: red;
+  color:rgb(230,230,230);
+  top:0;
+  right:0;
+  margin:0;
+  cursor: pointer;
+}
+#imgModal {
+  position:absolute;
+  transform: translate(-50%,-50%);
+  left:50%;
+  top: 150%;
+  width: 400%;
+  height: 150%;
+  z-index: 5;
+  background: rgb(11,11,11);
+  border: 2px solid rgb(230,230,230);
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px 4px rgba(80,80,80,0.4);
+}
+#imginput {
+  display:flex;
+  margin: 0 10px 0 10px;
+}
+#rimgurl {
+  width:67%;
+  height:100%;
+}
+#rimgurlenter {
+  margin-bottom: 30px;
+  color:rgb(230,230,230);
+  background-color: rgb(11,11,11);
+  border: 2px solid rgb(210,210,210);
+  width: 25%;
+  height: 100%;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 4px;
+  cursor:pointer;
 }
 #testing {
   position: absolute;
@@ -169,10 +244,10 @@ body {
 }
 #rbuttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 50px 0 50px 0;
 }
-#rSubmit, #rImages {
+#rSubmit {
   margin-bottom: 30px;
   color:rgb(230,230,230);
   background-color: rgb(11,11,11);

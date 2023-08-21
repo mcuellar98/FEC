@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { partFilled,revPerc,recPercent,average,bar } from './Helper.jsx'
+import { partFilled,revPerc,recPercent,average } from './Helper.jsx'
 
 const RatingBreakdown = (props) => {
   const [ avg,setAvg ] = useState(0);
@@ -13,6 +13,15 @@ const RatingBreakdown = (props) => {
   const handleClick = (e,value) => {
     e.preventDefault();
     props.filtering(value);
+  }
+  const bar = (percent,rating) => {
+    const styles = {
+      margin: '0 6px 0 10px',
+      background: `linear-gradient(to right, rgb(51,255,51) ${percent}%, rgb(96,96,96) ${percent}%, rgb(70,70,70) 100%`,
+      width: '65%',
+      height: '6px',
+    }
+    return <div id='rateBar' onClick={(e) => {handleClick(e,rating)}} style={styles}></div>
   }
   return (
     <div>

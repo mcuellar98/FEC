@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { getReviewsById,getMetaReviews,postReview } from '../../../fetch.jsx';
+import { getReviewsById,getMetaReviews } from '../../../fetch.jsx';
 import ReviewList from './ReviewList.jsx';
 import Sorter from './Sorter.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
@@ -15,13 +15,13 @@ const RatingsReviews = (props) => {
   const [ viewModal,setVM ] = useState(false);
 
   useEffect(() => {
-    get(props.id);
+    get(props.id, 'relevance');
     getMeta(props.id);
   },[])
 
 //#region fetch stuff
-  var get = (prodID) => {
-    getReviewsById(prodID)
+  var get = (prodID, method) => {
+    getReviewsById(prodID, method)
       .then((res) => {
         setData(res.data.results)
         setDC(res.data.results)
@@ -35,14 +35,6 @@ const RatingsReviews = (props) => {
         console.log(err)
       })
   }
-  var post = (prodID,review) => {
-    postReview(prodID)
-      .then((resp) => {
-        setData(resp.data);
-      }) .catch((err) => {
-        console.log(err)
-      })
-  }
 //#endregion
 
   useEffect(() => {
@@ -51,50 +43,11 @@ const RatingsReviews = (props) => {
 
   const sorting = (option) => {
     if (option === 'Relevance') {
-      setData(prevData => {
-        const sorted = [...prevData];
-        sorted.sort((a,b) => {
-          if (Math.abs(b.helpfulness - a.helpfulness) <= 2) {
-            return new Date(b.date) - new Date(a.date)
-          } else {
-            return b.helpfulness - a.helpfulness
-            }
-          });
-        return sorted;
-      });
-      setDC(prevData => {
-        const sorted = [...prevData];
-        sorted.sort((a,b) => {
-          if (Math.abs(b.helpfulness - a.helpfulness) <= 2) {
-            return new Date(b.date) - new Date(a.date)
-          } else {
-            return b.helpfulness - a.helpfulness
-            }
-          });
-        return sorted;
-      });
+      get(props.id, 'relevant');
     } else if ( option === 'Newest') {
-      setData(prevData => {
-        const sorted = [...prevData];
-        sorted.sort((a,b) => new Date(b.date) - new Date(a.date));
-        return sorted;
-      });
-      setDC(prevData => {
-        const sorted = [...prevData];
-        sorted.sort((a,b) => new Date(b.date) - new Date(a.date));
-        return sorted;
-      });
+      get(props.id, 'newest');
     } else if (option === 'Helpful') {
-      setData(prevData => {
-        const sorted = [...prevData]; // Creating a new array reference
-        sorted.sort((a,b) => {return b.helpfulness - a.helpfulness});
-        return sorted;
-      });
-      setDC(prevData => {
-        const sorted = [...prevData]; // Creating a new array reference
-        sorted.sort((a,b) => {return b.helpfulness - a.helpfulness});
-        return sorted;
-      });
+      get(props.id, 'helpful');
     }
   }
   const filtering = (rating) => {
@@ -105,7 +58,9 @@ const RatingsReviews = (props) => {
     console.log(filtered)
     setDC(filtered);
   }
-
+  const refresh = () => {
+    get(props.id, 'relevant')
+  }
   return (
     <div>
       <div id='rnrTitleCont'>
@@ -121,7 +76,7 @@ const RatingsReviews = (props) => {
           <div id='reviews-sec'>
             <div id='reviews'>
               <Sorter id={props.id} reviews={data} sorting={sorting}/>
-              <ReviewList id={props.id} reviews={dataCopy} view={viewModal} sV={setVM} meta={meta}/>
+              <ReviewList id={props.id} reviews={dataCopy} view={viewModal} sV={setVM} meta={meta} refresh={refresh}/>
             </div>
           </div>
         </div>

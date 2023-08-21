@@ -64,15 +64,6 @@ const revPerc = (reviews, rating) => {
   }
   return;
 }
-const bar = (percent,rating) => {
-  const styles = {
-    margin: '0 6px 0 10px',
-    background: `linear-gradient(to right, rgb(51,255,51) ${percent}%, rgb(96,96,96) ${percent}%, rgb(70,70,70) 100%`,
-    width: '65%',
-    height: '6px',
-  }
-  return <div id='rateBar' onClick={(e) => {handleClick(e,rating)}} style={styles}></div>
-}
 
 const getDate = (date) => {
   const newDate = new Date(date);
@@ -94,6 +85,5 @@ export {
   average,
   recPercent,
   revPerc,
-  bar,
   getDate
 }
