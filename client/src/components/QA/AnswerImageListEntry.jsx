@@ -1,10 +1,9 @@
 import React from 'react';
 
-const AnswerImageListEntry = ({image, imageList, setImageList, imageFiles}) => {
+const AnswerImageListEntry = ({image, imageList, setImageList}) => {
 
   const deleteImage = () => {
     var newImageList = [];
-    var newFileList = [];
     imageList.forEach((img) => {
       if (img !== image) {
         console.log('delete');
