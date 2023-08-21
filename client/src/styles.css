@@ -461,6 +461,28 @@ body {
   };
 }
 
+.exit_button {
+  border-radius: 50%;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: white;
+  color: lightgray;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  top: -70px;
+  left: -10px;
+  vertical-align: middle;
+  line-height: 20px;
+  font-size: x-large;
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+}
+
 .add_modal input,label,textarea{
   display: block;
   padding-bottom: 20px;
@@ -607,15 +629,11 @@ body {
   border-style: solid;
   border-color: lightgray;
   border-radius: 5px;
-  &:hover {
-    backdrop-filter: blur(5px);
-    border-color: red;
-    border-width: 2px;
-  }
 }
 
 .add_answer_li {
   margin-right: 10px;
+  position:relative
 }
 
 .image_list {

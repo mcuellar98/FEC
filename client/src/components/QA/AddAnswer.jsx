@@ -85,7 +85,7 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible, 
       urlList = [];
     } else {
       setImageList(newImageList);
-      console.log(newImageList);
+      console.log(imageList);
     }
   };
 

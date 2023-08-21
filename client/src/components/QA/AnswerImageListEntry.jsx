@@ -6,7 +6,6 @@ const AnswerImageListEntry = ({image, imageList, setImageList}) => {
     var newImageList = [];
     imageList.forEach((img) => {
       if (img !== image) {
-        console.log('delete');
         newImageList.push(img);
       }
     });
@@ -15,7 +14,8 @@ const AnswerImageListEntry = ({image, imageList, setImageList}) => {
 
   return (
     <li key = {image} className='add_answer_li' >
-      <img className='add_answer_image' src={image} onClick={deleteImage}/>
+      <img className='add_answer_image' src={image}/>
+      <div className='exit_button' onClick={deleteImage}>&times;</div>
     </li>
   );
 };
