@@ -10,25 +10,28 @@ import { getProducts, getProductById, getStylesById } from '../../../fetch.jsx';
 const Overview = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState({});
-  const [productInfo, setProductInfo] = useState({});
   const [styles, setStyles] = useState({});
   const [style, setStyle] = useState(0);
 
   var getProduct = () => {
     getProducts().then(result => {
       setProduct(result.data[0]);
-      console.log('result', result.data[0]);
+      //console.log('result', result.data[0]);
       return getProductById(result.data[0].id);
     }).then(result2 => {
-      console.log('info', result2.data);
       return getStylesById(result2.data.id);
     }).then(result3 => {
-      console.log('styles:', result3.data);
-      setStyles(result3.data);
+      //console.log('styles:', result3.data);
+      setStyles(result3.data.results);
       setIsLoading(false);
     }).catch(err => {
       console.log('getProducts error', err);
     });
+  };
+
+  var setStyleIndex = (style) => {
+    console.log('setStyleIndex,', style);
+    setStyle(style);
   };
 
   useEffect(() => {
@@ -41,10 +44,10 @@ const Overview = () => {
         <div>Thinking...</div>
       ) : (
         <div id='overview'>
-          <ImageView images={styles.results[5]} />
+          <ImageView images={styles[style]} />
           <div id='product-info-and-cart'>
-            <ProductInfo product={product}/>
-            <ProductStyles styles={styles} />
+            <ProductInfo product={product} info={styles[style]}/>
+            <ProductStyles styles={styles} style={style} setStyleIndex={(n) => setStyleIndex(n)}/>
             <div id='product-selection'>product selection</div>
           </div>
         </div>

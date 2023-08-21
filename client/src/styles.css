@@ -35,7 +35,7 @@ body {
 #rlistMap {
   max-height: 700px;
   overflow-y:scroll;
-  margin-bottom: 30px;
+  /* margin-bottom: 10px; */
 }
 #rlistMap::-webkit-scrollbar {
   display:none;
@@ -148,39 +148,7 @@ body {
   margin:0;
   cursor: pointer;
 }
-#imgModal {
-  position:absolute;
-  transform: translate(-50%,-50%);
-  left:50%;
-  top: 150%;
-  width: 400%;
-  height: 150%;
-  z-index: 5;
-  background: rgb(11,11,11);
-  border: 2px solid rgb(230,230,230);
-  border-radius: 10px;
-  box-shadow: 4px 4px 4px 4px rgba(80,80,80,0.4);
-}
-#imginput {
-  display:flex;
-  margin: 0 10px 0 10px;
-}
-#rimgurl {
-  width:67%;
-  height:100%;
-}
-#rimgurlenter {
-  margin-bottom: 30px;
-  color:rgb(230,230,230);
-  background-color: rgb(11,11,11);
-  border: 2px solid rgb(210,210,210);
-  width: 25%;
-  height: 100%;
-  font-size: 12px;
-  text-align: center;
-  border-radius: 4px;
-  cursor:pointer;
-}
+
 #testing {
   position: absolute;
   bottom: 1%;
@@ -577,9 +545,10 @@ body {
 }
 
 #overview {
-  border: 1px solid red;
+  margin-left: 5%;
+  margin-right: 5%;
   display: grid;
-  grid-template-columns:6fr 4fr;
+  grid-template-columns: 7fr 3fr;
   grid-template-rows: 40em;
   grid-gap: 8px;
   justify-content: center;
@@ -614,10 +583,8 @@ body {
   grid-template-rows: 5fr 4fr 4fr;
   grid-gap: 4px;
   padding: 10px;
-  border: 1px solid blue;
 }
 #product-info-and-cart > div {
-  border: 1px solid lightblue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -672,4 +639,36 @@ body {
     color:red;
     cursor: pointer;
   }
+}
+#product-info {
+  margin-left: 25px;
+  justify-self: flex-start;
+  text-align: left;
+}
+
+#product-styles {
+  display: grid !important;
+  margin-left: 25px;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr;
+}
+
+#style-selection {
+  margin-right: 30px;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 7.5px;
+}
+
+.style-tile-thumb {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 35px;
+}
+.style-thumb-selected {
+  border: 2px solid #fdb44b;
+}
+.style-tile-thumb:hover {
+  border: 2px solid #00bbf0;
 }

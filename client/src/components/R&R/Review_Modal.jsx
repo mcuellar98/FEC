@@ -21,7 +21,7 @@ const Review_Modal = ( props ) => {
   const [ quality,setQuality ] = useState(0);
 //#endregion
 
-  const imagesLength = [1,2,3,4,5];
+  const imagesLength = ['firstimg','secondimg','thirdimg','fourthimg','fiftimg'];
 
   useEffect(() => {
     var characteristics = Object.keys(props.meta.characteristics)
@@ -67,6 +67,7 @@ const Review_Modal = ( props ) => {
     setImg(prevData => {
       const data = [...prevData];
       data.push(url);
+      console.log(data)
       return data;
     })
   }
@@ -230,7 +231,7 @@ const Review_Modal = ( props ) => {
           <p>Add Images:</p>
           <div id='rAddImages'>
             {imagesLength.map((num) => {
-              return (<AddImage key={num} img={images} add={addingImage} del={delImage}/>)
+              return (<AddImage key={num} img={images} id={num} add={addingImage} del={delImage}/>)
             })}
           </div>
           <div id='rnic'>
