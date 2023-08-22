@@ -706,3 +706,8 @@ body {
 .style-tile-thumb:hover {
   border: 2px solid #00bbf0;
 }
+
+#product-selection {
+  border: 2px solid red;
+
+}

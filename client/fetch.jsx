@@ -63,7 +63,12 @@ const getQuestions = (id) => {
 };
 
 //GET request for Cart
-
+//POST request for cart
+const addToCart = (skuID) => {
+  return axios.post(url + 'cart',
+    {sku_id: skuID},
+    {headers: {Authorization: token}});
+}
 //GET request for Interactions
 //Put request for Answers (mark helpful)
 const markAnswerHelpful = (id) => {
@@ -122,6 +127,7 @@ export {
   addQuestion,
   addAnswer,
   reportAnswer,
-  reportQuestion
+  reportQuestion,
+  addToCart,
 };
 
