@@ -6,16 +6,33 @@ import RatingsReviews from './R&R/R&R.jsx';
 import getProducts from '../../fetch.jsx';
 import QA from './QA/QA.jsx';
 import Overview from './Overview/Overview.jsx';
+import HomePage from './HomePage/HomePage.jsx';
 
 const App = () => {
+  const [ productId, setProductId ] = useState(37323);
+  const [ pageNum,setPageN ] = useState(1);
+  const [ clicked,setClicked ] = useState(false);
 
-  const [productId, setProductId] = useState(37323);
+  const goHome = (e) => {
+    e.preventDefault();
+    setClicked(false);
+  }
+  const handleClick = (id) => {
+    setClicked(true);
+    setProductId(id)
+  }
 
   return (
     <div>
-      <Overview />
+      <div className='header'>
+        <p onClick={goHome}><u style={{cursor:'pointer',marginLeft: '20px'}}>Atelier</u></p>
+      </div>
+      {clicked ?
+      (<div><Overview />
       <QA product_id={productId}/>
-      <RatingsReviews id={productId}/>
+      <RatingsReviews id={productId}/></div>) :
+      (<HomePage pageNum={pageNum} set={handleClick}/>)
+      }
     </div>
   );
 };
