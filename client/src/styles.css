@@ -692,7 +692,9 @@ body {
 }
 
 .rl_card {
+  position: relative;
   border-color: white;
+  background-color: black;
   margin-right: 20px;
   border-style: solid;
   height: 375px;
@@ -729,12 +731,26 @@ body {
 
 .scroll_left_button{
   position: absolute;
-  top:50%;
-  left:-20px;
+  top:40%;
+  left:-16.5px;
 }
 
 .scroll_right_button{
   position: absolute;
-  top:50%;
-  left:100%;
+  top:40%;
+  left:98.3%;
+}
+
+.scroll_left_button, .scroll_right_button {
+  font-size: 20pt;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.rl_card_star {
+  position: absolute;
+  top: 2%;
+  left: 88%;
+  color: 'transparent';
+  &:hover {cursor: pointer}
 }

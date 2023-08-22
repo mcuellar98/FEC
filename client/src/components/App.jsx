@@ -10,7 +10,7 @@ import RIC from './RI&C/RIC.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState(37323);
+  const [productId, setProductId] = useState(37315);
 
   return (
     <div>

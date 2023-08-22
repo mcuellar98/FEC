@@ -29,7 +29,7 @@ const RelatedProducts = ({product_id}) => {
           setScrollLeft(true);
         }
         var leftScrollTarget = $('.rl_card')[index];
-        leftScrollTarget.scrollIntoView({behavior:"smooth", block: 'nearest'});
+        leftScrollTarget.scrollIntoView({behavior: 'smooth', block: 'nearest'});
       }
     });
   };
@@ -45,7 +45,7 @@ const RelatedProducts = ({product_id}) => {
           setScrollRight(true);
         }
         var leftScrollTarget = $('.rl_card')[index];
-        leftScrollTarget.scrollIntoView({behavior:"smooth", block: 'nearest'});
+        leftScrollTarget.scrollIntoView({behavior: 'smooth', block: 'nearest'});
       }
     });
 
@@ -63,11 +63,11 @@ const RelatedProducts = ({product_id}) => {
 
   return (
     <div id='rl_list' className='related_products_container'>
-      {scrollLeft ? <button className='scroll_left_button' onClick={handleScrollLeft}>Left</button> : null}
+      {scrollLeft ? <button className='scroll_left_button' onClick={handleScrollLeft}>{'<'}</button> : null}
       {_.map(relatedProducts, (productID, index) => {
         return <RLCard key={productID} product_id={productID}/>;
       })}
-      {scrollRight ? <button className='scroll_right_button' onClick={handleScrollRight}>Right</button> : null}
+      {scrollRight ? <button className='scroll_right_button' onClick={handleScrollRight}>{'>'}</button> : null}
     </div>
   );
 };
