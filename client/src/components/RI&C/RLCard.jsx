@@ -3,7 +3,7 @@ import axios from 'axios';
 import {getProductById, getStylesById} from './../../../fetch.jsx';
 import {partFilled} from './../R&R/Helper.jsx';
 
-const RLCard = ({product_id}) => {
+const RLCard = ({product_id, scrollRightTarget}) => {
 
   const [product, setProduct] = useState({});
   const [cardImage, setCardImage] = useState('');
