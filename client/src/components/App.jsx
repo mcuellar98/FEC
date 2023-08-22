@@ -17,7 +17,7 @@ const App = () => {
       <Overview />
       <RIC product_id={productId}/>
       <QA product_id={productId}/>
-      {/* <RatingsReviews id={productId}/> */}
+      <RatingsReviews id={productId}/>
     </div>
   );
 };

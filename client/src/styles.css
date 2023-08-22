@@ -674,22 +674,67 @@ body {
 }
 
 .RIC {
-  margin-left: 5%;
-  margin-right: 5%;
+  position: relative;
+  margin: 5%;
   border-style: solid;
-  border-color: red;
+  border-color: rgb(255, 0, 0);
   height: auto;
 }
 
-.rl_card {
+.related_products_container, .your_outfits_container {
   border-style: solid;
+  border-color: blue;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  margin-bottom: 40px;
+}
+
+.rl_card {
   border-color: white;
-  background-color: black;
-  height: 100px;
-  width: 50px;
-  display: inline;
+  margin-right: 20px;
+  border-style: solid;
+  height: 375px;
+  flex: 0 0 250px;
 }
 
 .rl_ul {
+  list-style-type: none;
+}
 
+.rl_card_image {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  min-width: 0
+}
+
+.rl_card_price, .rl_card_category {
+  font-size: 9pt;
+}
+
+.rl_card_name {
+  font-weight: 800;
+  font-size: 16pt;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.rl_card_text {
+  padding: 5px;
+  padding-left: 10px;
+  padding-bottom: 0;
+}
+
+.scroll_left_button{
+  position: absolute;
+  top:50%;
+  left:-20px;
+}
+
+.scroll_right_button{
+  position: absolute;
+  top:50%;
+  left:100%;
 }

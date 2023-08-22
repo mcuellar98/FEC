@@ -21,7 +21,7 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible, 
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);
