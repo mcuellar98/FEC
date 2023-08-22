@@ -10,7 +10,6 @@ import HomePage from './HomePage/HomePage.jsx';
 
 const App = () => {
   const [ productId, setProductId ] = useState(37323);
-  const [ pageNum,setPageN ] = useState(1);
   const [ clicked,setClicked ] = useState(false);
 
   const goHome = (e) => {
@@ -31,7 +30,7 @@ const App = () => {
       (<div><Overview />
       <QA product_id={productId}/>
       <RatingsReviews id={productId}/></div>) :
-      (<HomePage pageNum={pageNum} set={handleClick}/>)
+      (<HomePage set={handleClick}/>)
       }
     </div>
   );
