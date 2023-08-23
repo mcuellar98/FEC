@@ -17,7 +17,7 @@ const AddQuestion = ({product_id, setQuestions, setModalVisible}) => {
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);

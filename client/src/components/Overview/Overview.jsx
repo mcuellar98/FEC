@@ -8,7 +8,7 @@ import ProductSelection from './ProductSelection.jsx';
 import ProductStyles from './ProductStyles.jsx';
 import { getProducts, getProductById, getStylesById } from '../../../fetch.jsx';
 
-const Overview = () => {
+const Overview = ({setOutfitImage, setOutfitInfo}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState({});
   const [styles, setStyles] = useState({});
@@ -20,10 +20,12 @@ const Overview = () => {
       //console.log('result', result.data[0]);
       return getProductById(result.data[0].id);
     }).then(result2 => {
+      setOutfitInfo(result2.data);
       return getStylesById(result2.data.id);
     }).then(result3 => {
-      //console.log('styles:', result3.data);
+      // console.log('styles:', result3.data);
       setStyles(result3.data.results);
+      setOutfitImage(result3.data.results[0].photos[0].thumbnail_url);
       setIsLoading(false);
     }).catch(err => {
       console.log('getProducts error', err);
