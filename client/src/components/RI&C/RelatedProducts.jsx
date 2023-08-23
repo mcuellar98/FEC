@@ -4,7 +4,7 @@ import {getRelatedProducts} from './../../../fetch.jsx';
 import _ from 'underscore';
 import $ from 'jquery';
 
-const RelatedProducts = ({product_id}) => {
+const RelatedProducts = ({product_id, setProductId}) => {
 
   const [relatedProducts, setRelatedProducts] = useState([]);
   const scrollRightTarget = useRef(null);
@@ -65,7 +65,7 @@ const RelatedProducts = ({product_id}) => {
     <div id='rl_list' className='related_products_container'>
       {scrollLeft ? <button className='scroll_left_button' onClick={handleScrollLeft}>{'<'}</button> : null}
       {_.map(relatedProducts, (productID, index) => {
-        return <RLCard key={productID} product_id={productID}/>;
+        return <RLCard key={productID} overview_product_id={product_id} product_id={productID} setProductId={setProductId}/>;
       })}
       {scrollRight ? <button className='scroll_right_button' onClick={handleScrollRight}>{'>'}</button> : null}
     </div>

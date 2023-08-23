@@ -17,7 +17,7 @@ const RatingsReviews = (props) => {
   useEffect(() => {
     get(props.id, 'relevance');
     getMeta(props.id);
-  },[])
+  },[props.id])
 
 //#region fetch stuff
   var get = (prodID, method) => {

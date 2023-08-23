@@ -24,7 +24,7 @@ const QA = ({product_id}) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [product_id]);
 
   const handleExpand = () => {
     setQListSize(qListSize + 2);

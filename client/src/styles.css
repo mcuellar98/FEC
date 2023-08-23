@@ -401,7 +401,7 @@ body {
   padding-top: 10px;
 }
 
-.add_modal {
+.add_modal, .comparison_modal{
   padding: 30px;
   padding-right: 40px;
   padding-left: 40px;
@@ -417,6 +417,10 @@ body {
   border-style: solid;
   border-color: whitesmoke;
   z-index: 5;
+}
+
+.comparison_modal{
+  width: 70%;
 }
 
 .exit {
@@ -676,14 +680,10 @@ body {
 .RIC {
   position: relative;
   margin: 5%;
-  border-style: solid;
-  border-color: rgb(255, 0, 0);
   height: auto;
 }
 
 .related_products_container, .your_outfits_container {
-  border-style: solid;
-  border-color: blue;
   height: 50%;
   display: flex;
   flex-direction: row;
@@ -753,4 +753,18 @@ body {
   left: 88%;
   color: 'transparent';
   &:hover {cursor: pointer}
+}
+
+.comparing_title {
+  text-align: center;
+}
+
+.comparison_table {
+  margin: 0 auto;
+}
+
+.comparison_table tr, th, td{
+  text-align: center;
+  padding: 10px;
+  margin:20px;
 }
