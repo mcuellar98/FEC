@@ -4,7 +4,7 @@ import {getProductById, getStylesById, getReviewsById} from './../../../fetch.js
 import {partFilled} from './../R&R/Helper.jsx';
 import CompareProducts from './CompareProducts.jsx';
 
-const YOCard = ({outfitImage, outfitInfo}) => {
+const YOCard = ({outfitImage, outfitInfo, productRating}) => {
   const outfitImg = useRef(outfitImage);
   if (outfitImg.current === null) {
     outfitImg.current = require('./../../assets/no_pic.png');
@@ -18,7 +18,7 @@ const YOCard = ({outfitImage, outfitInfo}) => {
         <p className='rl_card_category'>Category: {outfitInfo.category}</p>
         <p className='rl_card_name'>{outfitInfo.name}</p>
         <p className='rl_card_price'>{outfitInfo.default_price}</p>
-        {partFilled(5)}
+        {partFilled(productRating)}
       </div>
     </div>
   );

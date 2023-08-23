@@ -12,13 +12,14 @@ const App = () => {
   const [productId, setProductId] = useState(37318);
   const [outfitImage, setOutfitImage] = useState('');
   const [outfitInfo, setOutfitInfo] = useState();
+  const [productRating, setProductRating] = useState(0);
 
   return (
     <div>
       <Overview setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/>
-      <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage}/>
+      <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/>
       <QA product_id={productId}/>
-      <RatingsReviews id={productId}/>
+      <RatingsReviews id={productId} setProductRating={setProductRating}/>
     </div>
   );
 };

@@ -7,6 +7,7 @@ const RatingBreakdown = (props) => {
 
   useEffect(() => {
     setAvg(average(props.reviews));
+    props.setProductRating(average(props.reviews));
     setRP(recPercent(props.reviews))
   },[props.reviews]);
 

@@ -69,7 +69,7 @@ const RatingsReviews = (props) => {
       <div id='RnR-par'>
         <div id='RnR'>
           <div id='ratings'>
-            <RatingBreakdown id={props.id} reviews={meta} filtering={filtering} />
+            <RatingBreakdown id={props.id} reviews={meta} filtering={filtering} setProductRating={props.setProductRating}/>
             <ProductBreakdown id={props.id} meta={meta}/>
           </div>
           <div id='space-between'></div>

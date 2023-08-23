@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import YOCard from './YOCard';
 import _ from 'underscore';
 
-const YourOutfits = ({outfitImage, outfitInfo}) => {
+const YourOutfits = ({outfitImage, outfitInfo, productRating}) => {
 
   const [outfitList, setOutfitList] = useState([]);
 
   const addOutfit = (e) => {
     e.preventDefault();
-    setOutfitList(outfitList.concat(<YOCard key={outfitInfo.id} outfitImage={outfitImage} outfitInfo={outfitInfo}/>));
+    setOutfitList(outfitList.concat(<YOCard key={outfitInfo.id} outfitImage={outfitImage} outfitInfo={outfitInfo} productRating={productRating}/>));
   };
 
   return (
