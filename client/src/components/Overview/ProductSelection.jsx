@@ -63,42 +63,45 @@ const ProductSelection = (props) => {
 
   return (
     <div id='product-selection'>
-      {Object.keys(props.style.skus).length === 0 ? (
-        <select name='sizes' id='size-selection' disabled>
-        </select>
-      ) : (
-        <select name='sizes'
-          id='size-selection'
+      <div id='product-size-and-quantity'>
+        {Object.keys(props.style.skus).length === 0 ? (
+          <select name='sizes' id='size-selection' disabled>
+          </select>
+        ) : (
+          <select name='sizes'
+            id='size-selection'
+            defaultValue=""
+            onChange={onSizeChange}>
+            <option value="" disabled>Select Size</option>
+            {availableSizes().map((sku, i) => (
+              <option key={i} value={sku[0]} >
+                {sku[1].size}
+              </option>
+            ))}
+          </select>
+        )}
+        <select id='quantity-selection'
+          name="quantity"
           defaultValue=""
-          onChange={onSizeChange}>
-          <option value="" disabled>Select Size</option>
-          {availableSizes().map((sku, i) => (
-            <option key={i} value={sku[0]} >
-              {sku[1].size}
-            </option>
-          ))}
+          onChange={onQuantityChange}>
+          <option value="" disabled>-</option>
+          {quantityOptions()}
         </select>
-      )}
-      <select id='quantity-selection'
-        name="quantity"
-        defaultValue=""
-        onChange={onQuantityChange}>
-        <option value="" disabled>-</option>
-        {quantityOptions()}
-      </select>
+      </div>
 
-      Add {quantity}: {size}
+      <div id="add-to-cart">
+        {size !== '' && quantity > 0 ? (
+          <div>
+            <button id="add-to-cart-btn"
+              onClick={onAddToCart}>
+              Add to cart</button>
+          </div>
+        ) : (
+          <div>
+          </div>
+        )}
+      </div>
 
-      {size !== '' && quantity > 0 ? (
-        <div>
-          <button id="add-to-cart"
-            onClick={onAddToCart}>
-            Add to cart</button>
-        </div>
-      ) : (
-        <div>
-        </div>
-      )}
 
     </div>
   );
