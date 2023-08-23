@@ -8,7 +8,7 @@
   },
   "scripts": {
     "server-dev": "npx nodemon --watch server server/index.js",
-    "client-dev": "npx webpack --watch",
+    "client-dev": "npx webpack",
     "test": "jest --coverage"
   },
   "devDependencies": {
