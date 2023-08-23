@@ -4,15 +4,19 @@ import {getProductById, getStylesById, getReviewsById} from './../../../fetch.js
 import {partFilled} from './../R&R/Helper.jsx';
 import CompareProducts from './CompareProducts.jsx';
 
-const YOCard = ({outfitImage, outfitInfo, productRating}) => {
+const YOCard = ({outfitImage, outfitInfo, productRating, deleteCard}) => {
   const outfitImg = useRef(outfitImage);
   if (outfitImg.current === null) {
     outfitImg.current = require('./../../assets/no_pic.png');
   }
 
+  const deleteOutfit = () => {
+    deleteCard(outfitInfo.id);
+  };
+
   return (
     <div className='rl_card'>
-      <span className="delete_outfit">&times;</span>
+      <span className="delete_outfit" onClick={deleteOutfit}>&times;</span>
       <img className = 'rl_card_image' src={outfitImg.current}/>
       <div className='rl_card_text'>
         <p className='rl_card_category'>Category: {outfitInfo.category}</p>
