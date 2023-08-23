@@ -10,7 +10,6 @@ import HomePage from './HomePage/HomePage.jsx';
 
 const App = () => {
   const [ productId, setProductId ] = useState(37323);
-  const [ pageNum,setPageN ] = useState(1);
   const [ clicked,setClicked ] = useState(false);
   const [outfitImage, setOutfitImage] = useState('');
   const [outfitInfo, setOutfitInfo] = useState();

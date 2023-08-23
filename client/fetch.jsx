@@ -135,7 +135,7 @@ export {
   addAnswer,
   reportAnswer,
   reportQuestion,
-  getRelatedProducts
+  getRelatedProducts,
   addToCart,
 };
 

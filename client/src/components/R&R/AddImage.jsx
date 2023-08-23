@@ -18,6 +18,7 @@ const AddImage = ({img,add,del,id}) => {
   }
   const handleImg = (e) => {
     setS(true);
+    console.log(e.target.files)
     setURL(URL.createObjectURL(e.target.files['0']))
     add(URL.createObjectURL(e.target.files['0']))
   }

@@ -1,5 +1,6 @@
 import {  trianglePos, perc, partFilled, average, recPercent, revPerc, getDate } from './Helper';
 import { render } from '@testing-library/react';
+import * as utils from './Review'
 
 describe('Helper functions', () => {
   test('should render triangle for rating percentage bar', () => {
@@ -28,3 +29,11 @@ describe('Helper functions', () => {
     expect(getDate("Fri, 02 Feb 1996 03:04:05 GMT")).toBe("February 1, 1996");
   })
 });
+
+// describe('Testing whether helper is working in jest', () => {
+//   test('please work', () => {
+//     jest.mock('./Review');
+//     utils.handleHelp = jest.fn();
+//     expect(utils.handleHelp).toHaveBeenCalled();
+//   })
+// })
