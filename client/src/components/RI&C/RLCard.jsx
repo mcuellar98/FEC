@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 import {getProductById, getStylesById, getReviewsById} from './../../../fetch.jsx';
 import {partFilled} from './../R&R/Helper.jsx';
@@ -10,6 +10,7 @@ const RLCard = ({product_id, overview_product_id, setProductId}) => {
   const [cardImage, setCardImage] = useState('');
   const [averageReview, setAverageReivew] = useState(0);
   const [modalVisible, setModalVisible] = useState(false);
+  const canChangeId = useRef(true);
 
   useEffect(() => {
     getProductById(product_id)
@@ -18,7 +19,11 @@ const RLCard = ({product_id, overview_product_id, setProductId}) => {
         return getStylesById(product_id);
       })
       .then((result) => {
-        setCardImage(result.data.results[0].photos[0].thumbnail_url);
+        if (result.data.results[0].photos[0].thumbnail_url === null) {
+          setCardImage(require('./../../assets/no_pic.png'));
+        } else {
+          setCardImage(result.data.results[0].photos[0].thumbnail_url);
+        }
         return getReviewsById(product_id);
       })
       .then((result) => {
@@ -31,15 +36,17 @@ const RLCard = ({product_id, overview_product_id, setProductId}) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [product_id]);
 
-  const openComparisonModal = () => {
+  const openComparisonModal = (e) => {
+    e.stopPropagation();
     setModalVisible(true);
   };
 
-  const changeProductId = () => {
-    console.log(product_id);
-    setProductId(product_id);
+  const changeProductId = (e) => {
+    if (canChangeId.current) {
+      setProductId(product_id);
+    }
   };
 
   return (
@@ -55,7 +62,7 @@ const RLCard = ({product_id, overview_product_id, setProductId}) => {
       {modalVisible ?
         <div>
           <CompareProducts product_id={product_id} overview_product_id={overview_product_id} setModalVisible={setModalVisible}/>
-          <div className='blur' onClick={() => { setModalVisible(false); }}></div>
+          <div className='blur' onClick={(e) => { e.stopPropagation(); setModalVisible(false); }}></div>
         </div> : null}
     </div>
   );

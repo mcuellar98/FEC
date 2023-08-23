@@ -419,10 +419,6 @@ body {
   z-index: 5;
 }
 
-.comparison_modal{
-  width: 70%;
-}
-
 .exit {
   color:gray;
   width: fit-content;
@@ -697,7 +693,7 @@ body {
   background-color: black;
   margin-right: 20px;
   border-style: solid;
-  height: 375px;
+  height: 385px;
   flex: 0 0 250px;
 }
 
@@ -752,7 +748,27 @@ body {
   top: 2%;
   left: 88%;
   color: 'transparent';
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
   &:hover {cursor: pointer}
+}
+
+.delete_outfit {
+  position: absolute;
+  background-color: lightgray;
+  border-style: solid;
+  border-color: black;
+  text-align: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  color: black;
+  top: 2%;
+  left: 88%;
+  font-size: large;
+  line-height: 18px;
+  font-weight: bolder;
+  &:hover {cursor: pointer; color: red; border-color: red;}
 }
 
 .comparing_title {
@@ -768,3 +784,35 @@ body {
   padding: 10px;
   margin:20px;
 }
+
+.add_outfit_content {
+  align-self: center;
+}
+
+.outfit_card {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-color: white;
+  background-color: black;
+  margin-right: 20px;
+  border-style: solid;
+  height: 385px;
+  flex: 0 0 250px;
+}
+
+.add_outfit_text {
+  text-align: center;
+  font-size: 14pt;
+}
+
+.add_outfit_button {
+  margin:0 auto;
+  display:block;
+  width: 80px;
+  height: 80px;
+  font-size: 50pt;
+  background-color: lightgray;
+  &:hover {cursor: pointer}
+}
+

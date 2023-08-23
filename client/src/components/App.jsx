@@ -9,12 +9,14 @@ import RIC from './RI&C/RIC.jsx';
 
 const App = () => {
 
-  const [productId, setProductId] = useState(37325);
+  const [productId, setProductId] = useState(37318);
+  const [outfitImage, setOutfitImage] = useState('');
+  const [outfitInfo, setOutfitInfo] = useState();
 
   return (
     <div>
-      <Overview />
-      <RIC product_id={productId} setProductId={setProductId}/>
+      <Overview setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/>
+      <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage}/>
       <QA product_id={productId}/>
       <RatingsReviews id={productId}/>
     </div>

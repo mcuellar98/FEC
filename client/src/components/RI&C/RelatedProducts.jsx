@@ -11,13 +11,6 @@ const RelatedProducts = ({product_id, setProductId}) => {
   const [scrollRight, setScrollRight] = useState(true);
   const [scrollLeft, setScrollLeft] = useState(false);
 
-  useEffect(() => {
-    if (scrollRightTarget.current !== null) {
-      console.log(scrollRightTarget.current.offsetLeft);
-      console.log(scrollRightTarget.current.offsetTop);
-    }
-  }, []);
-
   const handleScrollRight = (e) => {
     e.preventDefault();
     $('.rl_card').each((index, element) => {
@@ -37,7 +30,7 @@ const RelatedProducts = ({product_id, setProductId}) => {
   const handleScrollLeft = (e) => {
     e.preventDefault();
     $('.rl_card').each((index, element) => {
-      if ($(element).position().left < 0 && $($('.rl_card')[index + 1]).position().left > 0) {
+      if ($(element).position().left < 0 && $($('.rl_card')[index + 1]).position().left >= 0) {
         if (index === 0) {
           setScrollLeft(false);
         }
@@ -48,18 +41,17 @@ const RelatedProducts = ({product_id, setProductId}) => {
         leftScrollTarget.scrollIntoView({behavior: 'smooth', block: 'nearest'});
       }
     });
-
   };
 
   useEffect(() => {
     getRelatedProducts(product_id)
       .then((result) => {
-        setRelatedProducts(result.data);
+        setRelatedProducts(_.uniq(result.data));
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [product_id]);
 
   return (
     <div id='rl_list' className='related_products_container'>

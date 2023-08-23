@@ -12,12 +12,10 @@ const CompareProducts = ({product_id, overview_product_id}) => {
   useEffect(() => {
     getProductById(product_id)
       .then((results) => {
-        console.log(results.data);
         setMainProdInfo(results.data);
         return getProductById(overview_product_id);
       })
       .then((results) => {
-        console.log(results.data);
         setRelatedProdInfo(results.data);
         return getStylesById(product_id);
       })
@@ -26,13 +24,12 @@ const CompareProducts = ({product_id, overview_product_id}) => {
         return getStylesById(overview_product_id);
       })
       .then((results) => {
-        console.log(results.data.results);
         setRelatedStyles(results.data.results);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [overview_product_id]);
 
   return (
     <div className='comparison_modal'>
