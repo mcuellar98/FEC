@@ -6,20 +6,40 @@ import getProducts from '../../fetch.jsx';
 import QA from './QA/QA.jsx';
 import Overview from './Overview/Overview.jsx';
 import RIC from './RI&C/RIC.jsx';
+import HomePage from './HomePage/HomePage.jsx';
 
 const App = () => {
-
-  const [productId, setProductId] = useState(37318);
+  const [ productId, setProductId ] = useState(37323);
+  const [ pageNum,setPageN ] = useState(1);
+  const [ clicked,setClicked ] = useState(false);
   const [outfitImage, setOutfitImage] = useState('');
   const [outfitInfo, setOutfitInfo] = useState();
   const [productRating, setProductRating] = useState(0);
 
+
+  const goHome = (e) => {
+    e.preventDefault();
+    setClicked(false);
+  }
+  const handleClick = (id) => {
+    setClicked(true);
+    setProductId(id)
+  }
+
   return (
     <div>
+      <div className='header'>
+        <p onClick={goHome}><u style={{cursor:'pointer',marginLeft: '20px'}}>Atelier</u></p>
+      </div>
+      {clicked ?
+      (<div>
       <Overview setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/>
       <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/>
       <QA product_id={productId}/>
       <RatingsReviews id={productId} setProductRating={setProductRating}/>
+       </div>) :
+      (<HomePage pageNum={pageNum} set={handleClick}/>)
+      }
     </div>
   );
 };

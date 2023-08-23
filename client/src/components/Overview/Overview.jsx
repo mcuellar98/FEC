@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ImageView from './ImageView.jsx';
 import ProductInfo from './ProductInfo.jsx';
+import ProductSelection from './ProductSelection.jsx';
 import ProductStyles from './ProductStyles.jsx';
 import { getProducts, getProductById, getStylesById } from '../../../fetch.jsx';
 
@@ -32,7 +33,6 @@ const Overview = ({setOutfitImage, setOutfitInfo}) => {
   };
 
   var setStyleIndex = (style) => {
-    console.log('setStyleIndex,', style);
     setStyle(style);
   };
 
@@ -50,7 +50,7 @@ const Overview = ({setOutfitImage, setOutfitInfo}) => {
           <div id='product-info-and-cart'>
             <ProductInfo product={product} info={styles[style]}/>
             <ProductStyles styles={styles} style={style} setStyleIndex={(n) => setStyleIndex(n)}/>
-            <div id='product-selection'>product selection</div>
+            <ProductSelection style={styles[style]}/>
           </div>
         </div>
       )}

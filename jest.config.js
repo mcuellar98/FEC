@@ -1,6 +1,5 @@
 module.exports = {
   // testEnvironment: 'jsdom',
-  testEnvironment: 'jest-environment-jsdom',
   preset: 'ts-jest',
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest',
@@ -22,12 +21,14 @@ module.exports = {
     '^@App/(.*)$': '<rootDir>/src/$1',
     '^lib/(.*)$': '<rootDir>/common/$1',
   },
-  setupFiles: ["<rootDir>/.jest/setEnvVars.js"],
-  // collectCoverage: true,
-  // coverageReporters: ["json", "html"],
-  // preset: 'ts-jest',
-  // testEnvironment: 'node',
-  // testPathIgnorePatterns: [
-  //   '<rootDir>/dist'
-  // ],
+  collectCoverage: true,
+  collectCoverageFrom: ["client/src/components/R&R/*.{js,jsx,ts,tsx}","!<rootDir>/node_modules/"],
+  coverageThreshold: {
+    "global": {
+      "lines": 90,
+      "statements": 90
+    }},
+  coverageDirectory: 'coverage',
+  testEnvironment: 'jsdom',
+  setupFiles: ["<rootDir>/.jest/setEnvVars.js"]
 };
