@@ -37,7 +37,7 @@ const App = () => {
       <QA product_id={productId}/>
       <RatingsReviews id={productId} setProductRating={setProductRating}/>
        </div>) :
-      (<HomePage set={handleClick}/>)
+      (<HomePage pageNum={pageNum} set={handleClick}/>)
       }
     </div>
   );
