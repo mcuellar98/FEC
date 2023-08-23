@@ -63,7 +63,12 @@ const getQuestions = (id) => {
 };
 
 //GET request for Cart
-
+//POST request for cart
+const addToCart = (skuID) => {
+  return axios.post(url + 'cart',
+    {sku_id: skuID},
+    {headers: {Authorization: token}});
+}
 //GET request for Interactions
 //Put request for Answers (mark helpful)
 const markAnswerHelpful = (id) => {
@@ -107,6 +112,13 @@ const reportQuestion = (id) => {
   });
 };
 
+//Get request for related products
+const getRelatedProducts = (id) => {
+  return axios.get(url + `products/${id}/related`, {
+    headers: {Authorization: token}
+  });
+};
+
 export {
   getProducts,
   getProductById,
@@ -122,6 +134,8 @@ export {
   addQuestion,
   addAnswer,
   reportAnswer,
-  reportQuestion
+  reportQuestion,
+  getRelatedProducts,
+  addToCart,
 };
 

@@ -444,7 +444,7 @@ body {
   padding-top: 10px;
 }
 
-.add_modal {
+.add_modal, .comparison_modal{
   padding: 30px;
   padding-right: 40px;
   padding-left: 40px;
@@ -590,6 +590,7 @@ body {
 #overview {
   margin-left: 5%;
   margin-right: 5%;
+  max-width: 80%;
   display: grid;
   grid-template-columns: 7fr 3fr;
   grid-template-rows: 40em;
@@ -620,10 +621,24 @@ body {
   object-fit: cover;
 }
 
+.fullscreen-img {
+  padding: 30px;
+  padding-right: 40px;
+  padding-left: 40px;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 80%;
+  height: auto;
+  opacity: 100%;
+  z-index: 5;
+}
+
 #product-info-and-cart {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 5fr 4fr 4fr;
+  grid-template-rows: 5fr 9fr 5fr;
   grid-gap: 4px;
   padding: 10px;
 }
@@ -692,7 +707,8 @@ body {
 #product-styles {
   display: grid !important;
   margin-left: 25px;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 2fr 7fr;
+  align-items: start !important;
   grid-template-columns: 1fr;
 }
 
@@ -700,7 +716,7 @@ body {
   margin-right: 30px;
   display: grid !important;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 7.5px;
+  row-gap: 7.5px;
 }
 
 .style-tile-thumb {
@@ -716,3 +732,179 @@ body {
 .style-tile-thumb:hover {
   border: 2px solid #00bbf0;
 }
+
+
+.RIC {
+  position: relative;
+  margin: 5%;
+  height: auto;
+}
+
+.related_products_container, .your_outfits_container {
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  margin-bottom: 40px;
+}
+
+.rl_card {
+  position: relative;
+  border-color: white;
+  background-color: black;
+  margin-right: 20px;
+  border-style: solid;
+  height: 385px;
+  flex: 0 0 250px;
+}
+
+.rl_ul {
+  list-style-type: none;
+}
+
+.rl_card_image {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  min-width: 0
+}
+
+.rl_card_price, .rl_card_category {
+  font-size: 9pt;
+}
+
+.rl_card_name {
+  font-weight: 800;
+  font-size: 16pt;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.rl_card_text {
+  padding: 5px;
+  padding-left: 10px;
+  padding-bottom: 0;
+}
+
+.scroll_left_button{
+  position: absolute;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  top:212px;
+  font-size: x-large;
+  left:-16.5px;
+}
+
+.scroll_right_button{
+  text-align: center;
+  position: absolute;
+  font-size: x-large;
+  width: 40px;
+  height: 40px;
+  top:212px;
+  left:99%;
+}
+
+.scroll_left_button, .scroll_right_button {
+  font-size: 20pt;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.rl_card_star {
+  position: absolute;
+  top: 2%;
+  left: 88%;
+  color: 'transparent';
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  &:hover {cursor: pointer}
+}
+
+.delete_outfit {
+  position: absolute;
+  background-color: lightgray;
+  border-style: solid;
+  border-color: black;
+  text-align: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  color: black;
+  top: 2%;
+  left: 88%;
+  font-size: large;
+  line-height: 18px;
+  font-weight: bolder;
+  &:hover {cursor: pointer; color: red; border-color: red;}
+}
+
+.comparing_title {
+  text-align: center;
+}
+
+.comparison_table {
+  margin: 0 auto;
+}
+
+.comparison_table tr, th, td{
+  text-align: center;
+  padding: 10px;
+  margin:20px;
+}
+
+.add_outfit_content {
+  align-self: center;
+}
+
+.outfit_card {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-color: white;
+  background-color: black;
+  margin-right: 20px;
+  border-style: solid;
+  height: 385px;
+  flex: 0 0 250px;
+}
+
+.add_outfit_text {
+  text-align: center;
+  font-size: 14pt;
+}
+
+.add_outfit_button {
+  margin:0 auto;
+  display:block;
+  width: 80px;
+  height: 80px;
+  font-size: 50pt;
+  background-color: lightgray;
+  &:hover {cursor: pointer}
+}
+
+#product-selection {
+  display: grid !important;
+  justify-self: start;
+  margin-left: 25px;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-self: start !important;
+}
+#add-to-cart-btn, #product-size-and-quantity > select {
+  border: 1.5px solid lightgray;
+  background-color: black;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+}
+#add-to-cart-btn {
+  padding: 8px !important;
+  cursor: pointer;
+}
+#quantity-selection {
+  margin: 10px !important;
+}
+

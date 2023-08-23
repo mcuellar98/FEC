@@ -16,15 +16,13 @@ const QA = ({product_id}) => {
   useEffect(() => {
     getQuestions(product_id)
       .then((results) => {
-        var questionList = _.sortBy(results.data.results, (q) => {
-          return -q.question_helpfulness;
-        });
+        var questionList = _.sortBy(results.data.results, (q) => {return -q.question_helpfulness; });
         setQuestions(questionList);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [product_id]);
 
   const handleExpand = () => {
     setQListSize(qListSize + 2);

@@ -17,7 +17,7 @@ const RatingsReviews = (props) => {
   useEffect(() => {
     get(props.id, 'relevance');
     getMeta(props.id);
-  },[])
+  },[props.id])
 
 //#region fetch stuff
   var get = (prodID, method) => {
@@ -69,7 +69,7 @@ const RatingsReviews = (props) => {
       <div id='RnR-par'>
         <div id='RnR'>
           <div id='ratings'>
-            <RatingBreakdown id={props.id} reviews={meta} filtering={filtering} />
+            <RatingBreakdown id={props.id} reviews={meta} filtering={filtering} setProductRating={props.setProductRating}/>
             <ProductBreakdown id={props.id} meta={meta}/>
           </div>
           <div id='space-between'></div>
