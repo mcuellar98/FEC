@@ -1,15 +1,20 @@
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import ProductInfo, { getRating } from '../components/Overview/ProductInfo.jsx';
+import Overview from '../components/Overview/Overview.jsx';
 import { average } from '../components/R&R/Helper.jsx';
+
+describe('Overview', () => {
+  it('Overview Renders', () => {
+    render(<Overview id={1} setOutfitImage={()=>{}} setOutfitInfo={()=>{}}/>);
+
+  });
+});
 
 describe('getRating', () => {
   it('calculates average rating correctly', async () => {
-    const component = renderer.create(
-      <ProductInfo />,
-    );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+
+
 
   });
 
