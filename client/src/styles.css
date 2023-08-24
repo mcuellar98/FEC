@@ -748,7 +748,7 @@ body {
   margin-bottom: 40px;
 }
 
-.rl_card {
+.rl_card, .yo_card {
   position: relative;
   border-color: white;
   background-color: black;

@@ -5,7 +5,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 import {Promise} from "bluebird";
 
-const RelatedProducts = ({product_id, setProductId}) => {
+const RelatedProducts = ({product_id, setProductId, setCanAddOutfit}) => {
 
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [scrollRight, setScrollRight] = useState(true);
@@ -56,10 +56,6 @@ const RelatedProducts = ({product_id, setProductId}) => {
   }, [product_id]);
 
   useEffect(() => {
-    if (relatedProducts.length !== 0) {
-      console.log($($('.rl_card')[relatedProducts.length - 1]).position().left + $($('.rl_card')[relatedProducts.length - 1]).width());
-      console.log($('#rl_list').width());
-    }
     if (relatedProducts.length === 0) {
       setScrollRight(false);
     } else if (relatedProducts.length > 0 && $($('.rl_card')[relatedProducts.length - 1]).position().left + $($('.rl_card')[relatedProducts.length - 1]).width() < $('#rl_list').width()) {
@@ -71,13 +67,16 @@ const RelatedProducts = ({product_id, setProductId}) => {
 
   const handleResize = () => {
     var cards = $('.rl_card');
-    var lastCard = $($('.rl_card')[$('.rl_card').length - 1]);
+    var firstCard = $($('.rl_card')[0]);
     for (var i = 0; i < cards.length; i++) {
       if ($(cards[i]).position().left + $(cards[i]).width() > $('#rl_list').width()) {
         setScrollRight(true);
       } else {
         setScrollRight(false);
       }
+    }
+    if (firstCard.position().left >= 0) {
+      setScrollLeft(false);
     }
   };
 
@@ -91,7 +90,7 @@ const RelatedProducts = ({product_id, setProductId}) => {
     <div id='rl_list' className='related_products_container'>
       {scrollLeft ? <button className='scroll_left_button' onClick={handleScrollLeft}>{'<'}</button> : null}
       {_.map(relatedProducts, (productID, index) => {
-        return <RLCard key={productID} overview_product_id={product_id} product_id={productID} setProductId={setProductId}/>;
+        return <RLCard key={productID} overview_product_id={product_id} product_id={productID} setProductId={setProductId} setCanAddOutfit={setCanAddOutfit}/>;
       })}
       {scrollRight ? <button className='scroll_right_button' onClick={handleScrollRight}>{'>'}</button> : null}
     </div>
