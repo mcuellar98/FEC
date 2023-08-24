@@ -597,6 +597,12 @@ body {
   grid-gap: 8px;
   justify-content: center;
 }
+@media (max-width: 1100px)  {
+  #overview {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40em 30em;
+  }
+}
 
 #images {
   margin: 12px;

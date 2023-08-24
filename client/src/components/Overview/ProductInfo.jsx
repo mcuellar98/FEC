@@ -4,21 +4,23 @@ import { useState, useEffect } from 'react';
 import { getMetaReviews } from '../../../fetch.jsx';
 import { partFilled, average } from '../R&R/Helper.jsx';
 
+export const getRating = (prodID) => {
+  console.log('get rating for', prodID)
+  getMetaReviews(prodID)
+    .then((resp) => {
+      console.log('got rating ', resp.data)
+      setRating(average(resp.data));
+    }) .catch((err) => {
+      console.log('did not get  rating ')
+      console.log(err);
+    });
+};
 
 const ProductInfo = ({ product, info }) => {
   const [rating, setRating] = useState(0);
 
-  var getMRating = (prodID) => {
-    getMetaReviews(prodID)
-      .then((resp) => {
-        setRating(average(resp.data));
-      }) .catch((err) => {
-        console.log(err);
-      });
-  };
-
   useEffect(() => {
-    getMRating(product.id);
+    getRating(product.id);
   }, []);
 
   return (

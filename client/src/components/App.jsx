@@ -32,7 +32,7 @@ const App = () => {
       </div>
       {clicked ?
       (<div>
-      <Overview setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/>
+      <Overview id={productId} setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/>
       <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/>
       <QA product_id={productId}/>
       <RatingsReviews id={productId} setProductRating={setProductRating}/>
