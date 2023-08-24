@@ -14,6 +14,7 @@ const RatingBreakdown = (props) => {
   const handleClick = (e,value) => {
     e.preventDefault();
     props.filtering(value);
+    props.setClicked(true);
   }
   const bar = (percent,rating) => {
     const styles = {

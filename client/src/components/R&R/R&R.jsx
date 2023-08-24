@@ -13,6 +13,7 @@ const RatingsReviews = (props) => {
   const [ meta,setMeta ] = useState([]);
   const [ dataCopy,setDC ] = useState(data);
   const [ viewModal,setVM ] = useState(false);
+  const [ clicked,setClicked ] = useState(false);
 
   useEffect(() => {
     get(props.id, 'relevance');
@@ -24,7 +25,6 @@ const RatingsReviews = (props) => {
     getReviewsById(prodID, method)
       .then((res) => {
         setData(res.data.results)
-        setDC(res.data.results)
       })
   }
   var getMeta = (prodID) => {
@@ -37,10 +37,6 @@ const RatingsReviews = (props) => {
   }
 //#endregion
 
-  useEffect(() => {
-    setDC(data);
-  }, [data]);
-
   const sorting = (option) => {
     if (option === 'Relevance') {
       get(props.id, 'relevant');
@@ -51,12 +47,18 @@ const RatingsReviews = (props) => {
     }
   }
   const filtering = (rating) => {
-    console.log(data)
     const filtered = data.filter((review) => {
       return review.rating === rating
     });
-    console.log(filtered)
-    setDC(filtered);
+    setDC(prevData => {
+      var result = [...prevData];
+      filtered.map((review) => {
+        if (!result.includes(review)) {
+          result.push(review)
+        }
+      })
+      return result;
+    });
   }
   const refresh = () => {
     get(props.id, 'relevant')
@@ -69,14 +71,15 @@ const RatingsReviews = (props) => {
       <div id='RnR-par'>
         <div id='RnR'>
           <div id='ratings'>
-            <RatingBreakdown id={props.id} reviews={meta} filtering={filtering} setProductRating={props.setProductRating}/>
+            <RatingBreakdown id={props.id} reviews={meta} filtering={filtering} setProductRating={props.setProductRating} setClicked={setClicked}/>
             <ProductBreakdown id={props.id} meta={meta}/>
           </div>
           <div id='space-between'></div>
           <div id='reviews-sec'>
             <div id='reviews'>
               <Sorter id={props.id} reviews={data} sorting={sorting}/>
-              <ReviewList id={props.id} reviews={dataCopy} view={viewModal} sV={setVM} meta={meta} refresh={refresh}/>
+              {!clicked ? (<ReviewList id={props.id} reviews={data} view={viewModal} sV={setVM} meta={meta} refresh={refresh}/>) : (<ReviewList id={props.id} reviews={dataCopy} view={viewModal} sV={setVM} meta={meta} refresh={refresh}/>)
+              }
             </div>
           </div>
         </div>
