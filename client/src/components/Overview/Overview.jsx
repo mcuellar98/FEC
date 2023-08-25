@@ -34,7 +34,7 @@ const Overview = ({id, setOutfitImage, setOutfitInfo}) => {
 
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [id]);
 
   return (
     <div>

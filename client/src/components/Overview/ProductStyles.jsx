@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 
 const ProductStyles = (props) => {
 
-
   return (
     <div id='product-styles'>
       <div>
