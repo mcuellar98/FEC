@@ -66,7 +66,6 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
       setShow(true);
     }
   }
-
   return (
     <div>
       <div style={{display:'flex', alignItems:'center', marginBottom: '10px'}}>
@@ -75,7 +74,7 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
       </div>
       <div id='rlistMap'>
         {(reviews.length === 0) ? (<div>No Reviews Yet...</div>) : list.map((review) => {
-          return (<Review key={review.review_id} review={review} partFilled={partFilled}/>)
+          return (<Review key={review.review_id} review={review}/>)
         })}
       </div>
       <div id='rbutton-cont' style={{paddingBottom: '20px'}}>

@@ -1,7 +1,7 @@
 body {
   background-color: rgb(11, 11, 11);
   color: white;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Lucida Handwriting';
   text-overflow: none;
   margin-top:70px;
 }
@@ -11,6 +11,7 @@ body {
 
 .header {
   position:fixed;
+  font-family: 'Lucida Handwriting';
   z-index:2;
   top:0;
   background-color: rgb(30,30,30);

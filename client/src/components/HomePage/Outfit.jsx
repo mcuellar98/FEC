@@ -10,7 +10,11 @@ const Outfit = ({product,set}) => {
   useEffect(() => {
   getImages(product.id)
     .then((res)=> {
-      setImg(res.data.results[0].photos[0].thumbnail_url)
+      if (res.data.results[0].photos[0].thumbnail_url) {
+        setImg(res.data.results[0].photos[0].thumbnail_url)
+      } else {
+        setImg(require('../../assets/no_pic.png'));
+      }
     })
   },[])
 
@@ -20,7 +24,7 @@ const Outfit = ({product,set}) => {
   }
   return (
   <div id='prodCard' onClick={handleClick}>
-    <div style={{display:'flex',justifyContent:'center',width:'100%',height:'80%',overflow:'hidden'}}><img src={img} alt='Img Not Available'/></div>
+    <div style={{display:'flex',justifyContent:'center',width:'100%',height:'80%',overflow:'hidden'}}><img src={img}/></div>
     <p styles={{display:'block'}}>{product.name}</p>
   </div>)
 }
