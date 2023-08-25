@@ -1,6 +1,58 @@
 import {  trianglePos, perc, partFilled, average, recPercent, revPerc, getDate } from './Helper';
 import { render } from '@testing-library/react';
 import * as utils from './Review'
+import AddImage from './AddImage';
+import ProductBreakdown from './ProductBreakdown';
+import RatingsReviews from './R&R';
+import RatingBreakdown from './RatingBreakdown';
+import Review_Modal from './Review_Modal';
+import Review from './Review';
+import ReviewList from './ReviewList';
+import Sorter from './Sorter';
+
+const meta = {
+  "product_id": "37312",
+  "ratings": {
+      "1": "19",
+      "2": "13",
+      "3": "9",
+      "4": "6",
+      "5": "13"
+  },
+  "recommended": {
+      "false": "11",
+      "true": "49"
+  },
+  "characteristics": {
+      "Quality": {
+          "id": 125035,
+          "value": "3.2068965517241379"
+      }
+  }
+}
+const data =
+  {
+      "review_id": 1280179,
+      "rating": 5,
+      "summary": "squidward test review",
+      "recommend": true,
+      "response": null,
+      "body": "just a test haha",
+      "date": "2023-06-26T00:00:00.000Z",
+      "reviewer_name": "squid",
+      "helpfulness": 48,
+      "photos": [
+          {
+              "id": 2459023,
+              "url": "https://static.wikia.nocookie.net/spongebob/images/9/96/The_Two_Faces_of_Squidward_174.png"
+          },
+          {
+              "id": 2459024,
+              "url": "https://static.wikia.nocookie.net/spongebob/images/4/4f/The_Two_Faces_of_Squidward_075.png"
+          }
+      ]
+  }
+
 
 describe('Helper functions', () => {
   test('should render triangle for rating percentage bar', () => {
@@ -30,10 +82,43 @@ describe('Helper functions', () => {
   })
 });
 
-// describe('Testing whether helper is working in jest', () => {
-//   test('please work', () => {
-//     jest.mock('./Review');
-//     utils.handleHelp = jest.fn();
-//     expect(utils.handleHelp).toHaveBeenCalled();
-//   })
-// })
+describe('AddImage tests', () => {
+  test('Testing AddImage rendering', async () => {
+    await render(<AddImage key='1' img={[]} id={37312} add={()=>{}} del={()=>{}}/>)
+  })
+});
+describe('ProductBreakdown tests', () => {
+  test('Testing PBreakdown rendering', async () => {
+    await render(<ProductBreakdown id={37312} meta={meta}/>)
+  })
+});
+describe('R&R tests', () => {
+  test('Testing R&R rendering', async () => {
+    await render(<RatingsReviews id={37312} setProductRating={() => {}}/>)
+  })
+});
+describe('RatingBreakdown tests', () => {
+  test('Testing RBreakdown rendering', async () => {
+    await render(<RatingBreakdown id={37312} reviews={meta} filtering={()=>{}} setProductRating={()=>{}}/>)
+  })
+});
+describe('Review_Modal tests', () => {
+  test('Testing Modal rendering', async () => {
+    await render(<Review_Modal view={false} id={37312} sV={()=>{}} meta={meta} refresh={()=>{}}/>)
+  })
+});
+describe('Review tests', () => {
+  test('Testing Review rendering', async () => {
+    await render(<Review key='1' review={data}/>)
+  })
+});
+describe('ReviewList tests', () => {
+  test('Testing ReviewList rendering', async () => {
+    await render(<ReviewList id={37312} reviews={data} view={false} sV={()=>{}} meta={meta} refresh={()=>{}}/>)
+  })
+});
+describe('Sorter tests', () => {
+  test('Testing Sorter rendering', async () => {
+    await render(<Sorter id={37312} reviews={data} sorting={()=>{}}/>)
+  })
+});

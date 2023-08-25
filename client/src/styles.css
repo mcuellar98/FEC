@@ -1,7 +1,7 @@
 body {
   background-color: rgb(11, 11, 11);
   color: white;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Lucida Handwriting';
   text-overflow: none;
   margin-top:70px;
 }
@@ -11,6 +11,7 @@ body {
 
 .header {
   position:fixed;
+  font-family: 'Lucida Handwriting';
   z-index:2;
   top:0;
   background-color: rgb(30,30,30);
@@ -754,7 +755,7 @@ body {
   margin-bottom: 40px;
 }
 
-.rl_card {
+.rl_card, .yo_card {
   position: relative;
   border-color: white;
   background-color: black;
@@ -812,7 +813,27 @@ body {
   left:99%;
 }
 
-.scroll_left_button, .scroll_right_button {
+.yo_scroll_left_button{
+  position: absolute;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  top:675px;
+  font-size: x-large;
+  left:-16.5px;
+}
+
+.yo_scroll_right_button{
+  text-align: center;
+  position: absolute;
+  font-size: x-large;
+  width: 40px;
+  height: 40px;
+  top:675px;
+  left:99%;
+}
+
+.scroll_left_button, .scroll_right_button, .yo_scroll_left_button, .yo_scroll_right_button {
   font-size: 20pt;
   border-radius: 50%;
   z-index: 1;
