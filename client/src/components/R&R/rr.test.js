@@ -1,5 +1,5 @@
 import {  trianglePos, perc, partFilled, average, recPercent, revPerc, getDate } from './Helper';
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import * as utils from './Review'
 import AddImage from './AddImage';
 import ProductBreakdown from './ProductBreakdown';
@@ -120,5 +120,7 @@ describe('ReviewList tests', () => {
 describe('Sorter tests', () => {
   test('Testing Sorter rendering', async () => {
     await render(<Sorter id={37312} reviews={data} sorting={()=>{}}/>)
-  })
+  });
+
+  expect(screen.getByText(''))
 });

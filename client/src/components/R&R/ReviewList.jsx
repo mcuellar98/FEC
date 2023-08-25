@@ -66,6 +66,7 @@ const ReviewList = ( {id,reviews,view,sV,meta,refresh} ) => {
       setShow(true);
     }
   }
+
   return (
     <div>
       <div style={{display:'flex', alignItems:'center', marginBottom: '10px'}}>
