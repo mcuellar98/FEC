@@ -32,13 +32,12 @@ const App = () => {
       </div>
       {!clicked ?
       (<div>
-      {/* <Overview setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/> */}
-      {/* <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/> */}
-      {/* <QA product_id={productId}/> */}
+      <Overview setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/>
+      <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/>
+      <QA product_id={productId}/>
       <RatingsReviews id={productId} setProductRating={setProductRating}/>
-       </div>) : (<></>)
-      // (<HomePage set={handleClick}/>)
-      }
+       </div>) :
+      (<HomePage set={handleClick}/>)}
     </div>
   );
 };
