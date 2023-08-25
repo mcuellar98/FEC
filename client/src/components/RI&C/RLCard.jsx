@@ -4,7 +4,7 @@ import {getProductById, getStylesById, getReviewsById} from './../../../fetch.js
 import {partFilled} from './../R&R/Helper.jsx';
 import CompareProducts from './CompareProducts.jsx';
 
-const RLCard = ({product_id, overview_product_id, setProductId}) => {
+const RLCard = ({product_id, overview_product_id, setProductId, setCanAddOutfit}) => {
 
   const [product, setProduct] = useState({});
   const [cardImage, setCardImage] = useState('');
@@ -46,11 +46,12 @@ const RLCard = ({product_id, overview_product_id, setProductId}) => {
   const changeProductId = (e) => {
     if (canChangeId.current) {
       setProductId(product_id);
+      setCanAddOutfit(true);
     }
   };
 
   return (
-    <div className='rl_card' onClick={changeProductId}>
+    <div id='product_id' className='rl_card' onClick={changeProductId}>
       <span className="rl_card_star" onClick={openComparisonModal}>★</span>
       <img className = 'rl_card_image' src={cardImage}/>
       <div className='rl_card_text'>

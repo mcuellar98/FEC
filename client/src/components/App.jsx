@@ -9,8 +9,8 @@ import RIC from './RI&C/RIC.jsx';
 import HomePage from './HomePage/HomePage.jsx';
 
 const App = () => {
-  const [ productId, setProductId ] = useState(37323);
-  const [ clicked,setClicked ] = useState(false);
+  const [ productId, setProductId ] = useState(0);
+  const [ clicked, setClicked ] = useState(false);
   const [outfitImage, setOutfitImage] = useState('');
   const [outfitInfo, setOutfitInfo] = useState();
   const [productRating, setProductRating] = useState(0);
@@ -32,12 +32,11 @@ const App = () => {
       </div>
       {!clicked ?
       (<div>
-      {/* <Overview setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/> */}
-      {/* <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/> */}
-      {/* <QA product_id={productId}/> */}
+      <Overview setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo} product_id={productId}/>
+      <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/>
+      <QA product_id={productId}/>
       <RatingsReviews id={productId} setProductRating={setProductRating}/>
-       </div>) : (<></>)
-      // (<HomePage set={handleClick}/>)
+       </div>) : (<HomePage set={handleClick}/>)
       }
     </div>
   );
