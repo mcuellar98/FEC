@@ -610,6 +610,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor:pointer;
 }
 
 .carousel .thumb {
@@ -618,14 +619,18 @@ body {
 }
 .carousel .thumb:hover {
   border: 3px solid #00bbf0;
+  cursor:pointer;
 }
 .carousel .thumb.selected {
   border: 3px solid #fdb44b;
+  cursor:pointer;
+
 }
 .carousel-pic {
   max-width: 245px;
   height: auto;
   object-fit: cover;
+  cursor:pointer;
 }
 
 .fullscreen-img {
@@ -732,6 +737,7 @@ body {
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 35px;
   object-fit: cover;
+  cursor:pointer;
 }
 .style-thumb-selected {
   border: 2px solid #fdb44b;
@@ -911,7 +917,9 @@ body {
   background-color: lightgray;
   &:hover {cursor: pointer}
 }
-
+#product_id {
+  cursor:pointer;
+}
 #product-selection {
   display: grid !important;
   justify-self: start;
