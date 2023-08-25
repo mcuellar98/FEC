@@ -12,7 +12,6 @@ const Search = ({product_id, setQuestions, setQuery, qListSize}) => {
       setResetQs(true);
       getQuestions(product_id)
         .then((results) => {
-          console.log(results.data.results);
           return _.filter(results.data.results, (question) => {
             return question.question_body.toLowerCase().includes(e.target.value.toLowerCase());
           });

@@ -19,24 +19,25 @@ const App = () => {
   const goHome = (e) => {
     e.preventDefault();
     setClicked(false);
-  }
+  };
+
   const handleClick = (id) => {
     setClicked(true);
-    setProductId(id)
-  }
+    setProductId(id);
+  };
 
   return (
     <div>
       <div className='header'>
-        <p onClick={goHome}><u style={{cursor:'pointer',marginLeft: '20px', fontSize: '24px'}}>Comic Sans</u></p>
+        <p onClick={goHome}><u style={{cursor: 'pointer', marginLeft: '20px', fontSize: '24px'}}>Comic Sans</u></p>
       </div>
       {clicked ?
-      (<div>
-      <Overview id={productId} setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/>
-      <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/>
-      <QA product_id={productId}/>
-      <RatingsReviews id={productId} setProductRating={setProductRating}/>
-       </div>) : (<HomePage set={handleClick}/>)
+        (<div>
+          <Overview id={productId} setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/>
+          <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/>
+          <QA product_id={productId}/>
+          <RatingsReviews id={productId} setProductRating={setProductRating}/>
+        </div>) : (<HomePage set={handleClick}/>)
       }
     </div>
   );

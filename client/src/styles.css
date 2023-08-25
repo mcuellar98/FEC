@@ -841,8 +841,9 @@ body {
 
 .rl_card_star {
   position: absolute;
+  font-size: xx-large;
   top: 2%;
-  left: 88%;
+  left: 81%;
   color: 'transparent';
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
