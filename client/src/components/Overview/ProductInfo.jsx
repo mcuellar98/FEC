@@ -10,10 +10,8 @@ const ProductInfo = ({ product, info }) => {
   const [rating, setRating] = useState(0);
 
   const getRating = (prodID) => {
-    console.log('get rating for', prodID)
     getMetaReviews(prodID)
       .then((resp) => {
-        console.log('got rating ', resp.data)
         setRating(average(resp.data));
       }) .catch((err) => {
         console.log('did not get  rating ')

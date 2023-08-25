@@ -9,8 +9,6 @@ const ImageView = (props) => {
   const [currentPhoto, setCurrentPhoto] = useState(0);
   const [fullscreen, setFullscreen] = useState(false);
 
-  console.log('imageview props', props);
-
   var handleThumbClick = (index, item) => {
     console.log(index, item);
     setCurrentPhoto(index);

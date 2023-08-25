@@ -16,12 +16,10 @@ const Overview = ({id, setOutfitImage, setOutfitInfo}) => {
 
   var getProduct = () => {
     getProductById(id).then(result2 => {
-      console.log('result2', result2.data)
       setProduct(result2.data);
       setOutfitInfo(result2.data);
       return getStylesById(result2.data.id);
     }).then(result3 => {
-      // console.log('styles:', result3.data);
       setStyles(result3.data.results);
       setOutfitImage(result3.data.results[0].photos[0].thumbnail_url);
       setIsLoading(false);
