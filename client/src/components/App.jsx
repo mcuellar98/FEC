@@ -30,9 +30,9 @@ const App = () => {
       <div className='header'>
         <p onClick={goHome}><u style={{cursor:'pointer',marginLeft: '20px', fontSize: '24px'}}>Comic Sans</u></p>
       </div>
-      {!clicked ?
+      {clicked ?
       (<div>
-      <Overview setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo} product_id={productId}/>
+      <Overview id={productId} setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/>
       <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/>
       <QA product_id={productId}/>
       <RatingsReviews id={productId} setProductRating={setProductRating}/>

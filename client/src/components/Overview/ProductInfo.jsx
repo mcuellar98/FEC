@@ -5,20 +5,22 @@ import { getMetaReviews } from '../../../fetch.jsx';
 import { partFilled, average } from '../R&R/Helper.jsx';
 
 
+
 const ProductInfo = ({ product, info }) => {
   const [rating, setRating] = useState(0);
 
-  var getMRating = (prodID) => {
+  const getRating = (prodID) => {
     getMetaReviews(prodID)
       .then((resp) => {
         setRating(average(resp.data));
       }) .catch((err) => {
+        console.log('did not get  rating ')
         console.log(err);
       });
   };
 
   useEffect(() => {
-    getMRating(product.id);
+    getRating(product.id);
   }, []);
 
   return (

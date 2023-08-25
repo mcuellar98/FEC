@@ -20,9 +20,10 @@ module.exports = {
   moduleNameMapper: {
     '^@App/(.*)$': '<rootDir>/src/$1',
     '^lib/(.*)$': '<rootDir>/common/$1',
+    '^.+\\.(css|less)$': '<rootDir>/client/src/tests/cssStub.js'
   },
   collectCoverage: true,
-  collectCoverageFrom: ["client/src/components/R&R/*.{js,jsx,ts,tsx}","!<rootDir>/node_modules/"],
+  collectCoverageFrom: ["client/src/components/Overview/*.{js,jsx,ts,tsx}","!<rootDir>/node_modules/"],
   coverageThreshold: {
     "global": {
       "lines": 90,

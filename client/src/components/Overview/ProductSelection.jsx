@@ -15,7 +15,6 @@ const ProductSelection = (props) => {
     for (const property in props.style.skus) {
       arr.push([property, props.style.skus[property]]);
     }
-    console.log(arr);
     return arr;
   };
   var availableSizes = () => {
@@ -49,17 +48,14 @@ const ProductSelection = (props) => {
     e.preventDefault();
   };
   var onAddToCart = () => {
-    console.log('Make api call to add ', skuID, 'x', quantity);
     for (var i = 0; i < quantity; i++) {
       addToCart(skuID).then(result => {
-        console.log('added to cart');
       }).catch((err) => {
         console.log('add to cart error', err);
       });
     }
   };
 
-  console.log('ProductSelection props:', props);
 
   return (
     <div id='product-selection'>
