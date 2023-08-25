@@ -36,6 +36,11 @@ const YourOutfits = ({outfitImage, outfitInfo, productRating, canAddOutfit, setC
     } else {
       setScrollRight(true);
     }
+    for (var i = 0; i < outfitList.length; i++) {
+      if (outfitList[i].props.outfitInfo.id === product_id) {
+        setCanAddOutfit(false);
+      }
+    }
   }, [outfitList, canAddOutfit]);
 
   const addOutfit = (e) => {
