@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import _ from 'underscore';
-import {getQuestions, addAnswer, getProductById} from './../../../fetch.jsx';
+import {getQuestions, addAnswer} from './../../../fetch.jsx';
 import AnswerImageList from './AnswerImageList.jsx';
 
-const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible, question_body}) => {
+const AddAnswer = ({productInfo, question_id, setQuestions, setAddAnswerVisible, question_body}) => {
 
   const [question, setQuestion] = useState('');
   const [nickname, setNickname] = useState('');
@@ -14,14 +14,8 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible, 
   const [productName, setProductName] = useState('');
 
   useEffect(() => {
-    getProductById(product_id)
-      .then((product) => {
-        setProductName(product.data.name);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    setProductName(productInfo.data.name);
+  }, [productInfo]);
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);
@@ -61,7 +55,7 @@ const AddAnswer = ({product_id, question_id, setQuestions, setAddAnswerVisible, 
       };
       addAnswer(question_id, body)
         .then((results)=> {
-          return getQuestions(product_id);
+          return getQuestions(productInfo.data.id);
         })
         .then((results) => {
           setQuestions(results.data.results);

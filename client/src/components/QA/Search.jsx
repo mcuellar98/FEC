@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {getQuestions} from './../../../fetch.jsx';
 import _ from 'underscore';
 
-const Search = ({product_id, setQuestions, setQuery, qListSize}) => {
+const Search = ({productInfo, setQuestions, setQuery, qListSize}) => {
 
   const [resetQs, setResetQs] = useState(false);
 
@@ -10,7 +10,7 @@ const Search = ({product_id, setQuestions, setQuery, qListSize}) => {
     setQuery(e.target.value);
     if (e.target.value.length >= 3) {
       setResetQs(true);
-      getQuestions(product_id)
+      getQuestions(productInfo.data.id)
         .then((results) => {
           return _.filter(results.data.results, (question) => {
             return question.question_body.toLowerCase().includes(e.target.value.toLowerCase());
@@ -24,7 +24,7 @@ const Search = ({product_id, setQuestions, setQuery, qListSize}) => {
         });
     } else if (e.target.value.length < 3 && resetQs) {
       setResetQs(false);
-      getQuestions(product_id)
+      getQuestions(productInfo.data.id)
         .then((results) => {
           setQuestions(results.data.results);
         })

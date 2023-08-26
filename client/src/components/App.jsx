@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import RatingsReviews from './R&R/R&R.jsx';
-import getProducts from '../../fetch.jsx';
 import QA from './QA/QA.jsx';
 import Overview from './Overview/Overview.jsx';
 import RIC from './RI&C/RIC.jsx';
 import HomePage from './HomePage/HomePage.jsx';
+import {getProductById} from './../../fetch.jsx';
 
 const App = () => {
-  const [ productId, setProductId ] = useState(0);
-  const [ clicked, setClicked ] = useState(false);
+  const [productId, setProductId] = useState(0);
+  const [clicked, setClicked] = useState(false);
+  const [productInfo, setProductInfo] = useState({});
+  const [productStyles, setProductStyles] = useState({});
   const [outfitImage, setOutfitImage] = useState('');
-  const [outfitInfo, setOutfitInfo] = useState();
   const [productRating, setProductRating] = useState(0);
 
+  useEffect(() => {
+    if (productId !== 0) {
+      getProductById(productId)
+        .then((results) => {
+          setProductInfo(results);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [productId]);
 
   const goHome = (e) => {
     e.preventDefault();
@@ -22,8 +33,15 @@ const App = () => {
   };
 
   const handleClick = (id) => {
-    setClicked(true);
-    setProductId(id);
+    getProductById(id)
+      .then((results) => {
+        setProductInfo(results);
+        setProductId(id);
+        setClicked(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -33,9 +51,9 @@ const App = () => {
       </div>
       {clicked ?
         (<div>
-          <Overview id={productId} setOutfitImage={setOutfitImage} setOutfitInfo={setOutfitInfo}/>
-          <RIC product_id={productId} setProductId={setProductId} outfitInfo={outfitInfo} outfitImage={outfitImage} productRating={productRating}/>
-          <QA product_id={productId}/>
+          <Overview id={productId} productInfo={productInfo} setOutfitImage={setOutfitImage}/>
+          <RIC product_id={productId} productInfo={productInfo} setProductId={setProductId} outfitImage={outfitImage} productRating={productRating}/>
+          <QA productInfo={productInfo}/>
           <RatingsReviews id={productId} setProductRating={setProductRating}/>
         </div>) : (<HomePage set={handleClick}/>)
       }

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import _ from 'underscore';
-import {getQuestions, addQuestion, getProductById} from './../../../fetch.jsx';
+import {getQuestions, addQuestion} from './../../../fetch.jsx';
 
-const AddQuestion = ({product_id, setQuestions, setModalVisible}) => {
+const AddQuestion = ({productInfo, setQuestions, setModalVisible}) => {
 
   const [question, setQuestion] = useState('');
   const [nickname, setNickname] = useState('');
@@ -10,14 +10,9 @@ const AddQuestion = ({product_id, setQuestions, setModalVisible}) => {
   const [productName, setProductName] = useState('');
 
   useEffect(() => {
-    getProductById(product_id)
-      .then((product) => {
-        setProductName(product.data.name);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    console.log(productInfo);
+    setProductName(productInfo.data.name);
+  }, [productInfo]);
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);
@@ -53,11 +48,11 @@ const AddQuestion = ({product_id, setQuestions, setModalVisible}) => {
         body: question,
         name: nickname,
         email: email,
-        product_id: product_id
+        product_id: productInfo.data.id
       };
       addQuestion(body)
         .then((results)=> {
-          return getQuestions(product_id);
+          return getQuestions(productInfo.data.id);
         })
         .then((results) => {
           setQuestions(results.data.results);

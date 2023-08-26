@@ -4,7 +4,7 @@ import {getProductById, getStylesById, getReviewsById} from './../../../fetch.js
 import {partFilled} from './../R&R/Helper.jsx';
 import CompareProducts from './CompareProducts.jsx';
 
-const RLCard = ({product_id, overview_product_id, setProductId, setCanAddOutfit}) => {
+const RLCard = ({product_id, overview_product_id, productInfo, setProductId, setCanAddOutfit}) => {
 
   const [product, setProduct] = useState({});
   const [cardImage, setCardImage] = useState('');
@@ -62,7 +62,7 @@ const RLCard = ({product_id, overview_product_id, setProductId, setCanAddOutfit}
       </div>
       {modalVisible ?
         <div>
-          <CompareProducts product_id={product_id} overview_product_id={overview_product_id} setModalVisible={setModalVisible}/>
+          <CompareProducts product_id={product_id} relatedProductInfo={product} mainProductInfo={productInfo} overview_product_id={overview_product_id} setModalVisible={setModalVisible}/>
           <div className='blur' onClick={(e) => { e.stopPropagation(); setModalVisible(false); }}></div>
         </div> : null}
     </div>

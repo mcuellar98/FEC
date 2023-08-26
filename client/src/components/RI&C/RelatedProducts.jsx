@@ -5,7 +5,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 import {Promise} from "bluebird";
 
-const RelatedProducts = ({product_id, setProductId, setCanAddOutfit}) => {
+const RelatedProducts = ({product_id, productInfo, setProductId, setCanAddOutfit}) => {
 
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [scrollRight, setScrollRight] = useState(true);
@@ -90,7 +90,7 @@ const RelatedProducts = ({product_id, setProductId, setCanAddOutfit}) => {
     <div id='rl_list' className='related_products_container'>
       {scrollLeft ? <button className='scroll_left_button' onClick={handleScrollLeft}>{'<'}</button> : null}
       {_.map(relatedProducts, (productID, index) => {
-        return <RLCard key={productID} overview_product_id={product_id} product_id={productID} setProductId={setProductId} setCanAddOutfit={setCanAddOutfit}/>;
+        return <RLCard key={productID} productInfo={productInfo} overview_product_id={product_id} product_id={productID} setProductId={setProductId} setCanAddOutfit={setCanAddOutfit}/>;
       })}
       {scrollRight ? <button className='scroll_right_button' onClick={handleScrollRight}>{'>'}</button> : null}
     </div>

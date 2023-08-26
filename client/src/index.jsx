@@ -1,11 +1,9 @@
-// import _ from 'lodash';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import React from 'react';
 import App from './components/App.jsx';
 import './styles.css';
 
-const root = document.createElement('div');
-root.setAttribute('id', 'root');
-document.body.appendChild(root);
+const domNode = document.getElementById('root');
+const root = createRoot(domNode);
 
-render(<App />, root);
+root.render(<App/>);

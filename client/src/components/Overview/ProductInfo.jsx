@@ -14,7 +14,7 @@ const ProductInfo = ({ product, info }) => {
       .then((resp) => {
         setRating(average(resp.data));
       }) .catch((err) => {
-        console.log('did not get  rating ')
+        console.log('did not get  rating ');
         console.log(err);
       });
   };

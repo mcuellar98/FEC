@@ -4,7 +4,7 @@ import AddAnswer from './AddAnswer.jsx';
 import moment from 'moment';
 import {markQuestionsHelpful, getQuestions, reportQuestion} from './../../../fetch.jsx';
 
-const QAListEntry = ({product_id, question, setQuestions}) => {
+const QAListEntry = ({productInfo, question, setQuestions}) => {
 
   const [allowHelpfulClick, setAllowHelpfulClick] = useState(true);
   const [addAnswerVisible, setAddAnswerVisible] = useState(false);
@@ -20,7 +20,7 @@ const QAListEntry = ({product_id, question, setQuestions}) => {
     if (allowHelpfulClick) {
       markQuestionsHelpful(question.question_id)
         .then((results) => {
-          return getQuestions(product_id);
+          return getQuestions(productInfo.data.id);
         })
         .then((results) => {
           setQuestions(results.data.results);
@@ -65,10 +65,10 @@ const QAListEntry = ({product_id, question, setQuestions}) => {
           </p>
         </div>
       </div>
-      <AnswerList product_id={product_id} answers={question.answers} setQuestions={setQuestions}/>
+      <AnswerList product_id={productInfo.data.id} answers={question.answers} setQuestions={setQuestions}/>
       {addAnswerVisible ?
         <div>
-          <AddAnswer product_id={product_id} question_id={question.question_id} setQuestions={setQuestions} setAddAnswerVisible={setAddAnswerVisible} question_body={question.question_body}/>
+          <AddAnswer productInfo={productInfo} question_id={question.question_id} setQuestions={setQuestions} setAddAnswerVisible={setAddAnswerVisible} question_body={question.question_body}/>
           <div className='blur' onClick={handleAddAnswer}></div>
         </div>
         : null}

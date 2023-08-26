@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {getProductById, getStylesById} from './../../../fetch.jsx';
+import {getStylesById} from './../../../fetch.jsx';
 
-const CompareProducts = ({product_id, overview_product_id}) => {
+const CompareProducts = ({product_id, mainProductInfo, relatedProductInfo, overview_product_id}) => {
 
   const [mainProdInfo, setMainProdInfo] = useState({});
   const [relatedProdInfo, setRelatedProdInfo] = useState({});
@@ -10,15 +10,9 @@ const CompareProducts = ({product_id, overview_product_id}) => {
   const [relatedStyles, setRelatedStyles] = useState([]);
 
   useEffect(() => {
-    getProductById(product_id)
-      .then((results) => {
-        setMainProdInfo(results.data);
-        return getProductById(overview_product_id);
-      })
-      .then((results) => {
-        setRelatedProdInfo(results.data);
-        return getStylesById(product_id);
-      })
+    setMainProdInfo(mainProductInfo.data);
+    setRelatedProdInfo(relatedProductInfo);
+    getStylesById(product_id)
       .then((results) => {
         setMainStyles(results.data.results);
         return getStylesById(overview_product_id);
@@ -29,7 +23,7 @@ const CompareProducts = ({product_id, overview_product_id}) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [overview_product_id]);
+  }, [mainProductInfo]);
 
   return (
     <div className='comparison_modal'>

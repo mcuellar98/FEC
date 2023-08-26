@@ -6,26 +6,24 @@ import ImageView from './ImageView.jsx';
 import ProductInfo from './ProductInfo.jsx';
 import ProductSelection from './ProductSelection.jsx';
 import ProductStyles from './ProductStyles.jsx';
-import { getProducts, getProductById, getStylesById } from '../../../fetch.jsx';
+import {getStylesById } from '../../../fetch.jsx';
 
-const Overview = ({id, setOutfitImage, setOutfitInfo}) => {
+const Overview = ({id, setOutfitImage, productInfo}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState({});
   const [styles, setStyles] = useState({});
   const [style, setStyle] = useState(0);
 
   var getProduct = () => {
-    getProductById(id).then(result2 => {
-      setProduct(result2.data);
-      setOutfitInfo(result2.data);
-      return getStylesById(result2.data.id);
-    }).then(result3 => {
-      setStyles(result3.data.results);
-      setOutfitImage(result3.data.results[0].photos[0].thumbnail_url);
-      setIsLoading(false);
-    }).catch(err => {
-      console.log('getProducts error', err);
-    });
+    setProduct(productInfo.data);
+    getStylesById(productInfo.data.id)
+      .then(result3 => {
+        setStyles(result3.data.results);
+        setOutfitImage(result3.data.results[0].photos[0].thumbnail_url);
+        setIsLoading(false);
+      }).catch(err => {
+        console.log('getProducts error', err);
+      });
   };
 
   var setStyleIndex = (style) => {
@@ -34,7 +32,7 @@ const Overview = ({id, setOutfitImage, setOutfitInfo}) => {
 
   useEffect(() => {
     getProduct();
-  }, [id]);
+  }, [productInfo]);
 
   return (
     <div>
