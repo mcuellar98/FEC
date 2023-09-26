@@ -7,7 +7,7 @@ const HomePage = ({set}) => {
   const [ pageNum, setPageN ] = useState(1);
 
   const gettingProducts = () => {
-    return axios.get(process.env.API_URL + 'products', {headers: {Authorization: process.env.TOKEN}, params: {page: pageNum, count: 20}});
+    return axios.get(process.env.REACT_APP_API_URL + 'products', {headers: {Authorization: process.env.REACT_APP_TOKEN}, params: {page: pageNum, count: 20}});
   };
 
   useEffect(() => {

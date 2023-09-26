@@ -51,11 +51,11 @@ const QAListEntry = ({productInfo, question, setQuestions}) => {
           <p className='question_text'>Q: {question.question_body}</p>
           <div className='q_helpful'>
             <p>Helpful?</p>
-            <p className='question_helpful' onClick={handleHelpfulClick}>Yes({question.question_helpfulness})</p>
+            <p data-testid='question_helpful' className='question_helpful' onClick={handleHelpfulClick}>Yes({question.question_helpfulness})</p>
             <p className='question_spacer'> | </p>
-            <p className='add_answer' onClick={handleAddAnswer}>Add Answer</p>
+            <p data-testid='add_answer' className='add_answer' onClick={handleAddAnswer}>Add Answer</p>
             <p className='answer_spacer'>|</p>
-            <p className='answer_report' onClick={handleReportClick}>{reported ? 'Reported' : 'Report'}</p>
+            <p data-testid='question_report' className='answer_report' onClick={handleReportClick}>{reported ? 'Reported' : 'Report'}</p>
           </div>
         </div>
         <div className='question_info'>

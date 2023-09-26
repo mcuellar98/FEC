@@ -8,7 +8,7 @@ import HomePage from './HomePage/HomePage.jsx';
 import {getProductById} from './../../fetch.jsx';
 
 const App = () => {
-  const [productId, setProductId] = useState(0);
+  const [productId, setProductId] = useState(37315);
   const [clicked, setClicked] = useState(false);
   const [productInfo, setProductInfo] = useState({});
   const [productStyles, setProductStyles] = useState({});
@@ -32,24 +32,24 @@ const App = () => {
     setClicked(false);
   };
 
-  const handleClick = (id) => {
-    getProductById(id)
-      .then((results) => {
-        setProductInfo(results);
-        setProductId(id);
-        setClicked(true);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const handleClick = (id) => {
+  //   getProductById(id)
+  //     .then((results) => {
+  //       setProductInfo(results);
+  //       setProductId(id);
+  //       setClicked(true);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <div>
       <div className='header'>
-        <p onClick={goHome}><u style={{cursor: 'pointer', marginLeft: '20px', fontSize: '24px'}}>Comic Sans</u></p>
+        <p onClick={goHome}><u style={{cursor: 'pointer', marginLeft: '20px', fontSize: '24px'}}>Atelier</u></p>
       </div>
-      {clicked ?
+      {!clicked ?
         (<div>
           <Overview id={productId} productInfo={productInfo} setOutfitImage={setOutfitImage}/>
           <RIC product_id={productId} productInfo={productInfo} setProductId={setProductId} outfitImage={outfitImage} productRating={productRating}/>

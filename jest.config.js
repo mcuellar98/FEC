@@ -5,12 +5,12 @@ module.exports = {
     '^.+\\.(ts|tsx)?$': 'ts-jest',
     '^.+\\.(js|jsx)$': 'babel-jest',
   },
-  roots: [
-    '<rootDir>',
-  ],
-  modulePaths: [
-    '<rootDir>',
-  ],
+  // roots: [
+  //   '<rootDir>',
+  // ],
+  // modulePaths: [
+  //   '<rootDir>',
+  // ],
   // moduleDirectories: [
   //   'node_modules',
   //   "componenets",
@@ -23,7 +23,7 @@ module.exports = {
     '^.+\\.(css|less)$': '<rootDir>/client/src/tests/cssStub.js'
   },
   collectCoverage: true,
-  collectCoverageFrom: ["client/src/components/Overview/*.{js,jsx,ts,tsx}","!<rootDir>/node_modules/"],
+  collectCoverageFrom: ["client/src/components/QA/*.{js,jsx,ts,tsx}","!<rootDir>/node_modules/"],
   coverageThreshold: {
     "global": {
       "lines": 90,
@@ -31,5 +31,5 @@ module.exports = {
     }},
   coverageDirectory: 'coverage',
   testEnvironment: 'jsdom',
-  setupFiles: ["<rootDir>/.jest/setEnvVars.js"]
+  // setupFiles: ["<rootDir>/.jest/setEnvVars.js"]
 };

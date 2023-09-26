@@ -5,7 +5,7 @@ const Outfit = ({product, set}) => {
   const [img, setImg] = useState('');
 
   const getImages = (id) => {
-    return axios.get(process.env.API_URL + `products/${id}/styles`, {headers: {Authorization: process.env.TOKEN}});
+    return axios.get(process.env.REACT_APP_API_URL + `products/${id}/styles`, {headers: {Authorization: process.env.REACT_APP_TOKEN}});
   };
 
   useEffect(() => {

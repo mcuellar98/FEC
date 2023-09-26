@@ -15,15 +15,17 @@ const Overview = ({id, setOutfitImage, productInfo}) => {
   const [style, setStyle] = useState(0);
 
   var getProduct = () => {
-    setProduct(productInfo.data);
-    getStylesById(productInfo.data.id)
-      .then(result3 => {
-        setStyles(result3.data.results);
-        setOutfitImage(result3.data.results[0].photos[0].thumbnail_url);
-        setIsLoading(false);
-      }).catch(err => {
-        console.log('getProducts error', err);
-      });
+    if (Object.keys(productInfo).length > 0) {
+      setProduct(productInfo.data);
+      getStylesById(productInfo.data.id)
+        .then(result3 => {
+          setStyles(result3.data.results);
+          setOutfitImage(result3.data.results[0].photos[0].thumbnail_url);
+          setIsLoading(false);
+        }).catch(err => {
+          console.log('getProducts error', err);
+        });
+      }
   };
 
   var setStyleIndex = (style) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const AnswerImageListEntry = ({image, imageList, setImageList}) => {
+  console.log(image);
 
   const deleteImage = () => {
     var newImageList = [];
@@ -15,7 +16,7 @@ const AnswerImageListEntry = ({image, imageList, setImageList}) => {
   return (
     <li key = {image} className='add_answer_li' >
       <img className='add_answer_image' src={image}/>
-      <div className='exit_button' onClick={deleteImage}>&times;</div>
+      <div data-testid='exit' className='exit_button' onClick={deleteImage}>&times;</div>
     </li>
   );
 };

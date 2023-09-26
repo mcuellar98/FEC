@@ -1,8 +1,10 @@
 import axios from 'axios';
+// require('dotenv').config();
 
-const url = process.env.API_URL;
-const token = process.env.TOKEN;
+const url = process.env.REACT_APP_API_URL;
+const token = process.env.REACT_APP_TOKEN;
 
+// console.log(process.env.REACT_APP_API_URL)
 const headers = {headers: {Authorization: token}};
 
 //GET request for all Products

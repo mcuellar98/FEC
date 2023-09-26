@@ -10,7 +10,6 @@ const AddQuestion = ({productInfo, setQuestions, setModalVisible}) => {
   const [productName, setProductName] = useState('');
 
   useEffect(() => {
-    console.log(productInfo);
     setProductName(productInfo.data.name);
   }, [productInfo]);
 
@@ -50,6 +49,7 @@ const AddQuestion = ({productInfo, setQuestions, setModalVisible}) => {
         email: email,
         product_id: productInfo.data.id
       };
+      console.log('MADE IT HERE')
       addQuestion(body)
         .then((results)=> {
           return getQuestions(productInfo.data.id);
@@ -66,22 +66,22 @@ const AddQuestion = ({productInfo, setQuestions, setModalVisible}) => {
 
   return (
     <div className='add_modal'>
-      <p className='exit' onClick={() => { setModalVisible(false); }}>&times;</p>
+      <p data-testid='exit' className='exit' onClick={() => { setModalVisible(false); }}>&times;</p>
       <form>
         <h1 className='modal_title'>Ask Your Question </h1>
         <h2 className='modal_sub_title'>About {productName}</h2>
         <label>Your Question*
-          <textarea maxLength='10000' required onChange={handleQuestionChange}/>
+          <textarea data-testid='question' maxLength='10000' required onChange={handleQuestionChange}/>
         </label>
         <label>What is your nickname*
-          <input placeholder={'Example: jackson11!'} maxLength='60' required onChange={handleNameChange}/>
+          <input data-testid='nickname' placeholder={'Example: jackson11!'} maxLength='60' required onChange={handleNameChange}/>
           <p><small>For privacy reasons, do not use your full name or email address</small></p>
         </label>
         <label>Your email*
-          <input placeholder={'Why did you like the product or not?'} maxLength='60' required onChange={handleEmailChange}/>
+          <input data-testid='email' placeholder={'Why did you like the product or not?'} maxLength='60' required onChange={handleEmailChange}/>
           <p><small>For authentication reasons, you will not be emailed</small></p>
         </label>
-        <button className='modal_button' onClick={handleSubmit}>SUBMIT</button>
+        <button data-testid='submit' className='modal_button' onClick={handleSubmit}>SUBMIT</button>
       </form>
     </div>
   );

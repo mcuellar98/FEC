@@ -53,7 +53,7 @@ const RLCard = ({product_id, overview_product_id, productInfo, setProductId, set
   return (
     <div id='product_id' className='rl_card' onClick={changeProductId}>
       <span className="rl_card_star" onClick={openComparisonModal}>★</span>
-      <img className = 'rl_card_image' src={cardImage}/>
+      <img className = 'rl_card_image' alt='Product Image' src={cardImage}/>
       <div className='rl_card_text'>
         <p className='rl_card_category'>Category: {product.category}</p>
         <p className='rl_card_name'>{product.name}</p>

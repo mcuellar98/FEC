@@ -14,6 +14,7 @@ const QA = ({productInfo}) => {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
+    if (Object.keys(productInfo).length > 0) {
     getQuestions(productInfo.data.id)
       .then((results) => {
         var questionList = _.sortBy(results.data.results, (q) => { return -q.question_helpfulness; });
@@ -22,6 +23,7 @@ const QA = ({productInfo}) => {
       .catch((err) => {
         console.log(err);
       });
+    }
   }, [productInfo]);
 
   const handleExpand = () => {
