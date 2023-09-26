@@ -35,7 +35,7 @@ const Search = ({productInfo, setQuestions, setQuery, qListSize}) => {
   };
 
   return (
-    <input className='qa_search' placeholder='Have a question? Search for answers…' onChange={handleChange}></input>
+    <input data-testid='search_input' className='qa_search' placeholder='Have a question? Search for answers…' onChange={handleChange}></input>
   );
 };
 

@@ -303,3 +303,10 @@ test('QAListEntry press on reporte click triggers reporte handler', () => {
   const report = getByTestId('question_report');
   fireEvent.click(report);
 })
+
+test('Adding text to search triggers onChange', () => {
+  const setQuery = jest.fn()
+  const { getByTestId } = render(<Search productInfo={mockProductInfo} qListSize={2}/>)
+  const search = getByTestId('search_input');
+  fireEvent.change(search, { target: { value: '12' } });
+})
