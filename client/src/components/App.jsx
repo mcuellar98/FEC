@@ -8,7 +8,7 @@ import HomePage from './HomePage/HomePage.jsx';
 import {getProductById} from './../../fetch.jsx';
 
 const App = () => {
-  const [productId, setProductId] = useState(37315);
+  const [productId, setProductId] = useState(37355);
   const [clicked, setClicked] = useState(false);
   const [productInfo, setProductInfo] = useState({});
   const [productStyles, setProductStyles] = useState({});

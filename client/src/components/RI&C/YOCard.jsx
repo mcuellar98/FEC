@@ -6,7 +6,7 @@ const YOCard = ({outfitImage, outfitInfo, productRating, setIdToDelete}) => {
 
   const outfitImg = useRef(outfitImage);
   if (outfitImg.current === null) {
-    outfitImg.current = require('./../../assets/no_pic.png');
+    outfitImg.current = require('./../../assets/placeholder.png');
   }
 
   const deleteOutfit = () => {

@@ -93,9 +93,9 @@ const AddAnswer = ({productInfo, question_id, setQuestions, setAddAnswerVisible,
 
   return (
     <div className='add_modal'>
-      <p data-testid='exit' className='exit' onClick={() => { setAddAnswerVisible(false); }}>&times;</p>
+      <p data-testid='exit' className='exit' onClick={() => { setAddAnswerVisible(false); }}>&#x2715;</p>
       <form>
-        <h1 className='modal_title'>Submit your Answer</h1>
+        <h1 className='modal_title'>Submit Your Answer</h1>
         <h2 className='modal_sub_title'>{productName}: {question_body}</h2>
         <label>Your Answer*
           <textarea data-testid='your_answer' maxLength='10000' required onChange={handleQuestionChange}/>
@@ -111,7 +111,7 @@ const AddAnswer = ({productInfo, question_id, setQuestions, setAddAnswerVisible,
         <label className="add_images_button"> Add Images
           <input data-testid='files' type = "file" name = "upload" accept = "image/*" onChange={handleImageChange} style={{display: 'none'}} multiple/>
         </label>
-        <p><small>Please upload up to 5 images.</small></p>
+        <p className="add_image_text"><small>Please upload up to 5 images.</small></p>
         <AnswerImageList images={imageList} setImageList={setImageList}/>
         <button data-testid='submit' className='modal_button' onClick=
           {handleSubmit}>SUBMIT</button>

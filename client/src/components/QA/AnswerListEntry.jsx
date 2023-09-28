@@ -6,8 +6,6 @@ import {markAnswerHelpful, getQuestions, reportAnswer} from './../../../fetch.js
 
 const AnswerListEntry = ({product_id, answer, setQuestions}) => {
 
-  console.log(product_id, answer)
-
   var date = moment(answer.date);
 
   const [allowHelpfulClick, setAllowHelpfulClick] = useState(true);
@@ -47,11 +45,11 @@ const AnswerListEntry = ({product_id, answer, setQuestions}) => {
       <ImageList photos={answer.photos}/>
       <div className='answer_info'>
         {answer.answerer_name === 'Seller' ?
-          <p>by <b>Seller</b>, {date.format('MMMM DD, YYYY')}</p> :
-          <p>by {answer.answerer_name}, {date.format('MMMM DD, YYYY')}</p>
+          <p className='byline'>by <b>Seller</b>, {date.format('MMMM DD, YYYY')}</p> :
+          <p className='byline'>by {answer.answerer_name}, {date.format('MMMM DD, YYYY')}</p>
         }
         <p className='answer_spacer'>|</p>
-        <p>Helpful? </p>
+        <p className='byline'>Helpful? </p>
         <p data-testid='helpful' className = 'answer_helpful' onClick={handleHelpfulClick}>Yes({answer.helpfulness})</p>
         <p className='answer_spacer'>|</p>
         <p data-testid='report' className='answer_report' onClick={handleReportClick}>{reported ? 'Reported' : 'Report'}</p>

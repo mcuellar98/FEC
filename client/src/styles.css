@@ -11,7 +11,7 @@ body {
 
 .header {
   position:fixed;
-  /* font-family: 'Lucida Handwriting'; */
+  font-family: 'Lucida Handwriting';
   z-index:2;
   top:0;
   background-color: rgb(30,30,30);
@@ -313,14 +313,15 @@ body {
 }
 
 .qa_search {
-  height: 40px;
+  height: 60px;
   width: var(--qa-element-width);
-  font-size:12pt;
+  font-size:14pt;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   margin-top: 10px;
+  padding-left: 10px;
 }
 
 .question_head {
@@ -330,14 +331,17 @@ body {
 
 .question_text {
   flex-grow: 4;
-  font-weight: 700;
-  font-size: 14pt;
+  font-weight: bold;
+  font-size: 18pt;
   margin-bottom: 50px;
+
 }
 
-.question_spacer, .answer_spacer {
+.question_spacer, .answer_spacer, .helpful, .answer_report, .question_helpful, .add_answer, .question_author, .question_report,
+.answer_helpful, .answer_spacer, .byline{
   padding-left: 5px;
   padding-right: 5px;
+  font-size: 13pt;
 }
 
 .q_helpful {
@@ -351,6 +355,7 @@ body {
   display: flex;
   align-items: center;
   font-size: 10pt;
+  margin-top: 15px;
 }
 
 .question {
@@ -363,6 +368,7 @@ body {
   margin-bottom: 5px;
   margin-top: 0;
   padding-left: 1%;
+  padding-top: 10px;
   border-bottom: 1px solid rgb(80,80,80);
 }
 
@@ -372,20 +378,16 @@ body {
 }
 
 .answer_text {
-  font-size: 14pt;
+  font-size: 16pt;
+  font-weight: bold;
 }
 
 .question_button {
   height: 50px;
   width: 30%;
-  font-size: 12pt;
+  font-size: 16pt;
   font-weight: 600;
-}
-
-.qa p{
-    margin-bottom: 5px;
-    margin-top: 5px;
-    font-family: Arial;
+  margin-right: 10px;
 }
 
 #qa_title {
@@ -402,9 +404,20 @@ body {
 }
 
 .answer_img {
-  margin-right: 10px;
-  height: 100px;
+  top: 0;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  height: 150px;
   width: auto;
+  border-radius: 10px;
+  &:hover {
+    height: 170px;
+    /* border-color:yellow;
+    border-width: 5px;
+    border-style: solid; */
+    cursor: pointer;
+  };
 }
 
 .img_li, .add_answer_li {
@@ -434,7 +447,6 @@ body {
 .answers {
   margin-bottom: 30px;
   overflow: auto;
-  width: 'auto';
   max-height: 50vh;
   &::-webkit-scrollbar {
     display: none;
@@ -467,7 +479,7 @@ body {
 .exit {
   color:gray;
   width: fit-content;
-  font-size: xx-large;
+  font-size: 40px;
   &:hover {
     color:red;
     cursor: pointer;
@@ -498,16 +510,18 @@ body {
 
 .add_modal input,label,textarea{
   display: block;
-  padding-bottom: 20px;
+  padding: 10px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 16pt;
 }
 
 .add_modal input,textarea {
   width:100%;
   margin-top: 5px;
   margin-bottom: 5px;
+  line-height: 40px;
 }
 
 .add_modal *, .add_modal p{
@@ -517,7 +531,7 @@ body {
 .modal_sub_title, .modal_title {
   padding-bottom: 10px;
   text-align: center;
-  font-size: 14pt;
+  font-size: 20pt;
 }
 
 .blur{
@@ -536,10 +550,17 @@ body {
   display:block;
   width: 33%;
   height: 50px;
-  font-size: 14pt;
+  font-size: 16pt;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
+  font-weight: bold;
   border-radius: 10px;
+}
+
+.qa p{
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-size: 14pt; */
 }
 
 #recPer, #revtxt, #rateBar {
@@ -629,7 +650,6 @@ body {
 }
 .carousel-pic {
   max-width: 245px;
-  width: 'auto';
   height: auto;
   object-fit: cover;
   cursor:pointer;
@@ -685,15 +705,22 @@ body {
 .add_images_button {
   color: black;
   border-style: solid;
-  background-color: gainsboro;
+  background-color: white;
   border-radius: 5px;
-  height: 30px;
+  height: 50px;
   padding-top: 10px;
   padding-bottom: 10px;
-  width: 30%;
+  width: 150px;
+  font-weight: bold;
+  font-size: 13pt;
   text-align: center;
   vertical-align: middle;
-  line-height: 10px;
+  line-height: 25px;
+  margin-left: 10px;
+}
+
+.add_image_text {
+  padding-left: 10px;
 }
 
 .add_images_button:active {
@@ -756,8 +783,7 @@ body {
 }
 
 .related_products_container, .your_outfits_container {
-  height: 400px;
-  width: 100%;
+  height: 50%;
   display: flex;
   flex-direction: row;
   overflow-x: hidden;
@@ -770,7 +796,7 @@ body {
   background-color: black;
   margin-right: 20px;
   border-style: solid;
-  height: 385px;
+  height: 420px;
   flex: 0 0 250px;
 }
 
@@ -903,7 +929,7 @@ body {
   background-color: black;
   margin-right: 20px;
   border-style: solid;
-  height: 385px;
+  height: 420px;
   flex: 0 0 250px;
 }
 
@@ -946,4 +972,3 @@ body {
 #quantity-selection {
   margin: 10px !important;
 }
-

@@ -50,7 +50,7 @@ const QAListEntry = ({productInfo, question, setQuestions}) => {
         <div className='question_head'>
           <p className='question_text'>Q: {question.question_body}</p>
           <div className='q_helpful'>
-            <p>Helpful?</p>
+            <p className='helpful'>Helpful?</p>
             <p data-testid='question_helpful' className='question_helpful' onClick={handleHelpfulClick}>Yes({question.question_helpfulness})</p>
             <p className='question_spacer'> | </p>
             <p data-testid='add_answer' className='add_answer' onClick={handleAddAnswer}>Add Answer</p>
@@ -59,7 +59,7 @@ const QAListEntry = ({productInfo, question, setQuestions}) => {
           </div>
         </div>
         <div className='question_info'>
-          <p>by {question. asker_name}, {date.format('MMMM DD, YYYY')}</p>
+          <p className="question_author">by {question. asker_name}, {date.format('MMMM DD, YYYY')}</p>
           <p className='question_spacer'>|</p>
           <p className='question_report'>{question.reported ? 'Reported' : 'Report'}
           </p>

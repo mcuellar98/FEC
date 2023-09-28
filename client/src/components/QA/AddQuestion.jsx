@@ -49,7 +49,6 @@ const AddQuestion = ({productInfo, setQuestions, setModalVisible}) => {
         email: email,
         product_id: productInfo.data.id
       };
-      console.log('MADE IT HERE')
       addQuestion(body)
         .then((results)=> {
           return getQuestions(productInfo.data.id);
@@ -66,7 +65,7 @@ const AddQuestion = ({productInfo, setQuestions, setModalVisible}) => {
 
   return (
     <div className='add_modal'>
-      <p data-testid='exit' className='exit' onClick={() => { setModalVisible(false); }}>&times;</p>
+      <p data-testid='exit' className='exit' onClick={() => { setModalVisible(false); }}>&#x2715;</p>
       <form>
         <h1 className='modal_title'>Ask Your Question </h1>
         <h2 className='modal_sub_title'>About {productName}</h2>

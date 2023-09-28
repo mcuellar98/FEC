@@ -20,7 +20,7 @@ const RLCard = ({product_id, overview_product_id, productInfo, setProductId, set
       })
       .then((result) => {
         if (result.data.results[0].photos[0].thumbnail_url === null) {
-          setCardImage(require('./../../assets/no_pic.png'));
+          setCardImage(require('./../../assets/placeholder.png'));
         } else {
           setCardImage(result.data.results[0].photos[0].thumbnail_url);
         }
