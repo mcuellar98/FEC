@@ -8,12 +8,14 @@
 ## [Our Github Organization](https://github.com/FEC3-perrier)
 
 ## Table of Contents
+
 1. [Features](#Features)
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
 
 ## Features
+
 1. Product Overview - Vinny
 2. A view of the current product on display with image carousel and ability to select style, size, and quantity of product.
 
