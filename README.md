@@ -20,21 +20,21 @@
 A view of the current product on display with image carousel and ability to select style, size, and quantity of product.
 
 # Related Outfits and Your Outfits - Michael
-* A section that displays information based on the related outfits for the main product being displayed
-* Users can save the current product to an outfit or delete an existing product from the outfit.
+- A section that displays information based on the related outfits for the main product being displayed
+- Users can save the current product to an outfit or delete an existing product from the outfit.
 
 # Quesetions and Ansers - Michael
-* A section to display question about the product and answers to those question, sorted by helpfulness.
-* Users may mark both questions and answers as reported or helpful.
-* Users can collapse and expand questions and answers to see more of either.
-* Contains modal for adding either question or answers and the ability to add images to an answer.
+- A section to display question about the product and answers to those question, sorted by helpfulness.
+- Users may mark both questions and answers as reported or helpful.
+- Users can collapse and expand questions and answers to see more of either.
+- Contains modal for adding either question or answers and the ability to add images to an answer.
 
 # Ratings and Reviews - Daniel
-* A section to display the ratings and reviews for a product.
-* User can interact with and add ratings and review for a product.
+- A section to display the ratings and reviews for a product.
+- User can interact with and add ratings and review for a product.
 
 # Home Page - Daniel
-* User can select initial product to display.
+- User can select initial product to display.
 
 ## Usage
 
