@@ -22,12 +22,16 @@ A view of the current product on display with image carousel and ability to sele
 # Related Outfits and Your Outfits - Michael
 - A section that displays information based on the related outfits for the main product being displayed
 - Users can save the current product to an outfit or delete an existing product from the outfit.
+![ezgif com-video-to-gif](https://github.com/mcuellar98/FEC/assets/100256151/e9cb6ca8-3e31-4ce8-b506-595f8091d16e)
 
 # Quesetions and Ansers - Michael
 - A section to display question about the product and answers to those question, sorted by helpfulness.
 - Users may mark both questions and answers as reported or helpful.
 - Users can collapse and expand questions and answers to see more of either.
 - Contains modal for adding either question or answers and the ability to add images to an answer.
+![ezgif com-video-to-gif (2)](https://github.com/mcuellar98/FEC/assets/100256151/fe384ddf-8e69-467e-a010-3985bdde39fb)
+![ezgif com-video-to-gif (3)](https://github.com/mcuellar98/FEC/assets/100256151/1a0cad2b-1388-429f-82b6-7730c3cb23b9)
+![Uploading ezgif.com-video-to-gif (4).gif…]()
 
 # Ratings and Reviews - Daniel
 - A section to display the ratings and reviews for a product.
