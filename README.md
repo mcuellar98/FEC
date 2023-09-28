@@ -1,17 +1,21 @@
 
 # FEC
 
-# Project Name
+# Atelier
 
-> The  Front End Capstone is a project meant to test our front-end skils.  We will be designing and created the web page for a clothing products website. Based off of [this mockup](https://xd.adobe.com/view/e600dc0f-454c-44e3-5075-7872d04189ff-9031/?fullscreen) and [these business requirements](http://www.mks.io/catwalk-brd)
+> Aterlier is a front-end application displaying mock data from a real API to construct a user-friendly retail website. Based off of [this mockup](https://xd.adobe.com/view/e600dc0f-454c-44e3-5075-7872d04189ff-9031/?fullscreen) and [these business requirements](http://www.mks.io/catwalk-brd)
 
 ## [Our Github Organization](https://github.com/FEC3-perrier)
 
 ## Table of Contents
 
+1. [Features](#Features)
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
+
+## Features
+
 
 ## Usage
 
