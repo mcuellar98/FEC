@@ -31,7 +31,7 @@ A view of the current product on display with image carousel and ability to sele
 - Contains modal for adding either question or answers and the ability to add images to an answer.
 ![ezgif com-video-to-gif (2)](https://github.com/mcuellar98/FEC/assets/100256151/fe384ddf-8e69-467e-a010-3985bdde39fb)
 ![ezgif com-video-to-gif (3)](https://github.com/mcuellar98/FEC/assets/100256151/1a0cad2b-1388-429f-82b6-7730c3cb23b9)
-![Uploading ezgif.com-video-to-gif (4).gif…]()
+![ezgif com-video-to-gif (4)](https://github.com/mcuellar98/FEC/assets/100256151/22dba804-7746-43b9-b05b-827ee04d1334)
 
 # Ratings and Reviews - Daniel
 - A section to display the ratings and reviews for a product.
