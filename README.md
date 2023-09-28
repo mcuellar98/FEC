@@ -16,24 +16,24 @@
 
 ## Features
 
-1. Product Overview - Vinny
-2. A view of the current product on display with image carousel and ability to select style, size, and quantity of product.
+# Product Overview - Vinny
+A view of the current product on display with image carousel and ability to select style, size, and quantity of product.
 
-1. Related Outfits and Your Outfits - Michael
+# Related Outfits and Your Outfits - Michael
 2. A section that displays information based on the related outfits for the main product being displayed
 2. A section where users can save the current product to an outfit or delete an existing product from the outfit.
 
-1. Quesetions and Ansers - Michael
+# Quesetions and Ansers - Michael
 2. A section to display question about the product and answers to those question, sorted by helpfulness.
 2. Users may mark both questions and answers as reported or helpful.
 2. Users can collapse and expand questions and answers to see more of either.
 2. Contains modal for adding either question or answers and the ability to add images to an answer.
 
-1. Ratings and Reviews - Daniel
+# Ratings and Reviews - Daniel
 2. A section to display the ratings and reviews for a product.
 2. User can interact with and add ratings and review for a product.
 
-1. Home Page - Daniel
+# Home Page - Daniel
 2. User can select initial product to display.
 
 ## Usage
